@@ -19,15 +19,15 @@ Usage Example
             return dbutils.insertBooking(booking);
         }
 
-        public boolean delete(Booking booking) {
-            return dbutils.deleteBooking(booking);
+        public boolean delete(int bookingID) {
+            return dbutils.deleteBooking(bookingID);
         }
 
-        public boolean search(Booking booking) {
-            return dbutils.searchBooking(booking);
+        public boolean search(int bookingID) {
+            return dbutils.searchBooking(bookingID);
         }
 
-        public LinkedList<Booking> getAll() {
+        public ResultSet getAll() {
             return dbutils.getAllBookings();
         }
 
