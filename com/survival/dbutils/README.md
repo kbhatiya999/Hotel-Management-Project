@@ -8,29 +8,29 @@ NOTE : PLEASE FOLLOW THE SAME NAMES AS GIVEN HERE WHEN CREATING DATABASE COLUMNS
 
 Usage Example
 -------------
-    class BookingDao_Impl implements BookingDao {
+    class ReservationDao_Impl implements ReservationDao {
 
         private DatabaseUtils dbutils;
 
-        public BookingDao_Impl(){
+        public ReservationDao_Impl(){
             dbutils = new DatabaseUtils();
         }
 
         // Simple 1 line implementation logic
-        public boolean insert(Booking booking) {
-            return dbutils.insertBooking(booking);
+        public boolean insert(Reservation reservation) {
+            return dbutils.insertBooking(reservation);
         }
 
-        public boolean delete(int bookingID) {
-            return dbutils.deleteBooking(bookingID);
+        public boolean delete(int resID) {
+            return dbutils.deleteBooking(resID);
         }
 
-        public boolean search(int bookingID) {
-            return dbutils.searchBooking(bookingID);
+        public boolean search(int resID) {
+            return dbutils.searchBooking(resID);
         }
 
         public ResultSet getAll() {
-            return dbutils.getAllBookings();
+            return dbutils.getAllReservations();
         }
 
     }
