@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.survival.entities.Feedback;
+import com.survival.entities.Hotel;
 
 public class DatabaseUtils {
 
@@ -60,6 +61,39 @@ public class DatabaseUtils {
 
 	// FEEDBACK END
 
+	// HOTEL START
+
+	public boolean insertHotel(Hotel hotel) throws SQLException {
+		PreparedStatement pState = conn.prepareStatement("INSERT INTO HOTELS VALUES (?,?,?,?,?,?,?)");
+		pState.setInt(1, hotel.getHotelID());
+		pState.setString(2, hotel.getHotelCity());
+		pState.setString(3, hotel.getHotelName());
+		pState.setDouble(4, hotel.getHotelRating());
+		pState.setString(5, hotel.getHotelAddress());
+		pState.setInt(6, hotel.getNumOfRoomsInHotel());
+		pState.setDouble(7, hotel.getHotelDiscount());
+		return pState.executeUpdate() > 0;
+	}
+
+	public boolean deleteHotel(int hotelID) throws SQLException {
+		PreparedStatement pState = conn.prepareStatement("DELETE FROM HOTELS WHERE HID=?");
+		pState.setInt(1, hotelID);
+		return pState.executeUpdate() > 0;
+	}
+
+	public Hotel searchHotel(int hotelID) throws SQLException {
+		Statement state = conn.createStatement();
+		ResultSet rSet = state.executeQuery("SELECT * FROM HOTELS WHERE HID="+hotelID);
+		return new Hotel(rSet.getInt("HID"), rSet.getString("HCITY"), rSet.getString("HNAME"), rSet.getDouble("HRATING"), rSet.getString("HADDR"), rSet.getInt("HNUMROOM"), rSet.getDouble("HDISCOUNT"));
+	}
+
+	public ResultSet getAllHotels() throws SQLException {
+		Statement state = conn.createStatement();
+		return state.executeQuery("SELECT * FROM HOTELS");
+	}
+
+	// HOTEL END
+	
 	public void end() throws SQLException {
 		conn.close();
 	}
