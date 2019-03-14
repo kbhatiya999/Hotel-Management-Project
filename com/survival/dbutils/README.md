@@ -17,19 +17,19 @@ Usage Example
         }
 
         // Simple 1 line implementation logic
-        public boolean insert(Reservation reservation) {
+        public boolean insert(Reservation reservation) throws ClassNotFoundException, SQLException {
             return dbutils.insertBooking(reservation);
         }
 
-        public boolean delete(int resID) {
+        public boolean delete(int resID) throws ClassNotFoundException, SQLException {
             return dbutils.deleteBooking(resID);
         }
 
-        public boolean search(int resID) {
+        public boolean search(int resID) throws ClassNotFoundException, SQLException {
             return dbutils.searchBooking(resID);
         }
 
-        public ResultSet getAll() {
+        public ResultSet getAll() throws ClassNotFoundException, SQLException {
             return dbutils.getAllReservations();
         }
 
