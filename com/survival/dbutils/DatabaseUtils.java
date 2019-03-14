@@ -82,15 +82,15 @@ public class DatabaseUtils {
 		return pState.executeUpdate() > 0;
 	}
 
-	public boolean deleteHotel(int hotelID) throws SQLException {
-		PreparedStatement pState = conn.prepareStatement("DELETE FROM HOTELS WHERE HID=?");
-		pState.setInt(1, hotelID);
+	public boolean deleteHotel(String hotelName) throws SQLException {
+		PreparedStatement pState = conn.prepareStatement("DELETE FROM HOTELS WHERE HNAME=?");
+		pState.setString(1, hotelName);
 		return pState.executeUpdate() > 0;
 	}
 
-	public Hotel searchHotel(int hotelID) throws SQLException {
+	public Hotel searchHotel(String hotelName) throws SQLException {
 		Statement state = conn.createStatement();
-		ResultSet rSet = state.executeQuery("SELECT * FROM HOTELS WHERE HID="+hotelID);
+		ResultSet rSet = state.executeQuery("SELECT * FROM HOTELS WHERE HNAME="+hotelName);
 		return new Hotel(rSet.getInt("HID"), rSet.getString("HCITY"), rSet.getString("HNAME"), rSet.getDouble("HRATING"), rSet.getString("HADDR"), rSet.getInt("HNUMROOM"), rSet.getDouble("HDISCOUNT"));
 	}
 
@@ -113,15 +113,15 @@ public class DatabaseUtils {
 			return pState.executeUpdate() > 0;
 		}
 
-		public boolean deleteLogin(int userID) throws SQLException {
-			PreparedStatement pState = conn.prepareStatement("DELETE FROM LOGIN WHERE UID=?");
-			pState.setInt(1, userID);
+		public boolean deleteLogin(String userName) throws SQLException {
+			PreparedStatement pState = conn.prepareStatement("DELETE FROM LOGIN WHERE UNAME=?");
+			pState.setString(1, userName);
 			return pState.executeUpdate() > 0;
 		}
 
-		public Login searchLogin(int userID) throws SQLException {
+		public Login searchLogin(String userName) throws SQLException {
 			Statement state = conn.createStatement();
-			ResultSet rSet = state.executeQuery("SELECT * FROM LOGIN WHERE UID="+userID);
+			ResultSet rSet = state.executeQuery("SELECT * FROM LOGIN WHERE UNAME="+userName);
 			return new Login(rSet.getInt("UID"), rSet.getBoolean("UISACTIVE"), rSet.getInt("UROLE"), rSet.getString("UNAME"), rSet.getString("UPASS"));
 		}
 
@@ -183,15 +183,15 @@ public class DatabaseUtils {
 			return pState.executeUpdate() > 0;
 		}
 
-		public boolean deleteReservation(int resID) throws SQLException {
-			PreparedStatement pState = conn.prepareStatement("DELETE FROM RESERVATIONS WHERE RID=?");
-			pState.setInt(1, resID);
+		public boolean deleteReservation(String userEmail) throws SQLException {
+			PreparedStatement pState = conn.prepareStatement("DELETE FROM RESERVATIONS WHERE UEMAILID=?");
+			pState.setString(1, userEmail);
 			return pState.executeUpdate() > 0;
 		}
 
-		public Reservation searchReservation(int resID) throws SQLException {
+		public Reservation searchReservation(String userEmail) throws SQLException {
 			Statement state = conn.createStatement();
-			ResultSet rSet = state.executeQuery("SELECT * FROM RESERVATIONS WHERE RID="+resID);
+			ResultSet rSet = state.executeQuery("SELECT * FROM RESERVATIONS WHERE UEMAILID="+userEmail);
 			return new Reservation(rSet.getInt("RID"),rSet.getInt("BID"), rSet.getInt("UID"),rSet.getInt("HID"), rSet.getDate("RSTARTDATE"), rSet.getDate("RENDDATE"), rSet.getDouble("RBILLAMOUNT"), rSet.getString("UEMAILID"),  rSet.getInt("PTYPE"), rSet.getInt("RRESERVATIONSTATUS"));
 		}
 
@@ -245,15 +245,15 @@ public class DatabaseUtils {
 			return pState.executeUpdate() > 0;
 		}
 
-		public boolean deleteUser(int uID) throws SQLException {
-			PreparedStatement pState = conn.prepareStatement("DELETE FROM USERS WHERE UID=?");
-			pState.setInt(1, uID);
+		public boolean deleteUser(String userFullName) throws SQLException {
+			PreparedStatement pState = conn.prepareStatement("DELETE FROM USERS WHERE UFULLNAME=?");
+			pState.setString(1, userFullName);
 			return pState.executeUpdate() > 0;
 		}
 
-		public User searchUser(int uID) throws SQLException {
+		public User searchUser(String userFullName) throws SQLException {
 			Statement state = conn.createStatement();
-			ResultSet rSet = state.executeQuery("SELECT * FROM USERS WHERE UID="+uID);
+			ResultSet rSet = state.executeQuery("SELECT * FROM USERS WHERE UFULLNAME="+userFullName);
 			return new User(rSet.getInt("UID"), rSet.getString("UADDR"), rSet.getString("UPHONENUM"), rSet.getString("UFULLNAME"), rSet.getInt("UTYPE"), rSet.getString("UEMAIL"));
 		}
 
@@ -276,15 +276,15 @@ public class DatabaseUtils {
 			return pState.executeUpdate() > 0;
 		}
 
-		public boolean deleteGuest(int guestID) throws SQLException {
-			PreparedStatement pState = conn.prepareStatement("DELETE FROM GUESTS WHERE GID=?");
-			pState.setInt(1, guestID);
+		public boolean deleteGuest(String guestName) throws SQLException {
+			PreparedStatement pState = conn.prepareStatement("DELETE FROM GUESTS WHERE GNAME=?");
+			pState.setString(1, guestName);
 			return pState.executeUpdate() > 0;
 		}
 
-		public Guest searchGuest(int guestID) throws SQLException {
+		public Guest searchGuest(String guestName) throws SQLException {
 			Statement state = conn.createStatement();
-			ResultSet rSet = state.executeQuery("SELECT * FROM GUESTS WHERE GID="+guestID);
+			ResultSet rSet = state.executeQuery("SELECT * FROM GUESTS WHERE GNAME="+guestName);
 			return new Guest(rSet.getInt("GID"), rSet.getInt("BID"), rSet.getString("GNAME"), rSet.getString("GPHONENUM"), rSet.getInt("GNUMBOOKEDROOMS"));
 		}
 
