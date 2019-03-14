@@ -3,6 +3,8 @@
 
 A set of utilities for the database operations required by the project.
 
+NOTE : PLEASE FOLLOW THE SAME NAMES AS GIVEN HERE WHEN CREATING DATABASE COLUMNS!!
+
 
 Usage Example
 -------------
