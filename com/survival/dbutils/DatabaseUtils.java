@@ -41,13 +41,13 @@ public class DatabaseUtils {
 		return pState.executeUpdate() > 0;
 	}
 
-	public boolean deleteCourse(int bookingID) throws SQLException {
+	public boolean deleteFeedback(int bookingID) throws SQLException {
 		PreparedStatement pState = conn.prepareStatement("DELETE FROM FEEDBACK WHERE BID=?");
 		pState.setInt(1, bookingID);
 		return pState.executeUpdate() > 0;
 	}
 
-	public Feedback searchCourse(int bookingID) throws SQLException {
+	public Feedback searchFeedback(int bookingID) throws SQLException {
 		Statement state = conn.createStatement();
 		ResultSet rSet = state.executeQuery("SELECT * FROM FEEDBACK WHERE BID="+bookingID);
 		return new Feedback(rSet.getInt("BID"), rSet.getDouble("HRATING"), rSet.getString("FDESCRIPTION"));
