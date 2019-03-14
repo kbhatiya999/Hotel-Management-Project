@@ -135,15 +135,16 @@ public class DatabaseUtils {
 	// PACKAGE START
 
 		public boolean insertPackage(Package pack) throws SQLException {
-			PreparedStatement pState = conn.prepareStatement("INSERT INTO PACKAGES VALUES (?,?,?,?,?,?,?,?)");
+			PreparedStatement pState = conn.prepareStatement("INSERT INTO PACKAGES VALUES (?,?,?,?,?,?,?,?,?)");
 			pState.setInt(1, pack.getPackageID());
 			pState.setInt(2, pack.getHotelID());
-			pState.setInt(3, pack.getPackageType());
-			pState.setInt(4, pack.getPackageNumDays());
-			pState.setDouble(5, pack.getPackagePrice());
-			pState.setString(6, pack.getPackageDescription());
-			pState.setDate(7, (Date) pack.getPackageStartDate());
-			pState.setInt(8, pack.getPackageNumOfRoomsBooked());
+			pState.setInt(3, pack.getReservationID());
+			pState.setInt(4, pack.getPackageType());
+			pState.setInt(5, pack.getPackageNumDays());
+			pState.setDouble(6, pack.getPackagePrice());
+			pState.setString(7, pack.getPackageDescription());
+			pState.setString(8, pack.getPackageLocation());
+			pState.setInt(9, pack.getPackageNumOfRoomsBooked());
 			return pState.executeUpdate() > 0;
 		}
 
@@ -156,7 +157,7 @@ public class DatabaseUtils {
 		public Package searchPackage(int packageID) throws SQLException {
 			Statement state = conn.createStatement();
 			ResultSet rSet = state.executeQuery("SELECT * FROM PACKAGES WHERE PID="+packageID);
-			return new Package(rSet.getInt("PID"), rSet.getInt("HID"), rSet.getInt("PTYPE"), rSet.getInt("PNUMDAYS"), rSet.getDouble("PPRICE"), rSet.getString("PDESCRIPTION"), rSet.getDate("PSTARTDATE"), rSet.getInt("PNUMROOMSBOOKED"));
+			return new Package(rSet.getInt("PID"), rSet.getInt("HID"), rSet.getInt("RID"), rSet.getInt("PTYPE"), rSet.getInt("PNUMDAYS"), rSet.getDouble("PPRICE"), rSet.getString("PDESCRIPTION"), rSet.getString("PLOCATION"), rSet.getInt("PNUMROOMSBOOKED"));
 		}
 
 		public ResultSet getAllPackages() throws SQLException {
@@ -267,12 +268,15 @@ public class DatabaseUtils {
 	// GUEST START
 
 		public boolean insertGuest(Guest guest) throws SQLException {
-			PreparedStatement pState = conn.prepareStatement("INSERT INTO GUESTS VALUES (?,?,?,?,?)");
+			PreparedStatement pState = conn.prepareStatement("INSERT INTO GUESTS VALUES (?,?,?,?,?,?,?,?)");
 			pState.setInt(1, guest.getGuestID());
 			pState.setInt(2, guest.getBookingID());
 			pState.setString(3, guest.getGuestName());
 			pState.setString(4, guest.getGuestPhoneNumber());
 			pState.setInt(5, guest.getBookedNumRooms());
+			pState.setInt(6, guest.getGuestModeOfPayment());
+			pState.setDouble(7, guest.getGuestBillAmount());
+			pState.setString(8, guest.getGuestEmail());
 			return pState.executeUpdate() > 0;
 		}
 
@@ -285,7 +289,7 @@ public class DatabaseUtils {
 		public Guest searchGuest(String guestName) throws SQLException {
 			Statement state = conn.createStatement();
 			ResultSet rSet = state.executeQuery("SELECT * FROM GUESTS WHERE GNAME="+guestName);
-			return new Guest(rSet.getInt("GID"), rSet.getInt("BID"), rSet.getString("GNAME"), rSet.getString("GPHONENUM"), rSet.getInt("GNUMBOOKEDROOMS"));
+			return new Guest(rSet.getInt("GID"), rSet.getInt("BID"), rSet.getString("GNAME"), rSet.getString("GPHONENUM"), rSet.getInt("GNUMBOOKEDROOMS"), rSet.getInt("GMODEPAYMENT"), rSet.getDouble("GBILLAMOUNT"), rSet.getString("GEMAIL"));
 		}
 
 		public ResultSet getAllGuests() throws SQLException {
