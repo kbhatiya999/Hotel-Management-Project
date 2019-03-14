@@ -114,9 +114,9 @@ public class DatabaseUtils {
 		}
 
 		public boolean deleteLogin(String userName) throws SQLException {
-			PreparedStatement pState = conn.prepareStatement("DELETE FROM LOGIN WHERE UNAME=?");
-			pState.setString(1, userName);
-			return pState.executeUpdate() > 0;
+			Login theLoginToSoftDelete = searchLogin(userName);
+			theLoginToSoftDelete.setIsActive(false);
+			return true;
 		}
 
 		public Login searchLogin(String userName) throws SQLException {

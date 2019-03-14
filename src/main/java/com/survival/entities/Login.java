@@ -23,6 +23,10 @@ public class Login {
 	public Boolean getIsActive() {
 		return isActive;
 	}
+	
+	public void setIsActive(Boolean status) {
+		this.isActive = status;
+	}
 
 	public Integer getUserRole() {
 		return userRole;
