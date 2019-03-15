@@ -74,7 +74,7 @@ public class DatabaseUtils {
 	// HOTEL START
 
 	public boolean insertHotel(Hotel hotel) throws SQLException {
-		PreparedStatement pState = conn.prepareStatement("INSERT INTO HOTELS VALUES (?,?,?,?,?,?,?,?)");
+		PreparedStatement pState = conn.prepareStatement("INSERT INTO hotel VALUES (?,?,?,?,?,?,?,?)");
 		pState.setInt(1, hotel.getHotelID());
 		pState.setString(2, hotel.getHotelCity());
 		pState.setString(3, hotel.getHotelName());
@@ -87,20 +87,20 @@ public class DatabaseUtils {
 	}
 
 	public boolean deleteHotel(String hotelName) throws SQLException {
-		PreparedStatement pState = conn.prepareStatement("DELETE FROM HOTELS WHERE HNAME=?");
+		PreparedStatement pState = conn.prepareStatement("DELETE FROM hotel WHERE hname=?");
 		pState.setString(1, hotelName);
 		return pState.executeUpdate() > 0;
 	}
 
 	public Hotel searchHotel(String hotelName) throws SQLException {
 		Statement state = conn.createStatement();
-		ResultSet rSet = state.executeQuery("SELECT * FROM HOTELS WHERE HNAME="+hotelName);
-		return new Hotel(rSet.getInt("HID"), rSet.getString("HCITY"), rSet.getString("HNAME"), rSet.getDouble("HRATING"), rSet.getString("HADDR"), rSet.getInt("HNUMROOM"), rSet.getDouble("HDISCOUNT"), rSet.getInt("HNUMOFRATINGS"));
+		ResultSet rSet = state.executeQuery("SELECT * FROM hotel WHERE hname="+hotelName);
+		return new Hotel(rSet.getInt("hid"), rSet.getString("city"), rSet.getString("hname"), rSet.getDouble("hotelrating"), rSet.getString("address"), rSet.getInt("totalrooms"), rSet.getDouble("discount"), rSet.getInt("nooffeedback"));
 	}
 
 	public ResultSet getAllHotels() throws SQLException {
 		Statement state = conn.createStatement();
-		return state.executeQuery("SELECT * FROM HOTELS");
+		return state.executeQuery("SELECT * FROM hotel");
 	}
 
 	// HOTEL END
