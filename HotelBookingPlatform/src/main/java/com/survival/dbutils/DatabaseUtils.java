@@ -74,7 +74,7 @@ public class DatabaseUtils {
 	// HOTEL START
 
 	public boolean insertHotel(Hotel hotel) throws SQLException {
-		PreparedStatement pState = conn.prepareStatement("INSERT INTO HOTELS VALUES (?,?,?,?,?,?,?)");
+		PreparedStatement pState = conn.prepareStatement("INSERT INTO HOTELS VALUES (?,?,?,?,?,?,?,?)");
 		pState.setInt(1, hotel.getHotelID());
 		pState.setString(2, hotel.getHotelCity());
 		pState.setString(3, hotel.getHotelName());
@@ -82,6 +82,7 @@ public class DatabaseUtils {
 		pState.setString(5, hotel.getHotelAddress());
 		pState.setInt(6, hotel.getNumOfRoomsInHotel());
 		pState.setDouble(7, hotel.getHotelDiscount());
+		pState.setInt(8, hotel.getNoOfFeedback());
 		return pState.executeUpdate() > 0;
 	}
 
@@ -94,7 +95,7 @@ public class DatabaseUtils {
 	public Hotel searchHotel(String hotelName) throws SQLException {
 		Statement state = conn.createStatement();
 		ResultSet rSet = state.executeQuery("SELECT * FROM HOTELS WHERE HNAME="+hotelName);
-		return new Hotel(rSet.getInt("HID"), rSet.getString("HCITY"), rSet.getString("HNAME"), rSet.getDouble("HRATING"), rSet.getString("HADDR"), rSet.getInt("HNUMROOM"), rSet.getDouble("HDISCOUNT"));
+		return new Hotel(rSet.getInt("HID"), rSet.getString("HCITY"), rSet.getString("HNAME"), rSet.getDouble("HRATING"), rSet.getString("HADDR"), rSet.getInt("HNUMROOM"), rSet.getDouble("HDISCOUNT"), rSet.getInt("HNUMOFRATINGS"));
 	}
 
 	public ResultSet getAllHotels() throws SQLException {

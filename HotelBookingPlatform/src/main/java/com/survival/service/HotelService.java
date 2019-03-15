@@ -8,8 +8,8 @@ import com.survival.entities.Hotel;
 public interface HotelService {
 
 	public Boolean addHotel(Hotel hotel) throws SQLException;
-	public Boolean delHotel(String hotelName) throws SQLException;
-	public Hotel findHotel(String hotelName) throws SQLException;
-	public LinkedList<Hotel> allTheHotels() throws SQLException;
+//	public Boolean delHotel(String hotelName) throws SQLException;
+//	public Hotel findHotel(String hotelName) throws SQLException;
+//	public LinkedList<Hotel> allTheHotels() throws SQLException;
 
 }
