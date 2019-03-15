@@ -4,8 +4,8 @@ import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.survival.entities.Hotel;
@@ -33,38 +33,42 @@ public class HotelController {
 	}
 	
 	@RequestMapping("/AddHotelResult")
-	public ModelAndView addHotelResult(@ModelAttribute Hotel hotel) throws SQLException {
+	public ModelAndView addHotelResult(@RequestParam("hotelID") Integer hID, @RequestParam("hotelName") String hName, @RequestParam("hotelCity") String hCity, @RequestParam("hotelAddress") String hAddress, @RequestParam("numOfRoomsInHotel") Integer numRooms, @RequestParam("hotelDiscount") Double hDiscount, @RequestParam("hotelRating") Double hRating, @RequestParam("noOfFeedback") Integer numFeedback) {
 		
 		ModelAndView modelAndView =new ModelAndView();
 		
-		if(hService.addHotel(hotel))
-		{
+		Hotel hotel = new Hotel(hID, hCity, hName, hRating, hAddress, numRooms, hDiscount, numFeedback);
+		
+		try {
+			if(hService.addHotel(hotel)) {
+				modelAndView.setViewName("insertsuccess");
+			}
+		}
+		catch(SQLException exc) {
 			modelAndView.setViewName("faliure");
+			exc.printStackTrace();
 		}
-		else
-		{
-			modelAndView.setViewName("insertsuccess");
-		}
+		
 		return modelAndView;
 		
 	} 
 	
 //	@RequestMapping("/EditHotel")
-//	public ModelAndView editHotel() {
+//	public ModelAndView editHotel(@RequestParam("hotelID") Integer hID, @RequestParam("hotelName") String hName, @RequestParam("hotelCity") String hCity, @RequestParam("hotelAddress") String hAddress, @RequestParam("numOfRoomsInHotel") Integer numRooms, @RequestParam("hotelDiscount") Double hDiscount, @RequestParam("hotelRating") Double hRating, @RequestParam("noOfFeedback") Integer numFeedback) throws SQLException {
 //		ModelAndView mv = new ModelAndView();
 //		mv.addObject("msg","Hello");
 //		mv.setViewName("result");
 //		return mv;
 //	}
-//	
-//	@RequestMapping("/ViewHotel")
-//	public ModelAndView viewHotel() {
-//		ModelAndView mv = new ModelAndView();
-//		mv.addObject("msg","Hello");
-//		mv.setViewName("result");
-//		return mv;
-//	}
-//	
+	
+	@RequestMapping("/ViewHotel")
+	public ModelAndView viewHotel() throws SQLException {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("msg", hService.allTheHotels().toString());
+		mv.setViewName("ViewHotel");
+		return mv;
+	}
+	
 //	@RequestMapping("/DeleteHotel")
 //	public ModelAndView deleteHotel() {
 //		ModelAndView mv = new ModelAndView();

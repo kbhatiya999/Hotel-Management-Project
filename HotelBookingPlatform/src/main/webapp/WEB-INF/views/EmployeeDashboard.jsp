@@ -13,10 +13,10 @@
 <br>
 <pre>
 ******************************************
-1. <a href="#">View Hotel</a>
+1. <a href="./ViewHotel">View Hotel</a>
 2. <a href="./AddHotel">Add Hotel</a>
-3. <a href="#">Delete Hotel</a>
-3. <a href="#">Modify Hotel</a>
+3. <a href="./DeleteHotel">Delete Hotel</a>
+3. <a href="./ModifyHotel">Modify Hotel</a>
 ******************************************
 </pre>
 <h2>Package :</h2>
