@@ -12,6 +12,10 @@ public class Package {
 	private String packageLocation;
 	private Integer packageNumOfRoomsBooked;
 	
+	public Package() {
+		super();
+	}
+	
 	public Package(Integer pID, Integer hID, Integer resID, Integer pType, Integer pNumDays, Double pPrice, String pDescr, String location, Integer numRoomsBooked) {
 		this.packageID = pID;
 		this.hotelID = hID;
@@ -59,6 +63,42 @@ public class Package {
 
 	public Integer getPackageNumOfRoomsBooked() {
 		return packageNumOfRoomsBooked;
+	}
+
+	public void setPackageID(Integer packageID) {
+		this.packageID = packageID;
+	}
+
+	public void setHotelID(Integer hotelID) {
+		this.hotelID = hotelID;
+	}
+
+	public void setReservationID(Integer reservationID) {
+		this.reservationID = reservationID;
+	}
+
+	public void setPackageType(Integer packageType) {
+		this.packageType = packageType;
+	}
+
+	public void setPackageNumDays(Integer packageNumDays) {
+		this.packageNumDays = packageNumDays;
+	}
+
+	public void setPackagePrice(Double packagePrice) {
+		this.packagePrice = packagePrice;
+	}
+
+	public void setPackageDescription(String packageDescription) {
+		this.packageDescription = packageDescription;
+	}
+
+	public void setPackageLocation(String packageLocation) {
+		this.packageLocation = packageLocation;
+	}
+
+	public void setPackageNumOfRoomsBooked(Integer packageNumOfRoomsBooked) {
+		this.packageNumOfRoomsBooked = packageNumOfRoomsBooked;
 	}
 
 }
