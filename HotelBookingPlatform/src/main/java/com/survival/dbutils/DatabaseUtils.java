@@ -31,11 +31,14 @@ public class DatabaseUtils {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			this.conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "hr", "tiger");
 		}
-		catch(ClassNotFoundException | SQLException exc) {
+		catch(ClassNotFoundException exc) {
+			exc.printStackTrace();
+		}
+		catch(SQLException exc) {
 			exc.printStackTrace();
 		}
 	}
-	
+
 	// To use connection if necessary
 	public Connection getConn() { return conn; }
 
@@ -100,7 +103,7 @@ public class DatabaseUtils {
 	}
 
 	// HOTEL END
-	
+
 	// LOGIN START
 
 		public boolean insertLogin(Login login) throws SQLException {
@@ -131,7 +134,7 @@ public class DatabaseUtils {
 		}
 
 	// LOGIN END
-	
+
 	// PACKAGE START
 
 		public boolean insertPackage(Package pack) throws SQLException {
@@ -166,7 +169,7 @@ public class DatabaseUtils {
 		}
 
 	// PACKAGE END
-		
+
 	// RESERVATION START
 
 		public boolean insertReservation(Reservation reservation) throws SQLException {
@@ -201,7 +204,7 @@ public class DatabaseUtils {
 			return state.executeQuery("SELECT * FROM RESERVATIONS");
 		}
 	// RESERVATION END
-		
+
 	// ROOM START
 
 		public boolean insertRoom(Room room) throws SQLException {
@@ -232,7 +235,7 @@ public class DatabaseUtils {
 		}
 
 	// ROOM END
-		
+
 	// USER START
 
 		public boolean insertUser(User user) throws SQLException {
@@ -264,7 +267,7 @@ public class DatabaseUtils {
 		}
 
 	// USER END
-	
+
 	// GUEST START
 
 		public boolean insertGuest(Guest guest) throws SQLException {
@@ -298,7 +301,7 @@ public class DatabaseUtils {
 		}
 
 	// GUEST END
-	
+
 	public void end() throws SQLException {
 		conn.close();
 	}

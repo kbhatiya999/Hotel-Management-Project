@@ -1,4 +1,4 @@
-package com.survival.employeedao;
+package com.survival.persistence;
 
 import com.survival.dbutils.DatabaseUtils;
 import com.survival.entities.Hotel;
@@ -10,7 +10,7 @@ public class HotelDao_Impl implements HotelDao {
     private DatabaseUtils dbutils;
 
     public HotelDao_Impl() {
-        dbutils = new DatabaseUtils();
+        this.dbutils = new DatabaseUtils();
 	}
 
     public boolean insert(Hotel hotel) throws SQLException{

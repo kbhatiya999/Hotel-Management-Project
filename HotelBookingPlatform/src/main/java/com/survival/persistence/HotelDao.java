@@ -1,4 +1,4 @@
-package com.survival.employeedao;
+package com.survival.persistence;
 
 import com.survival.entities.Hotel;
 import java.sql.ResultSet;
