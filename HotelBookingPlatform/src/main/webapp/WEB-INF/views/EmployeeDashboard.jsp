@@ -14,7 +14,7 @@
 <pre>
 ******************************************
 1. <a href="#">View Hotel</a>
-2. <a href="#">Add Hotel</a>
+2. <a href="./AddHotel">Add Hotel</a>
 3. <a href="#">Delete Hotel</a>
 3. <a href="#">Modify Hotel</a>
 ******************************************

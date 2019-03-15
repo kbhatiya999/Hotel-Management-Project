@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Add Hotel Details</h1>
-<form:form action="#" method="post">
+<form:form action="./AddHotelResult" method="post">
 		Add Hotel Id:<br><form:input path="hotelID"/><br>
 		Add Hotel Name:<br><form:input path="hotelName"/><br>
 		Add Total Rooms:<br><form:input path="numOfRoomsInHotel"/><br>

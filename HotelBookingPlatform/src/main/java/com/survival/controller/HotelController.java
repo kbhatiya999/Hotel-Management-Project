@@ -1,7 +1,10 @@
 package com.survival.controller;
 
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,9 +21,26 @@ public class HotelController {
 	public ModelAndView addHotel() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("command", new Hotel());
-		mv.setViewName("AddView");
+		mv.setViewName("HotelAdd");
 		return mv;
 	}
+	
+	@RequestMapping("/AddHotelResult")
+	public ModelAndView addHotelResult(@ModelAttribute Hotel hotel) throws SQLException {
+		
+		ModelAndView modelAndView =new ModelAndView();
+		
+		if(hService.addHotel(hotel))
+		{
+			modelAndView.setViewName("faliure");
+		}
+		else
+		{
+			modelAndView.setViewName("insertsuccess");
+		}
+		return modelAndView;
+		
+	} 
 	
 //	@RequestMapping("/EditHotel")
 //	public ModelAndView editHotel() {
