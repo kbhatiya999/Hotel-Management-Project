@@ -88,12 +88,12 @@ public class DatabaseUtils {
 		return pState.executeUpdate() > 0;
 	}
 
-	public Hotel searchHotel(String hotelName) throws SQLException {
+	/*public Hotel searchHotel(String hotelName) throws SQLException {
 		Statement state = conn.createStatement();
 		ResultSet rSet = state.executeQuery("SELECT * FROM HOTELS WHERE HNAME="+hotelName);
 		return new Hotel(rSet.getInt("HID"), rSet.getString("HCITY"), rSet.getString("HNAME"), rSet.getDouble("HRATING"), rSet.getString("HADDR"), rSet.getInt("HNUMROOM"), rSet.getDouble("HDISCOUNT"));
 	}
-
+*/
 	public ResultSet getAllHotels() throws SQLException {
 		Statement state = conn.createStatement();
 		return state.executeQuery("SELECT * FROM HOTELS");

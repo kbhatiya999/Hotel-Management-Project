@@ -9,8 +9,8 @@ public class Hotel {
 	private String hotelAddress;
 	private Integer numOfRoomsInHotel;
 	private Double hotelDiscount;
-	
-	public Hotel(Integer id, String city, String name, Double rating, String address, Integer numRooms, Double discount) {
+	private Integer numOfFeedback;
+	public Hotel(Integer id, String city, String name, Double rating, String address, Integer numRooms, Double discount, Integer numOfFeedback) {
 		this.hotelID = id;
 		this.hotelCity = city;
 		this.hotelName = name;
@@ -18,6 +18,7 @@ public class Hotel {
 		this.hotelAddress = address;
 		this.numOfRoomsInHotel = numRooms;
 		this.hotelDiscount = discount;
+		this.numOfFeedback= numOfFeedback;
 	}
 
 	public Integer getHotelID() {
@@ -46,6 +47,14 @@ public class Hotel {
 
 	public Double getHotelDiscount() {
 		return hotelDiscount;
+	}
+
+	public void setNumOfFeedback(Integer numOfFeedback) {
+		this.numOfFeedback = numOfFeedback;
+	}
+
+	public Integer getNumOfFeedback() {
+		return numOfFeedback;
 	}
 	
 }
