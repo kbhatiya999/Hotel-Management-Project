@@ -11,17 +11,23 @@ public class User {
 	private Integer phone_Number;
 	private String user_Address;
 	private String user_role;
-	private Boolean isActive;
+	private Boolean is_active;
+	
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public User(Integer u_Id, String email_Id, String user_Name, Integer phone_Number, String user_Address,
-			String user_role, Boolean isActive) {
+			String user_role, Boolean is_active) {
 		super();
 		this.u_Id = u_Id;
 		this.email_Id = email_Id;
 		this.user_Name = user_Name;
+		
 		this.phone_Number = phone_Number;
 		this.user_Address = user_Address;
 		this.user_role = user_role;
-		this.isActive = isActive;
+		this.is_active = is_active;
 	}
 	public Integer getU_Id() {
 		return u_Id;
@@ -59,16 +65,12 @@ public class User {
 	public void setUser_role(String user_role) {
 		this.user_role = user_role;
 	}
-	public Boolean getIsActive() {
-		return isActive;
+	public Boolean getIs_active() {
+		return is_active;
 	}
-	public void setIsActive(Boolean isActive) {
-		this.isActive = isActive;
+	public void setIs_active(Boolean is_active) {
+		this.is_active = is_active;
 	}
-	
-//	create table userdb1
-//	(u_Id number(10), email_Id varchar2(35), user_Name varchar2(50), phone_Number number(10), 
-//	user_Address varchar2(100), user_role varchar2(3),is_Active number(1), CONSTRAINT user_pk primary key(u_Id));
 	
 	
 	
