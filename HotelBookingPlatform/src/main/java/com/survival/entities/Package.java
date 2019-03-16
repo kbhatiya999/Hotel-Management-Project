@@ -18,6 +18,7 @@ public class Package {
 	public Package() {
 		// TODO Auto-generated constructor stub
 	}
+	
 	public Package(Integer pid, String pname, Integer hid, Integer price, String description, Integer packagetype,
 			String city, Integer noofdays, Integer rtypeid) {
 		super();

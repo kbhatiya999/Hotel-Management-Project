@@ -10,6 +10,9 @@ public class Login {
 
 //	create table login (u_Id number(10), is_Active number(1), login_Role varchar2(3), login_Id varchar2(20) , login_Password varchar2(16), 
 //			  constraint login_pk primary key(login_Id), constraint login_fk foreign key (u_Id) references userdb1(u_Id));
+	public Login() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public Login(Integer u_Id, Boolean isActive, String login_Role, String login_Id, String login_Password) {
 		super();

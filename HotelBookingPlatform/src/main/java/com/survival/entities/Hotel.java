@@ -13,6 +13,10 @@ public class Hotel {
 	private Integer discount;
 	private Integer nooffeedback;
 	
+	public Hotel() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Hotel(Integer hid, String city, String hname, Integer hotelrating, String address, Integer totalrooms,
 			Integer discount, Integer nooffeedback) {
 		super();

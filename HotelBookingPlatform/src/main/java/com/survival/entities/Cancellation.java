@@ -12,6 +12,7 @@ public class Cancellation {
 	public Cancellation() {
 		// TODO Auto-generated constructor stub
 	}
+	
 	public Cancellation(Integer reservationid, LocalDate cancellationdate, Integer chargeslab) {
 		super();
 		this.reservationid = reservationid;
