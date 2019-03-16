@@ -1,57 +1,69 @@
 package com.survival.entities;
 
 public class Guest {
+//	create table guest (gid number(10) primary key, name varchar(70), phone number(10), email varchar(35), reservationid number(10), 
+//			modeofpayment varchar(3), is_active Integer(1),foreign key (reservationid) references reservation(reservationid));
 
-	private Integer guestID;
-	private Integer bookingID;
-	private String guestName;
-	private String guestPhoneNumber;
-	private Integer bookedNumRooms;
-	private Integer guestModeOfPayment;
-	private Double guestBillAmount;
-	private String guestEmail;
+	private Integer gid;
+	private String name;
+	private Integer phone;
+	private String email;
+	private Integer reservationid;
+	private String modeofpayment;
+	private Boolean is_active;
+	public Guest(Integer gid, String name, Integer phone, String email, Integer reservationid, String modeofpayment,
+			Boolean is_active) {
+		super();
+		this.gid = gid;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.reservationid = reservationid;
+		this.modeofpayment = modeofpayment;
+		this.is_active = is_active;
+	}
+	public Integer getGid() {
+		return gid;
+	}
+	public void setGid(Integer gid) {
+		this.gid = gid;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Integer getPhone() {
+		return phone;
+	}
+	public void setPhone(Integer phone) {
+		this.phone = phone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Integer getReservationid() {
+		return reservationid;
+	}
+	public void setReservationid(Integer reservationid) {
+		this.reservationid = reservationid;
+	}
+	public String getModeofpayment() {
+		return modeofpayment;
+	}
+	public void setModeofpayment(String modeofpayment) {
+		this.modeofpayment = modeofpayment;
+	}
+	public Boolean getIs_active() {
+		return is_active;
+	}
+	public void setIs_active(Boolean is_active) {
+		this.is_active = is_active;
+	}
 	
-	public Guest(Integer gID, Integer bID, String name, String phoneNumber, Integer bNumRooms, Integer mode, Double billAmount, String email) {
-		this.guestID = gID;
-		this.bookingID = bID;
-		this.guestName = name;
-		this.guestPhoneNumber = phoneNumber;
-		this.bookedNumRooms = bNumRooms;
-		this.guestModeOfPayment = mode;
-		this.guestBillAmount = billAmount;
-		this.guestEmail = email;
-	}
-
-	public Integer getGuestID() {
-		return guestID;
-	}
-
-	public Integer getBookingID() {
-		return bookingID;
-	}
-
-	public String getGuestName() {
-		return guestName;
-	}
-
-	public String getGuestPhoneNumber() {
-		return guestPhoneNumber;
-	}
-
-	public Integer getBookedNumRooms() {
-		return bookedNumRooms;
-	}
-
-	public Integer getGuestModeOfPayment() {
-		return guestModeOfPayment;
-	}
-
-	public Double getGuestBillAmount() {
-		return guestBillAmount;
-	}
-
-	public String getGuestEmail() {
-		return guestEmail;
-	}
 	
 }

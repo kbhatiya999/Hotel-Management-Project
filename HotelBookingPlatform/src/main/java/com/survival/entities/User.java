@@ -1,45 +1,16 @@
 package com.survival.entities;
 
 public class User {
+//	create table userdb1
+//	(u_Id number(10), email_Id varchar2(35), user_Name varchar2(50), phone_Number number(10), 
+//	user_Address varchar2(100), user_role varchar2(3),is_Active number(1), CONSTRAINT user_pk primary key(u_Id));
 
-	private Integer userID;
-	private String userAddress;
-	private String userPhoneNumber;
-	private String userFullName;
-	private Integer userType;
-	private String userEmail;
+	private Integer u_Id;
+	private String email_Id;
+	private String user_Name;
+	private Integer phone_Number;
+	private String user_Address;
+	private String user_role;
+	private Boolean is_active;
 	
-	public User(Integer id, String address, String phoneNumber, String fullName, Integer type, String email) {
-		this.userID = id;
-		this.userAddress = address;
-		this.userPhoneNumber = phoneNumber;
-		this.userFullName = fullName;
-		this.userType = type;
-		this.userEmail = email;
 	}
-
-	public Integer getUserID() {
-		return userID;
-	}
-
-	public String getUserAddress() {
-		return userAddress;
-	}
-
-	public String getUserPhoneNumber() {
-		return userPhoneNumber;
-	}
-
-	public String getUserFullName() {
-		return userFullName;
-	}
-
-	public Integer getUserType() {
-		return userType;
-	}
-
-	public String getUserEmail() {
-		return userEmail;
-	}
-
-}

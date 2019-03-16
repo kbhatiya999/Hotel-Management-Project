@@ -1,4 +1,5 @@
-package com.survival.dbutils;
+/*
+package com.survival.utils;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -14,7 +15,7 @@ import com.survival.entities.Hotel;
 import com.survival.entities.Login;
 import com.survival.entities.Package;
 import com.survival.entities.Reservation;
-import com.survival.entities.Room;
+import com.survival.entities.Roomtype;
 import com.survival.entities.User;
 
 public class DatabaseUtils {
@@ -204,7 +205,7 @@ public class DatabaseUtils {
 		
 	// ROOM START
 
-		public boolean insertRoom(Room room) throws SQLException {
+		public boolean insertRoom(Roomtype room) throws SQLException {
 			PreparedStatement pState = conn.prepareStatement("INSERT INTO ROOMS VALUES (?,?,?,?,?)");
 			pState.setInt(1, room.getRoomID());
 			pState.setInt(2, room.getHotelID());
@@ -220,10 +221,10 @@ public class DatabaseUtils {
 			return pState.executeUpdate() > 0;
 		}
 
-		public Room searchRoom(int roomID) throws SQLException {
+		public Roomtype searchRoom(int roomID) throws SQLException {
 			Statement state = conn.createStatement();
 			ResultSet rSet = state.executeQuery("SELECT * FROM ROOMS WHERE RID="+roomID);
-			return new Room(rSet.getInt("RID"),rSet.getInt("HID"),rSet.getInt("RTYPE"),rSet.getInt("NUMOFROOMS"), rSet.getDouble("RPRICE"));
+			return new Roomtype(rSet.getInt("RID"),rSet.getInt("HID"),rSet.getInt("RTYPE"),rSet.getInt("NUMOFROOMS"), rSet.getDouble("RPRICE"));
 		}
 
 		public ResultSet getAllRooms() throws SQLException {
@@ -305,3 +306,4 @@ public class DatabaseUtils {
 
 
 }
+*/
