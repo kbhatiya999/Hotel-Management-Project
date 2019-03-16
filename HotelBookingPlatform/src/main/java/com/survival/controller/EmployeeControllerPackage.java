@@ -81,5 +81,25 @@ public class EmployeeControllerPackage {
 		return modelAndView;
 		
 	} 
+
+
+	@RequestMapping("/ViewPackage")
+	public ModelAndView displayPackage()
+	{
+		ModelAndView mv= new ModelAndView();
+		mv.addObject("command",new Package());
+		try {
+			mv.addObject("msg",pService.getAllPackage());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mv.setViewName("PackageView");
+		return mv;
+	}
+	
 	
 }

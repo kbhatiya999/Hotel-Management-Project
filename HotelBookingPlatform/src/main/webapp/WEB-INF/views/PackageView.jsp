@@ -1,6 +1,6 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.util.ArrayList" import="com.survival.entities.Package"%>
-
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,8 +10,29 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h3>Insert Package </h3>
+<form:form action="./AddPackageResult" method="post">
+		Package Id:<form:input path="pid"/>    Name:<form:input path="pname"/>               Hotel Id:<form:input path="hid"/>              Price:<form:input path="price"/>               <br> 
+		Description:<form:input path="description"/>	Package Type:<form:input path="packagetype"/>               City:<form:input path="city"/>               No. of Days:<form:input path="noofdays"/><br>
+		Room Type ID:<form:input path="rtypeid"/>
+	    
+<input type="submit" name= "operations" value="Submit">
+	</form:form>
 
-<h1>Hotel Records</h1>
+
+<h3>Delete Package </h3>
+<form:form action="./DeletePackageResult" method="post">
+		Add  Package Id:<br><form:input path="pid"/><br>
+<input type="submit" name= "operations" value="Submit">
+	</form:form>
+
+
+
+
+
+
+
+<h1>Package Records</h1>
 <table>
 		<tr>
 			<th>Package Id</th>

@@ -10,5 +10,6 @@ public interface PackageService {
 	boolean insertPackage(Package pack) throws ClassNotFoundException, SQLException;
 	boolean deletePackage(int pID) throws ClassNotFoundException, SQLException;
 	ResultSet getAllPackage(String location) throws ClassNotFoundException, SQLException;
+	ResultSet getAllPackage() throws ClassNotFoundException, SQLException;
 
 }

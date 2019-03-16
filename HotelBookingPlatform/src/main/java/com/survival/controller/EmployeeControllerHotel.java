@@ -36,7 +36,6 @@ public class EmployeeControllerHotel {
 	public ModelAndView addHotel() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("command", new Hotel());
-		mv.addObject("command", new Package());
 		mv.setViewName("HotelAdd");
 		return mv;
 	}
@@ -50,7 +49,7 @@ public class EmployeeControllerHotel {
 		try {
 			if(hService.enterHotel(hotel))
 			{
-				modelAndView.setViewName("insertsuccess");
+				modelAndView.setViewName("insertsuccesshotel");
 			}
 			else
 			{
@@ -81,7 +80,7 @@ public class EmployeeControllerHotel {
 		try {
 			if(hService.removeHotel(hotel.getHid()))
 			{
-				modelAndView.setViewName("deletesuccess");
+				modelAndView.setViewName("deletesuccesshotel");
 			}
 			else
 			{

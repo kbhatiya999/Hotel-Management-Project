@@ -1,6 +1,7 @@
 package com.survival.persistence;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,6 +17,23 @@ import com.survival.utils.DbConnectionHelper;
 public class PackageDaoImpl implements PackageDao {
 	
 	
+	
+	
+	public PackageDaoImpl() {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "hr", "tiger");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+
+	}
+
 	Connection conn;
 	@Override
 	public Package getRecord(int packageID) throws ClassNotFoundException,SQLException {
@@ -51,6 +69,12 @@ public class PackageDaoImpl implements PackageDao {
 	public ResultSet getAllRecord(String location) throws ClassNotFoundException,SQLException {
 		Statement state = conn.createStatement();
 		return state.executeQuery("SELECT * FROM PACKAGES WHERE PLOCATION="+location);
+	}
+
+	@Override
+	public ResultSet getAllRecord() throws ClassNotFoundException, SQLException {
+		Statement state = conn.createStatement();
+		return state.executeQuery("SELECT * FROM PACKAGE");
 	}
 
 }

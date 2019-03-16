@@ -1,5 +1,6 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.util.ArrayList" import="com.survival.entities.Hotel"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,6 +10,27 @@
 <title>List Of Hotels</title>
 </head>
 <body>
+
+<h3>Insert Hotel Record</h3>
+<form:form action="./AddHotelResult" method="post">
+		Add Hotel Id:<form:input path="hid"/>		Add Hotel Name:<form:input path="hname"/>
+		Add Total Rooms:<form:input path="totalrooms"/><br>
+		Add Discount:<form:input path="discount"/>
+		Add City:<form:input path="city"/>
+		Add Address:<form:input path="address"/><br>
+		Add Hotel Rating:<form:input path="hotelrating"/>
+		Add Hotel No of Ratings:<form:input path="nooffeedback"/><br>
+		
+<input type="submit" name= "operations" value="Submit">
+	</form:form>
+
+<h3>Delete Hotel Record</h3>
+<form:form action="./DeleteHotelResult" method="post">
+		Add  Hotel Id:<br><form:input path="hid"/><br>
+<input type="submit" name= "operations" value="Submit">
+	</form:form>
+
+
 <h1>Hotel Records</h1>
 <table>
 		<tr>

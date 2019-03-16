@@ -35,5 +35,10 @@ public class PackageServiceImpl implements PackageService {
 		return packageDaoImpl.getAllRecord(location);
 	}
 
+	@Override
+	public ResultSet getAllPackage() throws ClassNotFoundException, SQLException {
+		return packageDaoImpl.getAllRecord();
+	}
+
 
 }
