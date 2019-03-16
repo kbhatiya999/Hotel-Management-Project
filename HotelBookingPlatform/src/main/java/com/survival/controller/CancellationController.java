@@ -23,11 +23,13 @@ public class CancellationController {
  	}
 	
 	@RequestMapping("/cancel")
- 	public ModelAndView confirmCancelBooking(@RequestParam("reservationId") int reservationId){
+ 	public ModelAndView confirmCancelBooking(@RequestParam("reservationId") int reservationId, 
+ 			     @RequestParam("userId") int userId){
+		
  		ModelAndView mv=new ModelAndView();
  		boolean result=false;
  		try {
-			 result=cancellationServiceImpl.isCancelled(reservationId);
+			 result=cancellationServiceImpl.isCancelled(reservationId,userId);
 		} 
  		catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
