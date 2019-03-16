@@ -8,6 +8,7 @@ public class Feedback {
 	private Integer hid;
 	private String feedbackcomment;
 	private Integer rating;
+	
 	public Feedback(Integer reservationid, Integer hid, String feedbackcomment, Integer rating) {
 		super();
 		this.reservationid = reservationid;

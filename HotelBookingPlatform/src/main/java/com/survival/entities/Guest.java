@@ -11,6 +11,7 @@ public class Guest {
 	private Integer reservationid;
 	private String modeofpayment;
 	private Boolean is_active;
+	
 	public Guest(Integer gid, String name, Integer phone, String email, Integer reservationid, String modeofpayment,
 			Boolean is_active) {
 		super();
