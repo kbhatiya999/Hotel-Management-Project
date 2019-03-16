@@ -23,9 +23,9 @@
 <br>
 <pre>
 ******************************************
-1. <a href="#">View Package</a>
-2. <a href="#">Add Package</a>
-3. <a href="#">Delete Package</a>
+1. <a href="./ViewPackage">View Package</a>
+2. <a href="./AddPackage">Add Package</a>
+3. <a href="./DeletePackage">Delete Package</a>
 3. <a href="#">Modify Package</a>
 ******************************************
 </pre>

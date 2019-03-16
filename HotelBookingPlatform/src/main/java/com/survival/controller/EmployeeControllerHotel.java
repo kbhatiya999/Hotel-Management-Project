@@ -9,13 +9,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.survival.entities.Hotel;
+import com.survival.entities.Package;
 import com.survival.service.HotelServiceImpl;
+import com.survival.service.PackageService;
+import com.survival.service.PackageServiceImpl;
 
 
 
 
 @Controller
-public class EmployeeController {
+public class EmployeeControllerHotel {
 
 
 	@Autowired
@@ -33,9 +36,11 @@ public class EmployeeController {
 	public ModelAndView addHotel() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("command", new Hotel());
+		mv.addObject("command", new Package());
 		mv.setViewName("HotelAdd");
 		return mv;
 	}
+
 	
 	@RequestMapping("/AddHotelResult")
 	public ModelAndView insertResult(@ModelAttribute Hotel hotel) {
@@ -57,8 +62,10 @@ public class EmployeeController {
 		}
 		return modelAndView;
 	}
+	
+	
 	@RequestMapping("/DeleteHotel")
-	public ModelAndView delete()
+	public ModelAndView deleteHotel()
 	{
 		ModelAndView mv= new ModelAndView();
 		mv.addObject("command",new Hotel());
@@ -66,7 +73,7 @@ public class EmployeeController {
 		return mv;
 	}
 	
-	
+
 	@RequestMapping("/DeleteHotelResult")
 	public ModelAndView deleteResult(@ModelAttribute Hotel hotel) {
 		
@@ -87,9 +94,10 @@ public class EmployeeController {
 		return modelAndView;
 		
 	} 
+
 	
 	@RequestMapping("/ViewHotel")
-	public ModelAndView display()
+	public ModelAndView displayHotel()
 	{
 		ModelAndView mv= new ModelAndView();
 		mv.addObject("command",new Hotel());
@@ -103,6 +111,23 @@ public class EmployeeController {
 		return mv;
 	}
 
+	
+//	@RequestMapping("/ViewPackage")
+//	public ModelAndView displayPackage()
+//	{
+//		ModelAndView mv= new ModelAndView();
+//		mv.addObject("command",new Package());
+//		try {
+//			mv.addObject("msg",pService.getAllPackage(location));
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		mv.setViewName("HotelView");
+//		return mv;
+//	}
+//	
+	
 }
 
 

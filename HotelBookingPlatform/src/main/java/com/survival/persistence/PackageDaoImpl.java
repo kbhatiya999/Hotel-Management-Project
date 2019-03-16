@@ -37,14 +37,12 @@ public class PackageDaoImpl implements PackageDao {
 		pState.setString(7, pack.getCity());
 		pState.setInt(8, pack.getNoofdays());
 		pState.setInt(9, pack.getRtypeid());
-		
-		
 		return pState.executeUpdate() > 0;
 	}
 
 	@Override
 	public boolean deleteRecord(int pID) throws ClassNotFoundException,SQLException {
-		PreparedStatement pState = conn.prepareStatement("DELETE FROM PACKAGE WHERE PID=?");
+		PreparedStatement pState = conn.prepareStatement("DELETE FROM PACKAGE WHERE pid=?");
 		pState.setInt(1, pID);
 		return pState.executeUpdate() > 0;
 	}
