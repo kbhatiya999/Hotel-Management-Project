@@ -9,6 +9,9 @@ public class Feedback {
 	private String feedbackcomment;
 	private Integer rating;
 	
+	public Feedback() {
+		// TODO Auto-generated constructor stub
+	}
 	public Feedback(Integer reservationid, Integer hid, String feedbackcomment, Integer rating) {
 		super();
 		this.reservationid = reservationid;

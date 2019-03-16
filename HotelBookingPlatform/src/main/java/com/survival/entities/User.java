@@ -13,6 +13,10 @@ public class User {
 	private String user_role;
 	private Boolean is_active;
 	
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public User(Integer u_Id, String email_Id, String user_Name, Integer phone_Number, String user_Address,
 			String user_role, Boolean is_active) {
 		super();

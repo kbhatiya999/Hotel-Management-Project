@@ -9,6 +9,11 @@ public class Roomtype {
 	private Integer totalnoofrooms;
 	private Integer price;
 	private Integer hid;
+	
+	public Roomtype() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Roomtype(Integer rtypeid, String type, Integer totalnoofrooms, Integer price, Integer hid) {
 		super();
 		this.rtypeid = rtypeid;
