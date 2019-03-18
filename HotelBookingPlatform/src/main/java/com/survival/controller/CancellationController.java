@@ -15,6 +15,10 @@ import com.survival.service.CancellationServiceImpl;
 public class CancellationController {
 	@Autowired
 	CancellationServiceImpl cancellationServiceImpl;
+	
+	private int rreservationId;
+	private int chargeSlab;
+	
 	@RequestMapping("/")
  	public ModelAndView showCancelMenu(){
  		ModelAndView mv=new ModelAndView();
@@ -25,18 +29,65 @@ public class CancellationController {
 	@RequestMapping("/cancel")
  	public ModelAndView confirmCancelBooking(@RequestParam("reservationId") int reservationId, 
  			     @RequestParam("userId") int userId){
-		
+
+		rreservationId=reservationId;
  		ModelAndView mv=new ModelAndView();
- 		boolean result=false;
+ 		boolean validUser=false,isAlreadyCancelled=false;
  		try {
-			 result=cancellationServiceImpl.isCancelled(reservationId,userId);
+			validUser=cancellationServiceImpl.isValidBooking(reservationId, userId);
+			chargeSlab=cancellationServiceImpl.chargeSlab(reservationId);
+			isAlreadyCancelled=cancellationServiceImpl.isAlreadyCancelled(reservationId);
 		} 
  		catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
- 	   mv.addObject("cancelValue", result);
- 	   mv.setViewName("cancelResult");
+ 		if(validUser && chargeSlab>=0 && !isAlreadyCancelled)
+ 		{
+ 	   mv.addObject("cancelValue", chargeSlab);
+ 	   mv.setViewName("confirmCancel");
+ 		}
+ 		else if(!validUser)
+ 		{
+ 			mv.addObject("result", "Such Booking doesn't exist!!");
+ 	 	   mv.setViewName("cancelResult");
+ 		}
+ 		else if(chargeSlab<0)
+ 		{
+ 			mv.addObject("result", "Sorry this Booking can't be cancelled!!");
+  	 	   mv.setViewName("cancelResult");
+ 		}
+ 		else if(isAlreadyCancelled)
+ 		{
+ 		   mv.addObject("result", "This Booking is already cancelled!!");
+   	 	   mv.setViewName("cancelResult");
+ 		}
  		return mv;
  	}
+	
+	@RequestMapping("/confirmcancel")
+ 	public ModelAndView finalCancel(){
+ 		ModelAndView mv=new ModelAndView();
+ 		
+ 		boolean isCancelled=false;
+ 	    try {
+			isCancelled=cancellationServiceImpl.isCancelled(rreservationId, chargeSlab);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+ 	    if(!isCancelled)
+ 	    
+ 	 		{
+ 	 		   mv.addObject("result", "Sorry this Booking can't be cancelled!!");
+ 	 	 	   mv.setViewName("cancelResult");
+ 	 		}
+ 	    else
+ 	    {
+ 	    	   mv.addObject("result", "Booking cancelled Successfully!!");
+	 	 	   mv.setViewName("cancelResult");
+ 	    }
+ 		return mv;
+ 	}
+	
 }

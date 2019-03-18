@@ -6,12 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Cancel Booking</title>
+<h1>Cancel Page</h1>
 </head>
 <body>
  <form action="./cancel" method="post">
 Enter Booking Id : <input type="text" name="reservationId"><br>
-Enter User Id : <input type="text" name="userId"><br><br> 
-<input type="submit" value="Cancel" name="operation">
+Enter User Id    : <input type="text" name="userId"><br><br> 
+<input type="submit" value="Submit" name="operation">
 </form>
 </body>
 </html>

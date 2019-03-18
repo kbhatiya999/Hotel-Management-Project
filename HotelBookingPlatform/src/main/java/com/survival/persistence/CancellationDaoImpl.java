@@ -57,6 +57,16 @@ public class CancellationDaoImpl implements CancellationDao {
 		return checkIndate;
 	}
 
+	@Override
+	public boolean isAlreadyCancelled(int reservationId) throws ClassNotFoundException, SQLException {
+		Connection connection = DbConnectionHelper.getConnection();
+		PreparedStatement preparedStatement=connection.prepareStatement("SELECT * FROM Cancellation WHERE reservationId = ?");
+		preparedStatement.setInt(1, reservationId);
+		ResultSet resultSet=preparedStatement.executeQuery();
+		boolean result=resultSet.next();
+		connection.close();
+		return result;
+	}
 
 	
 }
