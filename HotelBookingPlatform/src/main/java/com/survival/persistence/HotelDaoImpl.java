@@ -9,6 +9,7 @@ import java.sql.Statement;
 
 
 import com.survival.entities.Hotel;
+import com.survival.utils.Queries;
 
 public class HotelDaoImpl implements HotelDao {
 
@@ -40,7 +41,7 @@ public class HotelDaoImpl implements HotelDao {
 	
 	@Override
 	public boolean insertHotel(Hotel hotel) throws SQLException {
-		PreparedStatement pState = conn.prepareStatement("INSERT INTO HOTEL VALUES (?,?,?,?,?,?,?,?)");
+		PreparedStatement pState = conn.prepareStatement(Queries.ADD_HOTEL);
 		pState.setInt(1, hotel.getHid());
 		pState.setString(2, hotel.getCity());
 		pState.setString(3, hotel.getHname());
@@ -54,14 +55,14 @@ public class HotelDaoImpl implements HotelDao {
 
 	@Override
 	public boolean deleteHotel(Integer hid) throws SQLException {
-		PreparedStatement pState = conn.prepareStatement("DELETE FROM HOTEL WHERE HID=?");
+		PreparedStatement pState = conn.prepareStatement(Queries.DELETE_HOTEL);
 		pState.setInt(1, hid);
 		return pState.executeUpdate() > 0;
 	}
 
 	@Override
 	public Hotel searchHotel(Integer hid) throws SQLException {
-		PreparedStatement pstate = conn.prepareStatement("SELECT * FROM HOTEL WHERE HID=?");
+		PreparedStatement pstate = conn.prepareStatement(Queries.SEARCH_HOTEL);
 		
 		pstate.setInt(1, hid);
 		ResultSet rSet = pstate.executeQuery();
@@ -82,7 +83,7 @@ public class HotelDaoImpl implements HotelDao {
 	@Override
 	public ResultSet getAllHotels() throws SQLException {
 		Statement state = conn.createStatement();
-		return state.executeQuery("SELECT * FROM HOTEL");
+		return state.executeQuery(Queries.GET_ALL_HOTEL);
 	
 	}
 
