@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.survival.entities.Hotel;
-import com.survival.persistence.HotelDao;
+
 
 public interface HotelService {
 
