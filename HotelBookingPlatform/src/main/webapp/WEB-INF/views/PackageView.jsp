@@ -26,7 +26,11 @@
 <input type="submit" name= "operations" value="Submit">
 	</form:form>
 
-
+<h3>Search Package</h3>
+<form:form action="./SearchPackageResult" method="post">
+		Add  Package Id:<br><form:input path="pid"/><br>
+<input type="submit" name= "operations" value="Submit">
+	</form:form>
 
 
 

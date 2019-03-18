@@ -1,6 +1,8 @@
 package com.survival.controller;
 import java.sql.SQLException;
 
+import javax.smartcardio.CommandAPDU;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -111,6 +113,7 @@ public class EmployeeControllerHotel {
 		try {
 			if(hService.findHotel(hotel.getHid())!=null)
 			{
+				modelAndView.addObject("msg",hService.findHotel(hotel.getHid()));
 				modelAndView.setViewName("searchsuccesshotel");
 			}
 			else
@@ -147,7 +150,7 @@ public class EmployeeControllerHotel {
 //		ModelAndView mv= new ModelAndView();
 //		mv.addObject("command",new Hotel());
 //		try {
-//			mv.addObject("msg",hService.findHotel(hotel.));
+//			mv.addObject("msg",hService.findHotel()));
 //		} catch (SQLException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();

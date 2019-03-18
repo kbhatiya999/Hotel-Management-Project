@@ -21,6 +21,9 @@ public class EmployeeControllerPackage {
 	@Autowired
 	PackageServiceImpl pService;
 
+
+	
+	
 	@RequestMapping("/AddPackage")
 	public ModelAndView addPackage() {
 		ModelAndView mv = new ModelAndView();
@@ -82,7 +85,39 @@ public class EmployeeControllerPackage {
 		
 	} 
 
+	@RequestMapping("/SearchPackage")
+	public ModelAndView searchHotel()
+	{
+		ModelAndView mv= new ModelAndView();
+		mv.addObject("command",new Package());
+		mv.setViewName("PackageSearch");
+		return mv;
+	}
 
+
+	@RequestMapping("/SearchPackageResult")
+	public ModelAndView searchResultPackage(@ModelAttribute Package pack) {
+		
+		ModelAndView modelAndView =new ModelAndView();
+		try {
+			if(pService.getPackage(pack.getPid())!=null)
+			{
+				modelAndView.addObject("msg",pService.getPackage(pack.getPid()));
+				modelAndView.setViewName("searchsuccesspackage");
+			}
+			else
+			{
+				modelAndView.setViewName("failure");
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return modelAndView;
+		
+	} 
+	
+	
 	@RequestMapping("/ViewPackage")
 	public ModelAndView displayPackage()
 	{
