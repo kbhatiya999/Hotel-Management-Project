@@ -94,6 +94,37 @@ public class EmployeeControllerHotel {
 		
 	} 
 
+	@RequestMapping("/SearchHotel")
+	public ModelAndView searchHotel()
+	{
+		ModelAndView mv= new ModelAndView();
+		mv.addObject("command",new Hotel());
+		mv.setViewName("HotelSearch");
+		return mv;
+	}
+	
+
+	@RequestMapping("/SearchHotelResult")
+	public ModelAndView searchResult(@ModelAttribute Hotel hotel) {
+		
+		ModelAndView modelAndView =new ModelAndView();
+		try {
+			if(hService.findHotel(hotel.getHid())!=null)
+			{
+				modelAndView.setViewName("searchsuccesshotel");
+			}
+			else
+			{
+				modelAndView.setViewName("failure");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return modelAndView;
+		
+	} 
+	
 	
 	@RequestMapping("/ViewHotel")
 	public ModelAndView displayHotel()
@@ -110,7 +141,21 @@ public class EmployeeControllerHotel {
 		return mv;
 	}
 
-	
+//	@RequestMapping("/ViewSuccess")
+//	public ModelAndView searchHotel1()
+//	{
+//		ModelAndView mv= new ModelAndView();
+//		mv.addObject("command",new Hotel());
+//		try {
+//			mv.addObject("msg",hService.findHotel(hotel.));
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		mv.setViewName("HotelView");
+//		return mv;
+//	}
+
 //	@RequestMapping("/ViewPackage")
 //	public ModelAndView displayPackage()
 //	{
