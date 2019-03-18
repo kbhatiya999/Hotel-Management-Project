@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.survival.entities.Roomtype;
+import com.survival.persistence.RoomDaoImpl;
 
 public class RoomServiceImpl implements RoomService {
 	
