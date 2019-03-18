@@ -76,7 +76,7 @@ public class EmployeeControllerRoom {
 			}
 			else
 			{
-				modelAndView.setViewName("failure");
+				modelAndView.setViewName("deletefailure");
 }
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

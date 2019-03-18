@@ -15,39 +15,39 @@
 <h3>Insert Hotel Record</h3>
 <form:form action="./AddHotelResult" method="post">
 <td>
-		Hotel Id:<form:input path="hid"/>
+		Hotel Id:<form:input type="number" min="0" max="1000000000"  path="hid" required="required" />
 		</td>		<td>
-		Hotel Name:<form:input path="hname"/>
+		Hotel Name:<form:input type="text" maxlength="40" path="hname" required="required"/>
 		</td><td>
-		Total Rooms:<form:input path="totalrooms"/>
+		Total Rooms:<form:input type="number" min="0" max="99999" path="totalrooms" required="required"/>
 		</td>
 		
 		<td>
-		Discount:<form:input path="discount"/>
+		Discount:<form:input type="number" min="0" max="100" path="discount" required="required"/>
 		</td></tr><tr>
 		<td>
-		City:<form:input path="city"/>
+		City:<form:input type="text" maxlength="30" path="city" required="required"/>
 		</td><td>
-		Address:<form:input path="address"/>
+		Address:<form:input type="text" maxlength="100" path="address" required="required"/>
 		</td>
 		
 
 <td>
-		Hotel Rating:<form:input path="hotelrating"/>
+		Hotel Rating:<form:input type="number" min="0" max="10" path="hotelrating" required="required"/>
 		</td><td>
-		Hotel No of Ratings:<form:input path="nooffeedback" />
+		Hotel No of Ratings:<form:input  type="number" min="0" max="10000" path="nooffeedback" required="required" />
 		</td>
 		</tr>
-
-<tr>
 <input type="submit" name= "operations" value="Submit">
+<tr>
+
 	</form:form>
 </table>
 <table>
 <tr>
 <h3>Delete Hotel Record</h3>
 <form:form action="./DeleteHotelResult" method="post">
-		Input  Hotel Id:<br><form:input path="hid"/><br>
+		Input  Hotel Id:<br><form:input  type="number" min="0" max="1000000" path="hid" required="required"/><br>
 <input type="submit" name= "operations" value="Submit">
 	</form:form>
 	</table>
@@ -56,7 +56,7 @@
 <tr>
 <h3>Search Hotel Record</h3>
 <form:form action="./SearchHotelResult" method="post">
-		Input  Hotel Id:<br><form:input path="hid"/><br>
+		Input  Hotel Id:<br><form:input  type="number" min="0" max="1000000" path="hid" required="required"/><br>
 <input type="submit" name= "operations" value="Submit">
 	</form:form>
 </tr>

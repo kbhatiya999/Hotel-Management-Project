@@ -51,7 +51,7 @@ private Connection conn;
 
 	@Override
 	public Roomtype searchRoom(Integer rtypeid,Integer hid) throws SQLException {
-PreparedStatement pstate = conn.prepareStatement("SELECT * FROM ROOMTYPE WHERE RTYPEID=? AND HID=?");
+PreparedStatement pstate = conn.prepareStatement("SELECT * FROM ROOMTYPE WHERE RTYPEID=? OR HID=?");
 		
 		pstate.setInt(1, rtypeid);
 		pstate.setInt(2, hid);

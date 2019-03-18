@@ -12,9 +12,17 @@
 <body>
 <h3>Insert Package </h3>
 <form:form action="./AddPackageResult" method="post">
-		Package Id:<form:input path="pid"/>    Name:<form:input path="pname"/>               Hotel Id:<form:input path="hid"/>              Price:<form:input path="price"/>               <br> 
-		Description:<form:input path="description"/>	Package Type:<form:input path="packagetype"/>               City:<form:input path="city"/>               No. of Days:<form:input path="noofdays"/><br>
-		Room Type ID:<form:input path="rtypeid"/>
+		Package Id:<form:input type="number" path="pid" required="required"/>   
+	    Name:<form:input type="text" path="pname" required="required"/>     
+		Hotel Id:<form:input type="number" path="hid" required="required"/>      
+		Price:<form:input type="number" path="price" required="required"/>          
+		                        <br> 
+		Description:<form:input type="text" path="description" required="required"/>
+		Package Type:<form:input type="number" path="packagetype" required="required"/>    
+    	 City:<form:input type="text" path="city" required="required"/>    
+		 No. of Days:<form:input type="number" path="noofdays" required="required"/>
+			                      <br>
+		Room Type ID:<form:input type="number" path="rtypeid" required="required"/>
 	    
 <input type="submit" name= "operations" value="Submit">
 	</form:form>
@@ -22,13 +30,13 @@
 
 <h3>Delete Package </h3>
 <form:form action="./DeletePackageResult" method="post">
-		Add  Package Id:<br><form:input path="pid"/><br>
+		Add  Package Id:<br><form:input type="number" path="pid" required="required"/><br>
 <input type="submit" name= "operations" value="Submit">
 	</form:form>
 
 <h3>Search Package</h3>
 <form:form action="./SearchPackageResult" method="post">
-		Add  Package Id:<br><form:input path="pid"/><br>
+		Add  Package Id:<br><form:input type="number" path="pid" required="required"/><br>
 <input type="submit" name= "operations" value="Submit">
 	</form:form>
 
