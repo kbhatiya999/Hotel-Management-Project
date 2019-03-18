@@ -11,6 +11,9 @@ public class Package {
 	private Integer price;
 	private String description;
 	private Integer packagetype;
+	public Package() {
+		super();
+	}
 	private String city;
 	private Integer noofdays;
 	private Integer rtypeid;
