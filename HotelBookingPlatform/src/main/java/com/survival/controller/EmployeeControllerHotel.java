@@ -27,7 +27,7 @@ public class EmployeeControllerHotel {
 	@Autowired
 	HotelServiceImpl hService;
 	
-	@RequestMapping("/")
+	@RequestMapping("/EmployeeDashboard")
 	public ModelAndView empDashboard() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("command",new Hotel());

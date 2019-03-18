@@ -10,7 +10,7 @@
 <h1> Welcome,To Apna Hotel </h1>
 <a href=""> Checkout </a><br><br>
 <a href="">Modify Booking</a><br><br>
-<a href="">Booking Management</a>
-
+<a href="">Booking Management</a><br><br>
+<a href="./EmployeeDashboard">Hotels and Package Management</a>
 </body>
 </html>
