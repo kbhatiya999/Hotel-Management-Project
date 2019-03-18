@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.survival.entities.Login;
 import com.survival.utils.DbConnectionHelper;
 
-import oracle.net.aso.r;
+//import oracle.net.aso.r;
 @Repository
 public class LoginDaoImpl implements LoginDao{
 @Override
