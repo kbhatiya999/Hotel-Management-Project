@@ -42,10 +42,11 @@ public class DatabaseUtils {
 	// FEEDBACK START
 
 	public boolean insertFeedback(Feedback feedback) throws SQLException {
-		PreparedStatement pState = conn.prepareStatement("INSERT INTO FEEDBACK VALUES (?,?,?)");
+		PreparedStatement pState = conn.prepareStatement("INSERT INTO FEEDBACK VALUES (?,?,?,?)");
 		pState.setInt(1, feedback.getBookingID());
-		pState.setDouble(2, feedback.getHotelRating());
+		pState.setDouble(4, feedback.getHotelRating());
 		pState.setString(3, feedback.getFeedbackDescription());
+		pState.setDouble(2, feedback.getHotelID());
 		return pState.executeUpdate() > 0;
 	}
 
@@ -58,7 +59,7 @@ public class DatabaseUtils {
 	public Feedback searchFeedback(int bookingID) throws SQLException {
 		Statement state = conn.createStatement();
 		ResultSet rSet = state.executeQuery("SELECT * FROM FEEDBACK WHERE BID="+bookingID);
-		return new Feedback(rSet.getInt("BID"), rSet.getDouble("HRATING"), rSet.getString("FDESCRIPTION"));
+		return new Feedback(rSet.getInt(1), rSet.getInt(2),  rSet.getInt(3), rSet.getString(4));
 	}
 
 	public ResultSet getAllFeedback() throws SQLException {
