@@ -34,13 +34,13 @@ public class RegisterUserServiceImplementation implements RegisterUserService {
 		userLogin.setLogin_Id(login.getLogin_Id());
 		userLogin.setLogin_Password(login.getLogin_Password());
 		userLogin.setLogin_Role(login.getLogin_Role());
-		userLogin.setIsActive(true);
-		long total = userDao.countNumberOfUsers();
+		userLogin.setIs_active(true);
+		int total = userDao.countNumberOfUsers();
 		userLogin.setU_Id(total+1);
 		
 		if(userDao.insertLoginDetails(userLogin)) {
 			User user = new User();
-			
+			user.setU_Id(userLogin.getU_Id());
 			user.setEmail_Id(login.getEmail_Id());
 			user.setPhone_Number(login.getPhone_Number());
 			user.setUser_Address(login.getUser_Address());
@@ -48,7 +48,7 @@ public class RegisterUserServiceImplementation implements RegisterUserService {
 			user.setUser_Name(login.getUser_Name());
 			user.setIs_active(true);
 			
-			return insertUserPersonalDetails(user, login.getLogin_Id());
+			return insertUserPersonalDetails(user);
 		}
 		return false;
 		
@@ -59,11 +59,9 @@ public class RegisterUserServiceImplementation implements RegisterUserService {
 	 * Inserts the personal details of new user into database
 	 */
 	@Override
-	public boolean insertUserPersonalDetails(User user, String login_Id) throws SQLException {
+	public boolean insertUserPersonalDetails(User user) throws SQLException {
 		
-		long user_Id = userDao.getUserId(login_Id);
-		
-		boolean checkInsert = userDao.insertUserDetails(user, user_Id);
+		boolean checkInsert = userDao.insertUserDetails(user);
 		
 		if(checkInsert)
 			return true;

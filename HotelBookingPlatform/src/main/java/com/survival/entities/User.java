@@ -5,7 +5,7 @@ public class User {
 	private Integer u_Id;
 	private String email_Id;
 	private String user_Name;
-	private Integer phone_Number;
+	private Long phone_Number;
 	private String user_Address;
 	private String user_role;
 	private Boolean is_active;
@@ -14,7 +14,7 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public User(Integer u_Id, String email_Id, String user_Name, Integer phone_Number, String user_Address,
+	public User(Integer u_Id, String email_Id, String user_Name, Long phone_Number, String user_Address,
 			String user_role, Boolean is_active) {
 		super();
 		this.u_Id = u_Id;
@@ -44,11 +44,11 @@ public class User {
 	public void setUser_Name(String user_Name) {
 		this.user_Name = user_Name;
 	}
-	public Integer getPhone_Number() {
+	public Long getPhone_Number() {
 		return phone_Number;
 	}
-	public void setPhone_Number(Integer phone_Number) {
-		this.phone_Number = phone_Number;
+	public void setPhone_Number(Long long1) {
+		this.phone_Number = long1;
 	}
 	public String getUser_Address() {
 		return user_Address;

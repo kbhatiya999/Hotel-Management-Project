@@ -1,4 +1,4 @@
-package com.survival.RegistrationControllers;
+package com.survival.controller;
 
 import java.sql.SQLException;
 
@@ -20,7 +20,7 @@ public class RegistrationController {
 	/**
 	 * @return
 	 */
-	@RequestMapping("/")
+	@RequestMapping("/registration")
 	public ModelAndView enterLoginDetails() {
 		ModelAndView modelAndViewForRgistration = new ModelAndView();
 		modelAndViewForRgistration.addObject("command",new RegisterLoginDetails());
@@ -49,7 +49,7 @@ public class RegistrationController {
 				modelAndViewForStatus.setViewName("RegistrationFailed");
 			}
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 			modelAndViewForStatus.addObject("EntryFailed", "Sorry, something went wrong. Please contact admin.");
 			modelAndViewForStatus.setViewName("RegistrationFailed");
 		}   

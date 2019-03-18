@@ -43,12 +43,12 @@ public class UserDaoImplementation implements UserDao {
 	 * Counts the number of users in the database
 	 */
 	@Override
-	public long countNumberOfUsers() throws SQLException {
+	public int countNumberOfUsers() throws SQLException {
 		
 		Statement stmt = conn.createStatement();
 		ResultSet result = stmt.executeQuery(Queries.GET_TOTAL_USERS);
 		result.next();
-		long count = result.getLong("USERS");
+		int count = result.getInt("USERS");
 		return count;
 	}
 	
@@ -57,13 +57,13 @@ public class UserDaoImplementation implements UserDao {
 	 * Returns the user_id of user based on the entered login_id
 	 */
 	@Override
-	public long getUserId(String loginId) throws SQLException {
+	public int getUserId(String loginId) throws SQLException {
 		
 		PreparedStatement stmt = conn.prepareStatement(Queries.GET_USER_ID);
 		stmt.setString(1, loginId);
 		ResultSet result = stmt.executeQuery();
 		result.next();
-		long userId = result.getLong("U_ID");
+		int userId = result.getInt("U_ID");
 		return userId;
 		
 	}
@@ -74,11 +74,11 @@ public class UserDaoImplementation implements UserDao {
 	 * Inserts the personal details of new user into database
 	 */
 	@Override
-	public boolean insertUserDetails(User user, long userId) throws SQLException {
+	public boolean insertUserDetails(User user) throws SQLException {
 		
 		PreparedStatement pState = conn.prepareStatement(Queries.INSERT_USER_DETAILS);
 		
-		pState.setLong(1, userId);
+		pState.setLong(1, user.getU_Id());
 		pState.setString(2, user.getEmail_Id());
 		pState.setString(3, user.getUser_Name());
 		pState.setLong(4, user.getPhone_Number());

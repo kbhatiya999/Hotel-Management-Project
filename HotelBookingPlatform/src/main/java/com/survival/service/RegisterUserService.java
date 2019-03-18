@@ -20,7 +20,7 @@ public interface RegisterUserService {
 	 * @throws SQLException
 	 * Inserts the personal details of new user into database
 	 */
-	public boolean insertUserPersonalDetails(User user, String login_Id) throws SQLException;
+	public boolean insertUserPersonalDetails(User user) throws SQLException;
 	
 	/**
 	 * @param login_Id

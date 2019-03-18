@@ -9,7 +9,7 @@
 </head>
 <body>
 <h2>${EntryFailed}</h2>
-<form:form action="./">
+<form:form action="./registration">
 <input type="submit" value="Continue">
 </form:form>
 </body>

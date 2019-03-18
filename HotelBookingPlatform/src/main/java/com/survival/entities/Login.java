@@ -24,8 +24,8 @@ public class Login {
 	public Integer getU_Id() {
 		return u_Id;
 	}
-	public void setU_Id(Integer u_Id) {
-		this.u_Id = u_Id;
+	public void setU_Id(Integer l) {
+		this.u_Id = l;
 	}
 	public Boolean getIsActive() {
 		return is_active;
