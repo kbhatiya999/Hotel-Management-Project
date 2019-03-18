@@ -4,10 +4,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.survival.entities.Roomtype;
 import com.survival.persistence.RoomDaoImpl;
 
+@Service
 public class RoomServiceImpl implements RoomService {
 	
 	@Autowired

@@ -21,5 +21,59 @@
 		Hotel ID:<% out.println(request.getAttribute("hid")); %><br>
     <input type="submit" name= "operations" value="Submit">
 </form:form>
+
+
+<h3>Delete Rooms</h3>
+<form:form action="./DeleteRoomResult" method="post">
+		Input  Room Id:<br><form:input path="rtypeid"/><br>
+<input type="submit" name= "operations" value="Submit">
+	</form:form>
+
+<h3>Search Hotel Record</h3>
+<form:form action="./SearchRoomResult" method="post">
+		Input  Room Id:<br><form:input path="rtypeid"/><br>
+<input type="submit" name= "operations" value="Submit">
+	</form:form>
+
+
+<h1>Room Records</h1>
+
+<table>
+		<tr>
+			<th>RTypeID</th>
+			<th>Type</th>
+			<th>TotalNumRooms</th>
+			<th>Price</th>
+			<th>HotelID</th>
+		</tr>
+		<%
+
+		ResultSet rs = (ResultSet)request.getAttribute("msg");			
+		ArrayList<Roomtype> ls = new ArrayList<Roomtype>(); 
+		while (rs.next()) 
+		{                      
+			Roomtype r =new Roomtype();
+			r.setRtypeid(rs.getInt("rtypeid"));
+			r.setType(rs.getString("type"));
+			r.setTotalnoofrooms(rs.getInt("totalnoofrooms"));
+			r.setPrice(rs.getInt("price"));
+			r.setHid(rs.getInt("hid"));
+			ls.add(r);		
+		}
+		
+		
+		
+		for(Roomtype element:ls){
+			out.print("<tr>");
+			out.println("<td>" + element.getRtypeid() + "</td>");
+			out.println("<td>" + element.getType() + "</td>");
+			out.println("<td>" + element.getTotalnoofrooms() + "</td>");
+			out.println("<td>" + element.getPrice() + "</td>");
+			out.println("<td>" + element.getHid() + "</td>");
+			out.print("</tr>");
+		}
+		%>
+	</table>	
+
 </body>
 </html>

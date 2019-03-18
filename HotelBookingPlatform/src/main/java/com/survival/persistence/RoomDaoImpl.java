@@ -7,9 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.springframework.stereotype.Repository;
+
 import com.survival.entities.Hotel;
 import com.survival.entities.Roomtype;
 
+@Repository
 public class RoomDaoImpl implements RoomDao {
 
 private Connection conn;
@@ -27,10 +30,6 @@ private Connection conn;
 			e.printStackTrace();
 		} 
 	}
-
-	
-	
-	
 	
 	@Override
 	public boolean insertRoom(Roomtype rtype) throws SQLException {

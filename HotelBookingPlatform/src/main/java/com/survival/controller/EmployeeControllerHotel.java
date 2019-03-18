@@ -1,7 +1,7 @@
 package com.survival.controller;
 import java.sql.SQLException;
 
-import javax.smartcardio.CommandAPDU;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.survival.entities.Hotel;
 import com.survival.entities.Package;
+import com.survival.entities.Roomtype;
 import com.survival.service.HotelServiceImpl;
 import com.survival.service.PackageService;
 import com.survival.service.PackageServiceImpl;
@@ -51,7 +52,7 @@ public class EmployeeControllerHotel {
 		try {
 			if(hService.enterHotel(hotel))
 			{
-				modelAndView.setViewName("insertsuccess");
+				modelAndView.setViewName("insertsuccesshotel");
 			}
 			else
 			{
@@ -150,12 +151,7 @@ public class EmployeeControllerHotel {
 			if(hService.findHotel(hotel.getHid())!=null)
 			{
 				modelAndView.addObject("msg",hService.findHotel(hotel.getHid()));
-				modelAndView.setViewName("searchsuccesshotel");
-<<<<<<< HEAD
-=======
-				modelAndView.setViewName("SearchHotelResult");
->>>>>>> acc8c93497b597b33a862c3c6f3a65be5b6f058c
-			}
+				modelAndView.setViewName("searchsuccesshotel");		}
 			else
 			{
 				modelAndView.setViewName("failure");
@@ -183,6 +179,11 @@ public class EmployeeControllerHotel {
 		mv.setViewName("HotelView");
 		return mv;
 	}
+	
+	
+
+
+
 
 //	@RequestMapping("/ViewSuccess")
 //	public ModelAndView searchHotel1()
