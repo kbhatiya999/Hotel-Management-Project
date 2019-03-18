@@ -14,6 +14,7 @@ Enter Rating (1-5) : <input type="text" name="tb1"><br><br>
 Enter Feedback : <textarea name="tb2" rows = "10" cols= "50"></textarea>
 
 <input type="submit" value="feedbackbutton">
+<% request.setAttribute("hid", request.getAttribute("hid")); %>
 
 </form:form>
 </body>

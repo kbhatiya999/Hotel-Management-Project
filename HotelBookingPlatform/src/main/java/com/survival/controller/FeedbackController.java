@@ -19,19 +19,21 @@ public class FeedbackController {
 	
 	private int rating;
 	private String str;
+	int hidTemp = 123;
 	@Autowired
 	 FeedbackService fbd;
 	
 	@RequestMapping("/")
 	public ModelAndView first(){
 		ModelAndView mv=new ModelAndView();
-		mv.addObject("command", new Feedback());
+		mv.addObject("hid", hidTemp);
 		mv.setViewName("feedback");
 		return mv;
 	}
 	
 	@RequestMapping("/cal1")
-	public ModelAndView second (@RequestParam("tb1") String b1, @RequestParam("tb2") String b2 ){
+	public ModelAndView second (@RequestParam("tb1") String b1, @RequestParam("tb2") String b2)
+			{
 		ModelAndView mv=new ModelAndView();
 		
 		rating=Integer.parseInt(b1);
@@ -56,6 +58,8 @@ public class FeedbackController {
 			else mv.addObject("asdf", "Not Done");
 			mv.setViewName("byebye");
 		}
+		
+		mv.addObject("hid", hid);
 		return mv;
 	}
 	

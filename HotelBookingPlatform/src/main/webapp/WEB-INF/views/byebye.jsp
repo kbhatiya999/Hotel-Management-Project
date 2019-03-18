@@ -10,6 +10,6 @@
 <body>
 bye bye
 <p></p>
-${asdf}
+${asdf} : ${hid}
 </body>
 </html>
