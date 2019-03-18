@@ -122,11 +122,11 @@ public class ReservationDaoImpl implements ReservationDao {
 	@Override
 	public boolean checkAvailable(Reservation reservation) throws SQLException {
 		// TODO Auto-generated method stub
-		PreparedStatement ps= conn.prepareStatement("SELECT COUNT(*) FROM RESERVATION  WHERE CHECKINDATE>=? AND CHECKOUTDATE<=? AND STATUS='BOOKED' AND RTYPEID=? AND HID=?");
-		ps.setDate(1, Date.valueOf(reservation.getCheckindate()));
-		ps.setDate(2, Date.valueOf(reservation.getCheckoutdate()));
-		ps.setInt(3, reservation.getRtypeid());
-		ps.setInt(4, reservation.getHid());
+		PreparedStatement ps= conn.prepareStatement("select count(*) from reservation where status='booked' and hid=? and rtypeid=? and checkindate>=? and checkoutdate<=?");
+		ps.setDate(3, Date.valueOf(reservation.getCheckindate()));
+		ps.setDate(4, Date.valueOf(reservation.getCheckoutdate()));
+		ps.setInt(2, reservation.getRtypeid());
+		ps.setInt(1, reservation.getHid());
 		
 		ResultSet rs=ps.executeQuery();
 		rs.next();
