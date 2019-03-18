@@ -9,6 +9,6 @@
 </head>
 <body>
 <h1>Successfully Deleted Room!</h1>
-<c:redirect url="./RoomView"/>
+<c:redirect url="./ViewRoom"/>
 </body>
 </html>

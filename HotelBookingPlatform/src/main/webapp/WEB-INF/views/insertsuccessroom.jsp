@@ -9,6 +9,6 @@
 </head>
 <body>
 <h1>Successfully Inserted Room!</h1>
-<c:redirect url="./RoomView"/>
+<c:redirect url="./ViewRoom"/>
 </body>
 </html>

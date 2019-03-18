@@ -11,7 +11,7 @@ public interface RoomService {
 	
 	public boolean removeRoom(Integer rTypeID) throws SQLException;
 	
-	public Roomtype findRoom(Integer rTypeID) throws SQLException;
+	public Roomtype findRoom(Integer rTypeID,Integer hid) throws SQLException;
 	
 	public ResultSet viewAllRooms() throws SQLException;
 	

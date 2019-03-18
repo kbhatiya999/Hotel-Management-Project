@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import com.survival.entities.Hotel;
 import com.survival.entities.Package;
 
 import org.apache.jasper.tagplugins.jstl.core.Catch;
@@ -37,10 +39,27 @@ public class PackageDaoImpl implements PackageDao {
 
 	@Override
 	public Package getRecord(int packageID) throws ClassNotFoundException,SQLException {
-		conn=DbConnectionHelper.getConnection();
-		Statement state = conn.createStatement();
-		ResultSet rSet = state.executeQuery("SELECT * FROM PACKAGE WHERE PID="+packageID);
-		return new Package(rSet.getInt("PID"),rSet.getString("PNAME") , rSet.getInt("HID"), rSet.getInt("PPRICE"),rSet.getString("PDESCRIPTION"),rSet.getInt("PTYPE"),rSet.getString("PLOCATION"), rSet.getInt("PNUMDAYS"), rSet.getInt("RID"));
+
+		PreparedStatement pstate = conn.prepareStatement("SELECT * FROM PACKAGE WHERE PID=?");
+		
+		pstate.setInt(1, packageID);
+		ResultSet rSet = pstate.executeQuery();
+		Package p=new Package();
+			rSet.next();
+			p.setPid(rSet.getInt("PID"));
+			p.setPname(rSet.getString("PNAME"));
+			p.setHid( rSet.getInt("HID"));
+			p.setPrice( rSet.getInt("PRICE"));
+			p.setDescription(rSet.getString("DESCRIPTION"));
+			p.setPackagetype(rSet.getInt("PACKAGETYPE"));
+			p.setCity(	rSet.getString("CITY"));
+			p.setNoofdays( rSet.getInt("NOOFDAYS"));
+			p.setRtypeid(rSet.getInt("RTYPEID"));
+			
+		return p;
+	
+	
+	
 	}
 
 	@Override

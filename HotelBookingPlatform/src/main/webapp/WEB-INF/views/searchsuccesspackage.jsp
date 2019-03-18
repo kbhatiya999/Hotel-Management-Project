@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<h1>Hotel Records</h1>
+<h1>Successfully searched</h1>
 <table>
 		<tr>
 			<th>ID</th>
@@ -59,14 +59,6 @@
 		
 		
 	</table>
-<h3>Update Package Details</h3>
-<form:form action="./UpdatePackageResult" method="post">
-		Package Id:<form:input path="pid"/>    Name:<form:input path="pname"/>               Hotel Id:<form:input path="hid"/>              Price:<form:input path="price"/>               <br> 
-		Description:<form:input path="description"/>	Package Type:<form:input path="packagetype"/>               City:<form:input path="city"/>               No. of Days:<form:input path="noofdays"/><br>
-		Room Type ID:<form:input path="rtypeid"/>
-	    
-<input type="submit" name= "operations" value="Submit">
-	</form:form>
 
 </body>
 </html>

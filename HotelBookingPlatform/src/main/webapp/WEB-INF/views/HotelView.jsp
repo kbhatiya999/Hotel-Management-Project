@@ -37,8 +37,7 @@
 	</form:form>
 
 <h3>Add rooms</h3>
-<form action="./RoomManagement" method="post">
-		Input  Hotel Id:<br><input  name="hid"/><br>
+<form action="./ViewRoom" method="post">
 <input type="submit" name= "operations" value="Submit">
 	</form>
 

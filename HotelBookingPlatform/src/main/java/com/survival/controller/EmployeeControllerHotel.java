@@ -151,13 +151,7 @@ public class EmployeeControllerHotel {
 			if(hService.findHotel(hotel.getHid())!=null)
 			{
 				modelAndView.addObject("msg",hService.findHotel(hotel.getHid()));
-<<<<<<< HEAD
 				modelAndView.setViewName("searchsuccesshotel");		}
-=======
-				modelAndView.setViewName("searchsuccesshotel");
-				modelAndView.setViewName("SearchHotelResult");
-			}
->>>>>>> 71fbdd42037803d64715a1e074391e84708d2afd
 			else
 			{
 				modelAndView.setViewName("failure");

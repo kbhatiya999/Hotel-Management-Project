@@ -18,7 +18,7 @@
 		Add Room Type:<form:input path="type"/><br>
 		Add Total Number of Rooms:<form:input path="totalnoofrooms"/>
 		Add Room Price:<form:input path="price"/>
-		Hotel ID:<% out.println(request.getAttribute("hid")); %><br>
+		Hotel ID:<form:input path="hid"/><br>
     <input type="submit" name= "operations" value="Submit">
 </form:form>
 
@@ -29,14 +29,7 @@
 <input type="submit" name= "operations" value="Submit">
 	</form:form>
 
-<h3>Search Hotel Record</h3>
-<form:form action="./SearchRoomResult" method="post">
-		Input  Room Id:<br><form:input path="rtypeid"/><br>
-<input type="submit" name= "operations" value="Submit">
-	</form:form>
-
-
-<h1>Room Records</h1>
+<h1>Rooms Records</h1>
 
 <table>
 		<tr>
@@ -73,7 +66,7 @@
 			out.print("</tr>");
 		}
 		%>
-	</table>	
+	</table>
 
 </body>
 </html>

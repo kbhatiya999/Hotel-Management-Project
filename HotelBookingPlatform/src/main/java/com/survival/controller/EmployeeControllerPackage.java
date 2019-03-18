@@ -20,9 +20,6 @@ public class EmployeeControllerPackage {
 
 	@Autowired
 	PackageServiceImpl pService;
-
-
-	
 	
 	@RequestMapping("/AddPackage")
 	public ModelAndView addPackage() {

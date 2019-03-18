@@ -50,19 +50,20 @@ private Connection conn;
 	}
 
 	@Override
-	public Roomtype searchRoom(Integer rtypeid) throws SQLException {
-PreparedStatement pstate = conn.prepareStatement("SELECT * FROM ROOMTYPE WHERE RTYPEID=?");
+	public Roomtype searchRoom(Integer rtypeid,Integer hid) throws SQLException {
+PreparedStatement pstate = conn.prepareStatement("SELECT * FROM ROOMTYPE WHERE RTYPEID=? AND HID=?");
 		
 		pstate.setInt(1, rtypeid);
+		pstate.setInt(2, hid);
 		ResultSet rSet = pstate.executeQuery();
 		Roomtype r=new Roomtype();
 			rSet.next();
-			
-			r.setHid(rSet.getInt("HID"));
-			r.setPrice(rSet.getInt("PRICE"));
 			r.setRtypeid(rSet.getInt("RTYPEID"));
-			r.setTotalnoofrooms(rSet.getInt("TOTALNOOFROOMS"));
 			r.setType(rSet.getString("TYPE"));
+			r.setTotalnoofrooms(rSet.getInt("TOTALNOOFROOMS"));
+			r.setPrice(rSet.getInt("PRICE"));
+			r.setHid(rSet.getInt("HID"));
+			
 			
 		return r;
 	}

@@ -22,13 +22,6 @@ public class EmployeeControllerRoom {
 	
 	
 	
-	@RequestMapping("/RoomManagement")
-	public ModelAndView roomDashboard() {
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("command",new Roomtype());
-		mv.setViewName("RoomView");
-		return mv;
-	}
 	
 	@RequestMapping("/AddRoom")
 	public ModelAndView addRoom() {
@@ -116,8 +109,6 @@ public class EmployeeControllerRoom {
 			}
 			
 		}
-		
-		
 		catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -126,38 +117,6 @@ public class EmployeeControllerRoom {
 	}
 //	
 	
-	
-	
-	@RequestMapping("/SearchRoom")
-	public ModelAndView searchRoom()
-	{
-		ModelAndView mv= new ModelAndView();
-		mv.addObject("command",new Roomtype());
-		mv.setViewName("RoomSearch");
-		return mv;
-	}
-	
-
-	@RequestMapping("/SearchRoomResult")
-	public ModelAndView searchResult(@ModelAttribute Roomtype room) {
-		
-		ModelAndView modelAndView =new ModelAndView();
-		try {
-			if( rService.findRoom(room.getRtypeid()) !=null)
-			{
-				modelAndView.addObject("msg",rService.findRoom(room.getRtypeid()) );
-				modelAndView.setViewName("searchsuccessroom");		}
-			else
-			{
-				modelAndView.setViewName("failure");
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return modelAndView;
-		
-	} 
 	
 	
 	@RequestMapping("/ViewRoom")

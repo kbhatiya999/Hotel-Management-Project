@@ -26,8 +26,8 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 	@Override
-	public Roomtype findRoom(Integer rTypeID) throws SQLException {
-		return rDao.searchRoom(rTypeID);
+	public Roomtype findRoom(Integer rTypeID,Integer hid) throws SQLException {
+		return rDao.searchRoom(rTypeID,hid);
 	}
 
 	@Override
