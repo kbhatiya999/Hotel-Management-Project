@@ -7,7 +7,11 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
+<<<<<<< HEAD
+		<config>src/main/webapp/WEB-INF/survival-servlet.xml</config>
+=======
 		<config>src/main/webapp/WEB-INF/springmvc-servlet.xml</config>
+>>>>>>> refs/remotes/origin/iterationOne
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

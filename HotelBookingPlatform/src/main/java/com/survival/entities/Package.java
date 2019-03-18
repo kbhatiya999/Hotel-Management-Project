@@ -1,3 +1,4 @@
+
 package com.survival.entities;
 
 public class Package {
@@ -89,3 +90,4 @@ public class Package {
 	
 	
 }
+

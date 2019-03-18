@@ -1,69 +1,32 @@
 package com.survival.persistence;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import com.survival.entities.Hotel;
 import com.survival.entities.Package;
 
 import org.apache.jasper.tagplugins.jstl.core.Catch;
-import org.springframework.stereotype.Repository;
 
 import com.survival.utils.DbConnectionHelper;
 
-@Repository
+
 public class PackageDaoImpl implements PackageDao {
 	
 	
-
-	private Connection conn;
-	
-	public PackageDaoImpl() {
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			this.conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "hr", "tiger");
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-		
-
-	}
-
+	Connection conn;
 	@Override
 	public Package getRecord(int packageID) throws ClassNotFoundException,SQLException {
-
-		PreparedStatement pstate = conn.prepareStatement("SELECT * FROM PACKAGE WHERE PID=?");
-		
-		pstate.setInt(1, packageID);
-		ResultSet rSet = pstate.executeQuery();
-		Package p=new Package();
-			rSet.next();
-			p.setPid(rSet.getInt("PID"));
-			p.setPname(rSet.getString("PNAME"));
-			p.setHid( rSet.getInt("HID"));
-			p.setPrice( rSet.getInt("PRICE"));
-			p.setDescription(rSet.getString("DESCRIPTION"));
-			p.setPackagetype(rSet.getInt("PACKAGETYPE"));
-			p.setCity(	rSet.getString("CITY"));
-			p.setNoofdays( rSet.getInt("NOOFDAYS"));
-			p.setRtypeid(rSet.getInt("RTYPEID"));
-			
-		return p;
-	
-	
-	
+		conn=DbConnectionHelper.getConnection();
+		Statement state = conn.createStatement();
+		ResultSet rSet = state.executeQuery("SELECT * FROM PACKAGE WHERE PID="+packageID);
+		return new Package(rSet.getInt("PID"),rSet.getString("PNAME") , rSet.getInt("HID"), rSet.getInt("PRICE"),rSet.getString("DESCRIPTION"),rSet.getInt("PACKAGETYPE"),rSet.getString("CITY"), rSet.getInt("NOOFDAYS"), rSet.getInt("RTYPEID"));
 	}
 
 	@Override
 	public boolean insertRecord(Package pack) throws ClassNotFoundException,SQLException {
+		conn=DbConnectionHelper.getConnection();
 		PreparedStatement pState = conn.prepareStatement("INSERT INTO PACKAGE VALUES (?,?,?,?,?,?,?,?,?)");
 		pState.setInt(1, pack.getPid());
 		pState.setString(2, pack.getPname());
@@ -79,21 +42,32 @@ public class PackageDaoImpl implements PackageDao {
 
 	@Override
 	public boolean deleteRecord(int pID) throws ClassNotFoundException,SQLException {
-		PreparedStatement pState = conn.prepareStatement("DELETE FROM PACKAGE WHERE pid=?");
+		conn=DbConnectionHelper.getConnection();
+		PreparedStatement pState = conn.prepareStatement("DELETE FROM PACKAGE WHERE PID=?");
 		pState.setInt(1, pID);
 		return pState.executeUpdate() > 0;
 	}
 
 	@Override
 	public ResultSet getAllRecord(String location) throws ClassNotFoundException,SQLException {
-		Statement state = conn.createStatement();
-		return state.executeQuery("SELECT * FROM PACKAGES WHERE PLOCATION="+location);
+		conn=DbConnectionHelper.getConnection();
+		PreparedStatement pState = conn.prepareStatement("SELECT * FROM PACKAGE WHERE CITY=?");
+		pState.setString(1, location);
+		return pState.executeQuery();
 	}
 
 	@Override
 	public ResultSet getAllRecord() throws ClassNotFoundException, SQLException {
+		conn=DbConnectionHelper.getConnection();
 		Statement state = conn.createStatement();
 		return state.executeQuery("SELECT * FROM PACKAGE");
+	}
+	
+	@Override
+	public ResultSet getAllRecords(int ptype) throws ClassNotFoundException, SQLException {
+		conn=DbConnectionHelper.getConnection();
+		Statement state=conn.createStatement();
+		return state.executeQuery("SELECT * FROM PACKAGE WHERE PACKAGETYPE="+ptype);
 	}
 
 }
