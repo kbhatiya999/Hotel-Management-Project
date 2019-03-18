@@ -26,13 +26,13 @@
 
 <h3>Delete Hotel Record</h3>
 <form:form action="./DeleteHotelResult" method="post">
-		Add  Hotel Id:<br><form:input path="hid"/><br>
+		Input  Hotel Id:<br><form:input path="hid"/><br>
 <input type="submit" name= "operations" value="Submit">
 	</form:form>
 
 <h3>Search Hotel Record</h3>
 <form:form action="./SearchHotelResult" method="post">
-		Add  Hotel Id:<br><form:input path="hid"/><br>
+		Input  Hotel Id:<br><form:input path="hid"/><br>
 <input type="submit" name= "operations" value="Submit">
 	</form:form>
 

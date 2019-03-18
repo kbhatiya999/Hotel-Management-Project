@@ -111,7 +111,7 @@ public class EmployeeControllerHotel {
 		try {
 			if(hService.findHotel(hotel.getHid())!=null)
 			{
-				modelAndView.setViewName("searchsuccesshotel");
+				modelAndView.setViewName("SearchHotelResult");
 			}
 			else
 			{
