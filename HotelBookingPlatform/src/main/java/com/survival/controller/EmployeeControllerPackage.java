@@ -37,11 +37,11 @@ public class EmployeeControllerPackage {
 		try {
 			if(pService.insertPackage(pack))
 			{
-				modelAndView.setViewName("insertsuccess");
+				modelAndView.setViewName("insertsuccesspackage");
 			}
 			else
 			{
-				modelAndView.setViewName("failure");
+				modelAndView.setViewName("failurepackage");
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -68,11 +68,11 @@ public class EmployeeControllerPackage {
 		try {
 			if(pService.deletePackage(pack.getPid()))
 			{
-				modelAndView.setViewName("deletesuccess");
+				modelAndView.setViewName("deletesuccesspackage");
 			}
 			else
 			{
-				modelAndView.setViewName("failure");
+				modelAndView.setViewName("failurepackage");
 }
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -104,7 +104,7 @@ public class EmployeeControllerPackage {
 			}
 			else
 			{
-				modelAndView.setViewName("failure");
+				modelAndView.setViewName("failurepackage");
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block

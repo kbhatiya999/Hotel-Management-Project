@@ -13,6 +13,7 @@ public class Hotel {
 	private Integer discount;
 	private Integer nooffeedback;
 	
+	
 	public Hotel() {
 		// TODO Auto-generated constructor stub
 	}

@@ -59,8 +59,14 @@ public class HotelDaoImpl implements HotelDao {
 		
 		pstate.setInt(1, hid);
 		ResultSet rSet = pstate.executeQuery();
+		
 		Hotel h=new Hotel();
-			rSet.next();
+		if(!rSet.next())
+		{
+			return null;
+		}
+			
+			
 			h.setAddress(rSet.getString("ADDRESS"));
 			h.setCity(rSet.getString("CITY"));
 			h.setDiscount(rSet.getInt("DISCOUNT"));
@@ -69,7 +75,6 @@ public class HotelDaoImpl implements HotelDao {
 			h.setHotelrating(rSet.getDouble("HOTELRATING"));
 			h.setNooffeedback(rSet.getInt("NOOFFEEDBACK"));
 			h.setTotalrooms(rSet.getInt("TOTALROOMS"));			
-		
 		return h;
 	}
 	@Override

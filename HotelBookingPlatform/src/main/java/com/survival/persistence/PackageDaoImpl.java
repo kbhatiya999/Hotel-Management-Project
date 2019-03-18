@@ -45,7 +45,10 @@ public class PackageDaoImpl implements PackageDao {
 		pstate.setInt(1, packageID);
 		ResultSet rSet = pstate.executeQuery();
 		Package p=new Package();
-			rSet.next();
+		if(!rSet.next())
+		{
+			return null;
+		};
 			p.setPid(rSet.getInt("PID"));
 			p.setPname(rSet.getString("PNAME"));
 			p.setHid( rSet.getInt("HID"));
