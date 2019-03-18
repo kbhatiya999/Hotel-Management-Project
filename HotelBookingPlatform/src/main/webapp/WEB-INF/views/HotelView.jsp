@@ -10,36 +10,66 @@
 <title>List Of Hotels</title>
 </head>
 <body>
-
+<table>
+<tr>
 <h3>Insert Hotel Record</h3>
 <form:form action="./AddHotelResult" method="post">
-		Add Hotel Id:<form:input path="hid"/>		Add Hotel Name:<form:input path="hname"/>
-		Add Total Rooms:<form:input path="totalrooms"/><br>
-		Add Discount:<form:input path="discount"/>
-		Add City:<form:input path="city"/>
-		Add Address:<form:input path="address"/><br>
-		Add Hotel Rating:<form:input path="hotelrating"/>
-		Add Hotel No of Ratings:<form:input path="nooffeedback"/><br>
+<td>
+		Hotel Id:<form:input path="hid"/>
+		</td>		<td>
+		Hotel Name:<form:input path="hname"/>
+		</td><td>
+		Total Rooms:<form:input path="totalrooms"/>
+		</td>
 		
+		<td>
+		Discount:<form:input path="discount"/>
+		</td></tr><tr>
+		<td>
+		City:<form:input path="city"/>
+		</td><td>
+		Address:<form:input path="address"/>
+		</td>
+		
+
+<td>
+		Hotel Rating:<form:input path="hotelrating"/>
+		</td><td>
+		Hotel No of Ratings:<form:input path="nooffeedback" />
+		</td>
+		</tr>
+
+<tr>
 <input type="submit" name= "operations" value="Submit">
 	</form:form>
-
+</table>
+<table>
+<tr>
 <h3>Delete Hotel Record</h3>
 <form:form action="./DeleteHotelResult" method="post">
 		Input  Hotel Id:<br><form:input path="hid"/><br>
 <input type="submit" name= "operations" value="Submit">
 	</form:form>
-
+	</table>
+</tr>
+<table>
+<tr>
 <h3>Search Hotel Record</h3>
 <form:form action="./SearchHotelResult" method="post">
 		Input  Hotel Id:<br><form:input path="hid"/><br>
 <input type="submit" name= "operations" value="Submit">
 	</form:form>
-
+</tr>
+</table>
+<table> 
+<tr>
 <h3>Add rooms</h3>
+
 <form action="./ViewRoom" method="post">
 <input type="submit" name= "operations" value="Submit">
 	</form>
+	</tr>
+	</table>
 
 
 <h1>Hotel Records</h1>
