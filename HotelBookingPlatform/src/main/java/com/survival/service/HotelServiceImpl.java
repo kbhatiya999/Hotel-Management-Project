@@ -15,7 +15,7 @@ import com.survival.persistence.HotelDaoImpl;
 public class HotelServiceImpl implements HotelService {
 
 	@Autowired
-	private HotelDao hd;
+	private HotelDaoImpl hd;
 	
 	
 	@Override

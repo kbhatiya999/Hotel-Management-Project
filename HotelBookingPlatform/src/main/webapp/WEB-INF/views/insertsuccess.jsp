@@ -9,7 +9,8 @@
 </head>
 <body>
 
-<c:redirect url="./ViewPackage"/>
+<h1>Successfully Inserted!</h1>
+
 <br>
 <pre>
 

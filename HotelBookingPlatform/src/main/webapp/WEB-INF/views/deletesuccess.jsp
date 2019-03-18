@@ -12,6 +12,5 @@
 </head>
 <body>
 <h1>Successfully Deleted</h1>
-<c:redirect url="./ViewPackage"/>
 </body>
 </html>

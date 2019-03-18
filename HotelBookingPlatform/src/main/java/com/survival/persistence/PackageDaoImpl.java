@@ -17,12 +17,13 @@ import com.survival.utils.DbConnectionHelper;
 public class PackageDaoImpl implements PackageDao {
 	
 	
-	
+
+	private Connection conn;
 	
 	public PackageDaoImpl() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "hr", "tiger");
+			this.conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "hr", "tiger");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,7 +35,6 @@ public class PackageDaoImpl implements PackageDao {
 
 	}
 
-	Connection conn;
 	@Override
 	public Package getRecord(int packageID) throws ClassNotFoundException,SQLException {
 		conn=DbConnectionHelper.getConnection();
