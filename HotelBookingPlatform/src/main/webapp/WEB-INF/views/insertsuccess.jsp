@@ -9,7 +9,6 @@
 </head>
 <body>
 
-<c:redirect url="./ViewPackage"/>
 <br>
 <pre>
 

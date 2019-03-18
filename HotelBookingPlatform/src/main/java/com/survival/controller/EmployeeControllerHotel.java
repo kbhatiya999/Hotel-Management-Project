@@ -49,7 +49,7 @@ public class EmployeeControllerHotel {
 		try {
 			if(hService.enterHotel(hotel))
 			{
-				modelAndView.setViewName("insertsuccesshotel");
+				modelAndView.setViewName("insertsuccess");
 			}
 			else
 			{
