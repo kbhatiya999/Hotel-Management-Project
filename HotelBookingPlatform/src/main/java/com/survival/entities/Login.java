@@ -3,7 +3,7 @@ package com.survival.entities;
 public class Login {
 
 	private Integer u_Id;
-	private Boolean isActive;
+	private Boolean is_active;
 	private String login_Role;
 	private String login_Id;
 	private String login_Password;
@@ -14,10 +14,10 @@ public class Login {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Login(Integer u_Id, Boolean isActive, String login_Role, String login_Id, String login_Password) {
+	public Login(Integer u_Id, Boolean is_active, String login_Role, String login_Id, String login_Password) {
 		super();
 		this.u_Id = u_Id;
-		this.isActive = isActive;
+		this.is_active = is_active;
 		this.login_Role = login_Role;
 		this.login_Id = login_Id;
 		this.login_Password = login_Password;
@@ -29,10 +29,10 @@ public class Login {
 		this.u_Id = u_Id;
 	}
 	public Boolean getIsActive() {
-		return isActive;
+		return is_active;
 	}
-	public void setIsActive(Boolean isActive) {
-		this.isActive = isActive;
+	public void setIs_active(Boolean isActive) {
+		this.is_active = isActive;
 	}
 	public String getLogin_Role() {
 		return login_Role;

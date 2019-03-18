@@ -7,7 +7,7 @@ public class Hotel {
 	private Integer hid;
 	private String city;
 	private String hname;
-	private Integer hotelrating;
+	private Double hotelrating;
 	private String address;
 	private Integer totalrooms;
 	private Integer discount;
@@ -17,7 +17,7 @@ public class Hotel {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Hotel(Integer hid, String city, String hname, Integer hotelrating, String address, Integer totalrooms,
+	public Hotel(Integer hid, String city, String hname, Double hotelrating, String address, Integer totalrooms,
 			Integer discount, Integer nooffeedback) {
 		super();
 		this.hid = hid;
@@ -47,10 +47,10 @@ public class Hotel {
 	public void setHname(String hname) {
 		this.hname = hname;
 	}
-	public Integer getHotelrating() {
+	public Double getHotelrating() {
 		return hotelrating;
 	}
-	public void setHotelrating(Integer hotelrating) {
+	public void setHotelrating(Double hotelrating) {
 		this.hotelrating = hotelrating;
 	}
 	public String getAddress() {
