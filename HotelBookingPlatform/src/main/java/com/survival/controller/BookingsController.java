@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.survival.entities.MyBookingsPojo;
@@ -42,12 +43,12 @@ public class BookingsController {
 	 * @throws SQLException
 	 */
 	@RequestMapping("/activeBookings")
-	public ModelAndView fi() throws ClassNotFoundException, SQLException
+	public ModelAndView fi(@RequestParam("uid") Integer uid) throws ClassNotFoundException, SQLException
 	{
 		ModelAndView mv=new ModelAndView();
 		ArrayList<MyBookingsPojo>myBookings=null;
 		
-		myBookings=myBookingsService.getmyActiveBookings(1);
+		myBookings=myBookingsService.getmyActiveBookings(uid);
 		
 		if(null!=myBookings && myBookings.isEmpty())
 		{
@@ -63,12 +64,12 @@ public class BookingsController {
 	}
 	
 	@RequestMapping("/inactiveBookings")
-	public ModelAndView fit() throws ClassNotFoundException, SQLException
+	public ModelAndView fit(@RequestParam("uid") Integer uid) throws ClassNotFoundException, SQLException
 	{
 		ModelAndView mv=new ModelAndView();
 		ArrayList<MyBookingsPojo>myBookings=null;
 		
-		myBookings=myBookingsService.getmyInactiveBookings(1);
+		myBookings=myBookingsService.getmyInactiveBookings(uid);
 		
 		if(myBookings.isEmpty())
 		{
@@ -94,12 +95,12 @@ public class BookingsController {
 		return mv;
 	}
 	
-	@RequestMapping("/cancel")
+/*	@RequestMapping("/cancelStart")
 	public ModelAndView fitdd() throws ClassNotFoundException, SQLException
 	{
 		ModelAndView mv=new ModelAndView();
 		
 		return mv;
-	}
+	}*/
 
 }

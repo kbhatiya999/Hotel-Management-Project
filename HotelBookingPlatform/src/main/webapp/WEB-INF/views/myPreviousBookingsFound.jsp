@@ -24,6 +24,8 @@
 		<td>RoomType   </td>
 		<td>Status      </td>
 		<td>TotalAmount</td>
+		<td>discount(%)      </td>
+		<td>AmountPayable      </td>
 	<tr>
 
 <% ArrayList<MyBookingsPojo> bookings=(ArrayList<MyBookingsPojo>)request.getAttribute("bookingsList");
@@ -39,6 +41,9 @@ for(MyBookingsPojo pojo:bookings){
 		<td><% out.println(pojo.getType()); %></td>
 		<td><% out.println(pojo.getStatus()); %></td>
 		<td><% out.println(pojo.getTotalPrice()); %></td>
+		<td><% out.println(pojo.getDiscount()); %></td>
+		<td><% out.println(pojo.getTotalPrice()-pojo.getTotalPrice()*pojo.getDiscount()/100); %></td>
+		
 		
 	  
 	<tr>

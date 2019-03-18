@@ -9,6 +9,6 @@
 <body>
 You are going to Cancel this Booking.<br>
 Please Note that you will be charged ${cancelValue}% of Bill Amount<br><br><br>
-<a href="./">Back</a>           <a href="./confirmcancel">Confirm</a>
+<a href="./activeBookings">Back</a>           <a href="./confirmcancel">Confirm</a>
 </body>
 </html>

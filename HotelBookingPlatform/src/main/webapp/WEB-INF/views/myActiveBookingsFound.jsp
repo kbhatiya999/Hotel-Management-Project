@@ -16,6 +16,7 @@
 
 <table style="border: 1px solid">
 	<tr>
+	    <td>Reservation id</td>
 	    <td>GusetName</td>
 		<td>HotelName</td>
 		<td>HotelCity   </td>
@@ -25,12 +26,15 @@
 		<td>RoomType   </td>
 		<td>Status      </td>
 		<td>TotalAmount</td>
+		<td>discount(%)      </td>
+		<td>AmountPayable      </td>
 	<tr>
 
 <% ArrayList<MyBookingsPojo> bookings=(ArrayList<MyBookingsPojo>)request.getAttribute("bookingsList");
 for(MyBookingsPojo pojo:bookings){
 %>
 <tr>
+        <td><% out.println(pojo.getReservationID()); %></td>
         <td><% out.println(pojo.getName()); %></td>
 		<td><% out.println(pojo.getHname()); %></td>
 		<td><% out.println(pojo.getCity()); %></td>
@@ -40,6 +44,10 @@ for(MyBookingsPojo pojo:bookings){
 		<td><% out.println(pojo.getType()); %></td>
 		<td><% out.println(pojo.getStatus()); %></td>
 		<td><% out.println(pojo.getTotalPrice()); %></td>
+		<td><% out.println(pojo.getDiscount()); %></td>
+		<td><% out.println(pojo.getTotalPrice()-pojo.getTotalPrice()*pojo.getDiscount()/100); %></td>
+		
+		
 		
 	  
 	<tr>
@@ -52,7 +60,7 @@ for(MyBookingsPojo pojo:bookings){
 		<input type="submit" value="modify bookings"/>		
 </form:form>
 
-<form:form action="./cancel" method="post">
+<form:form action="./cancelStart" method="post">
 		<input type="submit" value="cancel bookings"/>		
 </form:form>
 

@@ -19,7 +19,7 @@ public class CancellationController {
 	private int rreservationId;
 	private int chargeSlab;
 	
-	@RequestMapping("/")
+	@RequestMapping("/cancelStart")
  	public ModelAndView showCancelMenu(){
  		ModelAndView mv=new ModelAndView();
  	   mv.setViewName("cancelBooking");

@@ -10,7 +10,7 @@
 </head>
 <body>
  <form action="./cancel" method="post">
-Enter Booking Id : <input type="text" name="reservationId"><br>
+Enter Reservation Id : <input type="text" name="reservationId"><br>
 Enter User Id    : <input type="text" name="userId"><br><br> 
 <input type="submit" value="Submit" name="operation">
 </form>

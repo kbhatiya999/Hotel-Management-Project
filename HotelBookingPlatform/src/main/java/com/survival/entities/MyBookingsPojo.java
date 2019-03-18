@@ -20,14 +20,22 @@ public class MyBookingsPojo {
 	private Date checkoutdate;
 	private String name;
 	private Integer roomPrice;
+	private Integer discount;
+	private int totalPrice;
 	
+	public Integer getDiscount() {
+		return discount;
+	}
+	public void setDiscount(Integer discount) {
+		this.discount = discount;
+	}
 	public Integer getRoomPrice() {
 		return roomPrice;
 	}
 	public void setRoomPrice(Integer roomPrice) {
 		this.roomPrice = roomPrice;
 	}
-	private int totalPrice;
+	
 
 	
 	Reservation reservation=new Reservation();
@@ -114,8 +122,10 @@ public class MyBookingsPojo {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getTotalPrice() {
-		return noofrooms*roomPrice;
+	public Integer getTotalPrice() {
+		 int price=noofrooms*roomPrice;
+		 
+		 return price;
 	}
 	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
