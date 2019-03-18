@@ -10,8 +10,8 @@
 </head>
 <body>
 <form:form action="./cal1">
-Enter Rating (1-5) : <input type="text" name="tb1">
-Enter Feedback : <input type="text" name="tb2">
+Enter Rating (1-5) : <input type="text" name="tb1"><br><br>
+Enter Feedback : <textarea name="tb2" rows = "10" cols= "50"></textarea>
 
 <input type="submit" value="feedbackbutton">
 
