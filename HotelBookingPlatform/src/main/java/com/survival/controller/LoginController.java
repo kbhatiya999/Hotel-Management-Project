@@ -44,7 +44,7 @@ public ModelAndView login(@ModelAttribute Login login ) throws ClassNotFoundExce
    else
    {   
 	   mv.addObject("loginsearch","login allowed");
-       long uid=loginService.searchData(loginOb.getLogin_Id());
+       int uid=loginService.searchData(loginOb.getLogin_Id());
        mv.addObject("userid",uid);
 	   String role=loginOb.getLogin_Role();
 	   if(role.equalsIgnoreCase("ind") || role.equalsIgnoreCase("cor"))

@@ -12,6 +12,5 @@
 <a href="">Search </a><br><br>
 <a href="">Show My Bookings </a><br><br>
 <a href="">Cancel Booking </a>
-<h1>${userid}</h1>
 </body>
 </html>
