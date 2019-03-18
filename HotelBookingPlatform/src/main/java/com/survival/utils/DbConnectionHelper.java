@@ -10,7 +10,7 @@ public class DbConnectionHelper {
 
 	public static Connection getConnection()throws ClassNotFoundException,SQLException{
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection connection=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","scott","tiger");
+		Connection connection=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","hr","tiger");
 		return connection;
 	}
 }

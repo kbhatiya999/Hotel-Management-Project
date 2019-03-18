@@ -1,14 +1,19 @@
 package com.survival.entities;
 
 public class Roomtype {
-//	create table roomtype (rtypeid number(10) primary key,  type varchar(20), totalnoofrooms number(10), price number(5), 
-//			hid number(10), foreign key (hid) references hotel(hid));
+//	create table roomtype (rtypeid number(10) ,  type varchar(20), totalnoofrooms number(10), price number(5), 
+//			hid number(10),primary id(rtypeid, hid), foreign key (hid) references hotel(hid));
 
 	private Integer rtypeid;
 	private String type;
 	private Integer totalnoofrooms;
 	private Integer price;
 	private Integer hid;
+	
+	public Roomtype() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Roomtype(Integer rtypeid, String type, Integer totalnoofrooms, Integer price, Integer hid) {
 		super();
 		this.rtypeid = rtypeid;

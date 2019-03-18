@@ -11,12 +11,13 @@ public class Package {
 	private Integer price;
 	private String description;
 	private Integer packagetype;
-	public Package() {
-		super();
-	}
 	private String city;
 	private Integer noofdays;
 	private Integer rtypeid;
+	
+	public Package() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public Package(Integer pid, String pname, Integer hid, Integer price, String description, Integer packagetype,
 			String city, Integer noofdays, Integer rtypeid) {
