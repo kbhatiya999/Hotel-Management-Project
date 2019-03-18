@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<h1>Successfully Inserted!</h1>
+
 <br>
 <pre>
 
