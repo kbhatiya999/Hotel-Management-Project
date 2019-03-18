@@ -79,6 +79,7 @@ public class EmployeeControllerHotel {
 	public ModelAndView deleteResult(@ModelAttribute Hotel hotel) {
 		
 		ModelAndView modelAndView =new ModelAndView();
+	
 		try {
 			if(hService.removeHotel(hotel.getHid()))
 			{
@@ -95,7 +96,42 @@ public class EmployeeControllerHotel {
 		return modelAndView;
 		
 	} 
-
+	
+//	@RequestMapping("/UpdateHotel")
+//	public ModelAndView updateHotel() {
+//		ModelAndView mv = new ModelAndView();
+//		mv.addObject("command", new Hotel());
+//		mv.setViewName("HotelUpdate");
+//		return mv;
+//	}
+//
+	@RequestMapping("/UpdateHotelResult")
+	public ModelAndView updateResult(@ModelAttribute Hotel hotel) {
+		
+		ModelAndView modelAndView =new ModelAndView();
+		try {
+			if(hService.enterHotel(hotel))
+			{
+				modelAndView.setViewName("insertsuccess");
+			}
+			else
+			{
+				modelAndView.setViewName("failure");
+			}
+			
+		}
+		
+		
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return modelAndView;
+	}
+//	
+	
+	
+	
 	@RequestMapping("/SearchHotel")
 	public ModelAndView searchHotel()
 	{
@@ -113,12 +149,8 @@ public class EmployeeControllerHotel {
 		try {
 			if(hService.findHotel(hotel.getHid())!=null)
 			{
-<<<<<<< HEAD
 				modelAndView.addObject("msg",hService.findHotel(hotel.getHid()));
 				modelAndView.setViewName("searchsuccesshotel");
-=======
-				modelAndView.setViewName("SearchHotelResult");
->>>>>>> 78bb2aa8420fcf9b4ae7b51af3863bdd3c7bf4ea
 			}
 			else
 			{

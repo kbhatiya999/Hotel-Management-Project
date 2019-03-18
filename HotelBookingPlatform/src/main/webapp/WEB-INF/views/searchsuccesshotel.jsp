@@ -12,7 +12,6 @@
 </head>
 <body>
 
-
 <h1>Hotel Records</h1>
 <table>
 		<tr>
@@ -47,6 +46,7 @@
 		}
 		%>
 	</table>
-	
+
+
 </body>
 </html>
