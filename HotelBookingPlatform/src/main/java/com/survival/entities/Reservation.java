@@ -2,7 +2,7 @@ package com.survival.entities;
 import java.time.LocalDate;
 
 public class Reservation {
-//	create table Reservation (reservationId number(10) primary key, rtypeid number(10), u_Id number(10), hid number(10), pid number(10), 
+//	create table Reservation (reservationID number(10) primary key, rtypeid number(10), u_Id number(10), hid number(10), pid number(10), 
 //			status varchar(10), checkindate date, noofrooms number(2), dealtype number(1), checkoutdate date,
 //			foreign key (hid) references hotel(hid), foreign key (rtypeid) references roomtype(rtypeid), 
 //			foreign key (u_Id) references userdb1(u_Id), foreign key (pid) references package(pid) );
@@ -21,6 +21,7 @@ public class Reservation {
 	public Reservation() {
 		// TODO Auto-generated constructor stub
 	}
+	
 	public Reservation(Integer reservationID, Integer rtypeid, Integer u_Id, Integer hid, Integer pid, String status,
 			LocalDate checkindate, Integer noofrooms, Integer dealtype, LocalDate checkoutdate) {
 		super();

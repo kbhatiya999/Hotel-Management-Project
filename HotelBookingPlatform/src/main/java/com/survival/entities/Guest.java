@@ -15,6 +15,7 @@ public class Guest {
 	public Guest() {
 		// TODO Auto-generated constructor stub
 	}
+	
 	public Guest(Integer gid, String name, Integer phone, String email, Integer reservationid, String modeofpayment,
 			Boolean is_active) {
 		super();
