@@ -1,5 +1,7 @@
 package com.survival.mixedEntities;
 
+import java.time.LocalDate;
+
 public class ReservationGuest {
 
 	private Integer reservationID;
@@ -8,10 +10,10 @@ public class ReservationGuest {
 	private Integer hid;	
 	private Integer pid;
 	private String status;
-	private String checkindate;
+	private LocalDate checkindate;
 	private Integer noofrooms;
-	private String dealtype;
-	private String checkoutdate;
+	private Integer dealtype;
+	private LocalDate checkoutdate;
 	private Integer gid;
 	private String name;
 	private Integer phone;
@@ -27,7 +29,7 @@ public class ReservationGuest {
 	private String outYear;
 	
 	public ReservationGuest(Integer reservationID, Integer rtypeid, Integer u_Id, Integer hid, Integer pid,
-			String status, String checkindate, Integer noofrooms, String dealtype, String checkoutdate, Integer gid,
+			String status, LocalDate checkindate, Integer noofrooms, Integer dealtype, LocalDate checkoutdate, Integer gid,
 			String name, Integer phone, String email, String modeofpayment, Boolean is_active, String inDay,
 			String inMonth, String inYear, String outDay, String outMonth, String outYear) {
 		super();
@@ -96,7 +98,7 @@ public class ReservationGuest {
 		return status;
 	}
 
-	public String getCheckindate() {
+	public LocalDate getCheckindate() {
 		return checkindate;
 	}
 
@@ -104,11 +106,11 @@ public class ReservationGuest {
 		return noofrooms;
 	}
 
-	public String getDealtype() {
+	public Integer getDealtype() {
 		return dealtype;
 	}
 
-	public String getCheckoutdate() {
+	public LocalDate getCheckoutdate() {
 		return checkoutdate;
 	}
 
@@ -185,19 +187,34 @@ public class ReservationGuest {
 	}
 
 	public void setCheckindate() {
-		this.checkindate = inDay+"/"+inMonth+"/"+inYear;
+		int y=Integer.parseInt(this.getInYear());
+		int m=Integer.parseInt(this.getInMonth());
+		int d=Integer.parseInt(this.getInDay());
+		
+		LocalDate dt =  LocalDate.of(y,m,d);
+		
+		this.checkindate=dt;
+		
+		
 	}
 
 	public void setNoofrooms(Integer noofrooms) {
 		this.noofrooms = noofrooms;
 	}
 
-	public void setDealtype(String dealtype) {
+	public void setDealtype(Integer dealtype) {
 		this.dealtype = dealtype;
 	}
 
-	public void setCheckoutdate() {
-		this.checkoutdate = outDay+"/"+outMonth+"/"+outYear;;
+	public void setCheckoutdate( ) {
+		 
+		int y=Integer.parseInt(this.getOutYear());
+		int m=Integer.parseInt(this.getOutMonth());
+		int d=Integer.parseInt(this.getOutDay());
+		
+		LocalDate dt =  LocalDate.of(y,m,d);
+		
+		this.checkoutdate=dt;
 	}
 
 	public void setGid(Integer gid) {
@@ -246,6 +263,15 @@ public class ReservationGuest {
 
 	public void setOutYear(String outYear) {
 		this.outYear = outYear;
+	}
+	
+	public static void main(String args) {
+			ReservationGuest rg=new ReservationGuest();
+			rg.setInDay("03");
+			rg.setInMonth("12");
+			rg.setInYear("2019");
+			rg.setCheckindate();
+			System.out.println(rg.getCheckindate());
 	}
 
 }

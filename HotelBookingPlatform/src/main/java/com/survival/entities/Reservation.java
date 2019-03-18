@@ -7,7 +7,7 @@ public class Reservation {
 //			foreign key (hid) references hotel(hid), foreign key (rtypeid) references roomtype(rtypeid), 
 //			foreign key (u_Id) references userdb1(u_Id), foreign key (pid) references package(pid) );
 
-	private Integer reservationID;
+	static private Integer reservationID=1;
 	private Integer rtypeid;
 	private Integer u_Id;
 	private Integer hid;
@@ -20,6 +20,7 @@ public class Reservation {
 	
 	public Reservation() {
 		// TODO Auto-generated constructor stub
+		reservationID++;
 	}
 	
 	public Reservation(Integer reservationID, Integer rtypeid, Integer u_Id, Integer hid, Integer pid, String status,

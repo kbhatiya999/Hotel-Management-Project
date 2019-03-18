@@ -5,9 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import org.springframework.stereotype.Repository;
+
 import com.survival.entities.Guest;
 import com.survival.utils.Queries;
 
+@Repository
 public class GuestDaoImpl implements GuestDao {
 	
 	

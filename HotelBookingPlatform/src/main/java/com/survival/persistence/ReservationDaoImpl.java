@@ -11,11 +11,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Repository;
+
 import com.survival.entities.Reservation;
 import com.survival.utils.Queries;
-
+@Repository
 public class ReservationDaoImpl implements ReservationDao {
 
+	
 	private Connection conn;
 	
 	
@@ -141,8 +144,10 @@ public class ReservationDaoImpl implements ReservationDao {
 		rs.next();
 		int totalrooms=rs.getInt("TOTALNOOFROOMS");
 		
-		if(totalrooms-booked>=reservation.getNoofrooms())return true;
-		else return false;
+		if(totalrooms-booked>=reservation.getNoofrooms())
+			return true;
+		else 
+			return false;
 		
 		
 	}

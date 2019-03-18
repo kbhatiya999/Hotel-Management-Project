@@ -148,10 +148,10 @@ Payment Mode :
 		
 		Package Details : 
 <select name="dealtype">
-				<option value="">PACKAGE</option>
-				<option value="01">Individual</option>
-				<option value="02">Package 1</option>
-				<option value="03">Package 2</option>
+				<option value=0>PACKAGE</option>
+				<option value=1>Individual</option>
+				<option value=2>Package 1</option>
+				<option value=3>Package 2</option>
 				
 		</select> <br></br> <input type="submit" value="BOOK">
 		

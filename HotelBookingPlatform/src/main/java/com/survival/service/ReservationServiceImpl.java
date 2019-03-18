@@ -2,12 +2,18 @@
 package com.survival.service;
 
 import java.sql.ResultSet;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.survival.entities.Reservation;
 import com.survival.persistence.ReservationDao;
 import com.survival.persistence.ReservationDaoImpl;
+
+@Service
 public class ReservationServiceImpl implements ReservationService {
 
 	/*public boolean insertReservation(Reservation reservation) throws SQLException;
@@ -18,7 +24,7 @@ public class ReservationServiceImpl implements ReservationService {
 	
 	public boolean updateReservation(String userEmail) throws SQLException;
 	*/
-	
+	@Autowired
 	ReservationDao rd;
 
 	public ReservationServiceImpl() {

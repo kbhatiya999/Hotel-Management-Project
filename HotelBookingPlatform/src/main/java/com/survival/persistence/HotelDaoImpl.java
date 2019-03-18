@@ -7,10 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.springframework.stereotype.Repository;
 
 import com.survival.entities.Hotel;
 import com.survival.utils.Queries;
 
+@Repository
 public class HotelDaoImpl implements HotelDao {
 
 	

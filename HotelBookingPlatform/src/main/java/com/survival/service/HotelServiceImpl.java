@@ -5,16 +5,21 @@ package com.survival.service;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.survival.entities.Hotel;
 import com.survival.persistence.HotelDao;
 import com.survival.persistence.HotelDaoImpl;
 
+@Service
 public class HotelServiceImpl implements HotelService {
-
-	private HotelDao hd;
+	
+	@Autowired
+	private HotelDaoImpl hd;
 	
 	public HotelServiceImpl() {
-		hd=new HotelDaoImpl();
+		
 	}
 	
 	@Override

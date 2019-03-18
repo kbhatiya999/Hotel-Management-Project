@@ -4,7 +4,7 @@ public class Guest {
 //	create table guest (gid number(10) primary key, name varchar(70), phone number(10), email varchar(35), reservationid number(10), 
 //			modeofpayment varchar(3), is_active Integer(1),foreign key (reservationid) references reservation(reservationid));
 
-	private Integer gid;
+	static private Integer gid=1;
 	private String name;
 	private Integer phone;
 	private String email;
@@ -14,6 +14,7 @@ public class Guest {
 	
 	public Guest() {
 		// TODO Auto-generated constructor stub
+		gid++;
 	}
 	
 	public Guest(Integer gid, String name, Integer phone, String email, Integer reservationid, String modeofpayment,
