@@ -10,13 +10,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.survival.entities.MyBookingsPojo;
 import com.survival.entities.Reservation;
+import com.survival.myBookingsService.MyBookingsService;
 import com.survival.persistence.MyBookingsDaoImpl;
 
 @Controller
 public class BookingsController {
 	
+	//@Autowired
+	//MyBookingsDaoImpl myBookingsDaoImpl;
+	
 	@Autowired
-	MyBookingsDaoImpl myBookingsDaoImpl;
+	MyBookingsService myBookingsService;
 	
 	
 	@RequestMapping("/")
@@ -43,7 +47,7 @@ public class BookingsController {
 		ModelAndView mv=new ModelAndView();
 		ArrayList<MyBookingsPojo>myBookings=null;
 		
-		myBookings=myBookingsDaoImpl.getmyActiveBookings(1);
+		myBookings=myBookingsService.getmyActiveBookings(1);
 		
 		if(null!=myBookings && myBookings.isEmpty())
 		{
@@ -64,7 +68,7 @@ public class BookingsController {
 		ModelAndView mv=new ModelAndView();
 		ArrayList<MyBookingsPojo>myBookings=null;
 		
-		myBookings=myBookingsDaoImpl.getmyInactiveBookings(1);
+		myBookings=myBookingsService.getmyInactiveBookings(1);
 		
 		if(myBookings.isEmpty())
 		{

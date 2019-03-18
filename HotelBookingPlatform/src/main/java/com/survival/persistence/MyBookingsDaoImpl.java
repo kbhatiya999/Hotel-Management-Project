@@ -24,7 +24,10 @@ public class MyBookingsDaoImpl implements MyBookingsDao {
 		Connection connection=DbConnectionHelper.getConnection();
 
 		//PreparedStatement preparedStatement=connection.prepareStatement("SELECT * FROM RESERVATION where U_ID=?");
-		PreparedStatement preparedStatement=connection.prepareStatement("select h.hname,h.city,rs.u_id,rs.hid,rs.pid,rs.status,rs.checkindate,rs.noofrooms,rs.checkoutdate,r.type,r.rtypeid,r.price,g.name from hotel h, reservation rs, roomtype r, guest g where rs.u_id=? and rs.hid=h.hid and g.reservationid=rs.reservationid and r.rtypeid=rs.rtypeid and rs.checkindate>(select sysdate from dual) order by rs.checkindate desc");
+		PreparedStatement preparedStatement=connection.prepareStatement("select h.hname,h.city,rs.u_id,rs.hid,rs.pid,"
+				+ "rs.status,rs.checkindate,rs.noofrooms,rs.checkoutdate,r.type,r.rtypeid,r.price,g.name from hotel h,"
+				+ " reservation rs, roomtype r, guest g where rs.u_id=? and rs.hid=h.hid and g.reservationid=rs.reservationid and status !='cancelled'"
+				+ "and r.rtypeid=rs.rtypeid and rs.checkoutdate>(select sysdate from dual) order by rs.checkindate desc " );
 		preparedStatement.setInt(1, userId);
 
 		ResultSet resultSet=preparedStatement.executeQuery();
@@ -77,7 +80,10 @@ public class MyBookingsDaoImpl implements MyBookingsDao {
 		Connection connection=DbConnectionHelper.getConnection();
 
 		//PreparedStatement preparedStatement=connection.prepareStatement("SELECT * FROM RESERVATION where U_ID=?");
-		PreparedStatement preparedStatement=connection.prepareStatement("select h.hname,h.city,rs.u_id,rs.hid,rs.pid,rs.status,rs.checkindate,rs.noofrooms,rs.checkoutdate,r.type,r.rtypeid,r.price,g.name from hotel h, reservation rs, roomtype r, guest g where rs.u_id=? and rs.hid=h.hid and g.reservationid=rs.reservationid and r.rtypeid=rs.rtypeid and rs.checkindate<(select sysdate from dual) order by rs.checkindate desc");
+		PreparedStatement preparedStatement=connection.prepareStatement("select h.hname,h.city,rs.u_id,rs.hid,rs.pid,rs.status,"
+				+ "rs.checkindate,rs.noofrooms,rs.checkoutdate,r.type,r.rtypeid,r.price,g.name from hotel h, reservation rs,"
+				+ " roomtype r, guest g where rs.u_id=? and rs.hid=h.hid and g.reservationid=rs.reservationid and "
+				+ "r.rtypeid=rs.rtypeid and (rs.checkoutdate<(select sysdate from dual) or ( rs.checkindate>(select sysdate from dual) and status like 'cancelled')  ) order by rs.checkindate desc");
 		preparedStatement.setInt(1, userId);
 
 		ResultSet resultSet=preparedStatement.executeQuery();
