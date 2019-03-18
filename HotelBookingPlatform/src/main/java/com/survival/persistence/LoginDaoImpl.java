@@ -40,12 +40,12 @@ public class LoginDaoImpl implements LoginDao{
 	}
 
 @Override
-public long searchu_Id(String login_Id) throws ClassNotFoundException, SQLException {
+public int searchu_Id(String login_Id) throws ClassNotFoundException, SQLException {
 Connection connection=DbConnectionHelper.getConnection();
 PreparedStatement preparedStatement=connection.prepareStatement("SELECT U_ID FROM LOGIN WHERE LOGIN_ID=? ");
 preparedStatement.setString(1,login_Id);
 ResultSet resultSet=preparedStatement.executeQuery();
-long userId=0;
+int userId=0;
 if(resultSet.next())
 {	
 userId=resultSet.getInt("U_ID");

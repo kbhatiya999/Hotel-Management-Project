@@ -6,5 +6,5 @@ import com.survival.entities.Login;
 
 public interface LoginDao {
 public Login searchRecord(String username,String password) throws ClassNotFoundException,SQLException;
-public long searchu_Id(String login_Id) throws ClassNotFoundException ,SQLException;
+public int searchu_Id(String login_Id) throws ClassNotFoundException ,SQLException;
 }

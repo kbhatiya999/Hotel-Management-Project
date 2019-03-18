@@ -21,8 +21,8 @@ private LoginDao loginDao;
 	}
 
 	@Override
-	public long searchData(String username) throws ClassNotFoundException, SQLException {
-		long userid;
+	public int searchData(String username) throws ClassNotFoundException, SQLException {
+		int userid;
 		userid=loginDao.searchu_Id(username);
 		return userid;
 	}
