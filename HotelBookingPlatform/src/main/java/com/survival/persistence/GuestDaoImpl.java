@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.survival.entities.Guest;
+import com.survival.utils.Queries;
 
 public class GuestDaoImpl implements GuestDao {
 	
@@ -30,7 +31,7 @@ public class GuestDaoImpl implements GuestDao {
 	@Override
 	public boolean insertGuest(Guest guest) throws SQLException {
 		// TODO Auto-generated method stub
-		PreparedStatement pState = conn.prepareStatement("INSERT INTO GUEST VALUES (?,?,?,?,?,?,?)");
+		PreparedStatement pState = conn.prepareStatement(Queries.ADD_GUEST);
 //		create table guest (gid number(10) primary key, name varchar(70), phone number(10), email varchar(35), reservationid number(10), 
 //				modeofpayment varchar(3), is_active Integer(1),foreign key (reservationid) references reservation(reservationid));
 		

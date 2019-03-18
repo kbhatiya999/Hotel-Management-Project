@@ -13,4 +13,5 @@ public class Queries {
 	public static String DELETE_HOTEL = "DELETE FROM HOTEL WHERE HID=?";
 	public static String SEARCH_HOTEL = "SELECT * FROM HOTEL WHERE HID=?";
 	public static String GET_ALL_HOTEL = "SELECT * FROM HOTEL";
+	public static String ADD_GUEST="INSERT INTO GUEST VALUES (?,?,?,?,?,?,?)";
 }
