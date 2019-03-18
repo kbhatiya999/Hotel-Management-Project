@@ -12,6 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.survival.entities.Reservation;
+import com.survival.utils.Queries;
 
 public class ReservationDaoImpl implements ReservationDao {
 
@@ -38,7 +39,7 @@ public class ReservationDaoImpl implements ReservationDao {
 	
 	@Override
 	public boolean insertReservation(Reservation reservation)throws SQLException {
-		PreparedStatement pState = conn.prepareStatement("INSERT INTO RESERVATIONS VALUES (?,?,?,?,?,?,?,?,?,?)");
+		PreparedStatement pState = conn.prepareStatement(Queries.ADD_RESERVATION);
 		pState.setInt(1, reservation.getReservationID());
 		pState.setInt(2, reservation.getRtypeid());
 		pState.setInt(3, reservation.getU_Id());
@@ -62,12 +63,12 @@ public class ReservationDaoImpl implements ReservationDao {
 	@Override
 	public ResultSet getAllReservations() throws SQLException {
 		Statement state = conn.createStatement();
-		return state.executeQuery("SELECT * FROM RESERVATIONS");
+		return state.executeQuery(Queries.GET_ALL_RESERVATION);
 	}
 
 	@Override
 	public boolean updateReservation(int u_id) throws SQLException {
-		PreparedStatement pState = conn.prepareStatement("UPDATE RESERVATIONS SET STATUS=? WHERE U_ID=?");
+		PreparedStatement pState = conn.prepareStatement(Queries.UPDATE_RESERVATION);
 		pState.setString(1, "CANCELLED");
 		pState.setInt(2, u_id);
 		return pState.executeUpdate() > 0;	
@@ -77,7 +78,7 @@ public class ReservationDaoImpl implements ReservationDao {
 	@Override
 	public ArrayList<Reservation> searchAllReservation(int u_id) throws SQLException {
 		// TODO Auto-generated method stub
-		PreparedStatement ps= conn.prepareStatement("select * from reservations where u_id=?");
+		PreparedStatement ps= conn.prepareStatement(Queries.CHECK_RESERVATION);
 		ps.setInt(1, u_id);
 		ResultSet rSet = ps.executeQuery();
 		
@@ -105,7 +106,7 @@ public class ReservationDaoImpl implements ReservationDao {
 
 	@Override
 	public int noOfReservation(int u_id) throws SQLException {
-		PreparedStatement ps= conn.prepareStatement("select * from reservations where u_id=?");
+		PreparedStatement ps= conn.prepareStatement(Queries.CHECK_NUMEBR_OF_BOOKINGS);
 		ps.setInt(1, u_id);
 		ResultSet rSet = ps.executeQuery();
 		
@@ -122,7 +123,7 @@ public class ReservationDaoImpl implements ReservationDao {
 	@Override
 	public boolean checkAvailable(Reservation reservation) throws SQLException {
 		// TODO Auto-generated method stub
-		PreparedStatement ps= conn.prepareStatement("select count(*) from reservation where status='booked' and hid=? and rtypeid=? and checkindate>=? and checkoutdate<=?");
+		PreparedStatement ps= conn.prepareStatement(Queries.CHECK_ROOM_AVAILABILITY);
 		ps.setDate(3, Date.valueOf(reservation.getCheckindate()));
 		ps.setDate(4, Date.valueOf(reservation.getCheckoutdate()));
 		ps.setInt(2, reservation.getRtypeid());
@@ -132,7 +133,7 @@ public class ReservationDaoImpl implements ReservationDao {
 		rs.next();
 		int booked=rs.getInt("COUNT(*)");
 		
-		ps=conn.prepareStatement("SELECT TOTALNOOFROOMS FROM ROOMTYPE WHERE RTYPEID=? AND HID=?");
+		ps=conn.prepareStatement(Queries.TOTAL_ROOMS);
 		ps.setInt(1, reservation.getRtypeid());
 		ps.setInt(2, reservation.getHid());
 		
