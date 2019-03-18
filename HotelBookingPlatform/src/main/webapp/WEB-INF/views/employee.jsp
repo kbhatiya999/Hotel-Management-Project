@@ -11,6 +11,6 @@
 <a href=""> Checkout </a><br><br>
 <a href="">Modify Booking</a><br><br>
 <a href="">Booking Management</a>
-<h1>${userid}</h1>
+
 </body>
 </html>

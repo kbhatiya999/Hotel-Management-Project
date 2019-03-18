@@ -16,7 +16,7 @@ Password: <br>
 <input type="submit" value="login"><br></br> 
 
 </form:form>
-<form action="">
+<form action="./registration">
 <h2>New User?</h2>
 <input type="submit" value="Sign Up"> 
 

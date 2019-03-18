@@ -11,6 +11,7 @@ import org.apache.jasper.tagplugins.jstl.core.Catch;
 
 import com.survival.utils.DbConnectionHelper;
 
+
 public class PackageDaoImpl implements PackageDao {
 	
 	
@@ -36,8 +37,6 @@ public class PackageDaoImpl implements PackageDao {
 		pState.setString(7, pack.getCity());
 		pState.setInt(8, pack.getNoofdays());
 		pState.setInt(9, pack.getRtypeid());
-		
-		
 		return pState.executeUpdate() > 0;
 	}
 
@@ -57,6 +56,13 @@ public class PackageDaoImpl implements PackageDao {
 		return pState.executeQuery();
 	}
 
+	@Override
+	public ResultSet getAllRecord() throws ClassNotFoundException, SQLException {
+		conn=DbConnectionHelper.getConnection();
+		Statement state = conn.createStatement();
+		return state.executeQuery("SELECT * FROM PACKAGE");
+	}
+	
 	@Override
 	public ResultSet getAllRecords(int ptype) throws ClassNotFoundException, SQLException {
 		conn=DbConnectionHelper.getConnection();
