@@ -15,6 +15,12 @@ public class Package {
 	private Integer noofdays;
 	private Integer rtypeid;
 	
+	
+	public Package() {
+		super();
+	}
+	
+	
 	public Package(Integer pid, String pname, Integer hid, Integer price, String description, Integer packagetype,
 			String city, Integer noofdays, Integer rtypeid) {
 		super();

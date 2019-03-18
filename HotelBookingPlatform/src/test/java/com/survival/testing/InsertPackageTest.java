@@ -1,4 +1,4 @@
-package com.survival.packagetest;
+package com.survival.testing;
 
 import static org.junit.Assert.*;
 
@@ -24,20 +24,20 @@ public class InsertPackageTest {
 
 	@Test
 	public void testInsertPackage() {
-		Package pack=new Package(3, "Teuron Hotel", 1, 2000, "Enjoy the wonder of pune", 1, "Pune", 10, 1);
+		Package pack=new Package(7, "Peuron Hotel", 1, 2000, "Enjoy the wonder of pune", 1, "Pune", 10, 1);
 		try {
-		assertEquals("Insert Error", false, packageServiceImpl.insertPackage(pack));
+		assertEquals("Insert Error", true, packageServiceImpl.insertPackage(pack));
 		}catch (Exception e) {
-			
+			System.out.println(e);
 		}
 	}
 //	@Test
 //	public void testInsertPackage2() {
-//		Package pack=new Package(1, "Heuron Hotel", 1, 2000, "Enjoy the wonder of pune", 1, "Pune", 10, 1);
+//		Package pack=new Package(1, "eflon Hotel", 1, 2000, "Enjoy the wonder of pune", 1, "Delhi", 10, 1);
 //		try {
 //		assertEquals("Insert Error", true, packageServiceImpl.insertPackage(pack));
 //		}catch (Exception e) {
-//			
+//			System.out.println(e);
 //		}
 //	}
 }

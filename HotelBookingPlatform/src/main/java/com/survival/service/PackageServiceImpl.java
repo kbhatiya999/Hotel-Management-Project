@@ -24,10 +24,26 @@ public class PackageServiceImpl implements PackageService {
 		return packageDaoImpl.deleteRecord(pID);
 	}
 
-	@Override
-	public ResultSet getAllPackage(String location) throws ClassNotFoundException,SQLException {
-		return packageDaoImpl.getAllRecord(location);
-	}
+//	@Override
+//	public ResultSet getAllPackage(String param) throws ClassNotFoundException, SQLException {
+//		try {
+//			int num=Integer.parseInt(param);
+//			return packageDaoImpl.getAllRecords(num);
+//			
+//		}catch(NumberFormatException e) {
+//			return packageDaoImpl.getAllRecord(param);
+//		}
+//	}
 
+	@Override
+	public ResultSet getAllLocPackage(String location) throws ClassNotFoundException,SQLException {
+		return packageDaoImpl.getAllRecord(location);
+	}	
+		
+	@Override
+	public ResultSet getAllPackage(int ptype) throws ClassNotFoundException, SQLException {
+		return packageDaoImpl.getAllRecords(ptype);
+	}
+	
 
 }

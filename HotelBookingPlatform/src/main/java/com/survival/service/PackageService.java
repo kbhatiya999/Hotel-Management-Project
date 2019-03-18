@@ -9,6 +9,7 @@ public interface PackageService {
 	Package getPackage(int packageID) throws ClassNotFoundException,SQLException;
 	boolean insertPackage(Package pack) throws ClassNotFoundException, SQLException;
 	boolean deletePackage(int pID) throws ClassNotFoundException, SQLException;
-	ResultSet getAllPackage(String location) throws ClassNotFoundException, SQLException;
-
+	ResultSet getAllLocPackage(String location) throws ClassNotFoundException, SQLException;
+	ResultSet getAllPackage(int ptype) throws ClassNotFoundException, SQLException;
+//	ResultSet getAllPackage(String param) throws ClassNotFoundException,SQLException;
 }

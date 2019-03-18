@@ -1,4 +1,4 @@
-package com.survival.packagetest;
+package com.survival.testing;
 
 import static org.junit.Assert.*;
 

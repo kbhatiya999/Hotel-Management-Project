@@ -20,11 +20,12 @@ public class PackageDaoImpl implements PackageDao {
 		conn=DbConnectionHelper.getConnection();
 		Statement state = conn.createStatement();
 		ResultSet rSet = state.executeQuery("SELECT * FROM PACKAGE WHERE PID="+packageID);
-		return new Package(rSet.getInt("PID"),rSet.getString("PNAME") , rSet.getInt("HID"), rSet.getInt("PPRICE"),rSet.getString("PDESCRIPTION"),rSet.getInt("PTYPE"),rSet.getString("PLOCATION"), rSet.getInt("PNUMDAYS"), rSet.getInt("RID"));
+		return new Package(rSet.getInt("PID"),rSet.getString("PNAME") , rSet.getInt("HID"), rSet.getInt("PRICE"),rSet.getString("DESCRIPTION"),rSet.getInt("PACKAGETYPE"),rSet.getString("CITY"), rSet.getInt("NOOFDAYS"), rSet.getInt("RTYPEID"));
 	}
 
 	@Override
 	public boolean insertRecord(Package pack) throws ClassNotFoundException,SQLException {
+		conn=DbConnectionHelper.getConnection();
 		PreparedStatement pState = conn.prepareStatement("INSERT INTO PACKAGE VALUES (?,?,?,?,?,?,?,?,?)");
 		pState.setInt(1, pack.getPid());
 		pState.setString(2, pack.getPname());
@@ -42,6 +43,7 @@ public class PackageDaoImpl implements PackageDao {
 
 	@Override
 	public boolean deleteRecord(int pID) throws ClassNotFoundException,SQLException {
+		conn=DbConnectionHelper.getConnection();
 		PreparedStatement pState = conn.prepareStatement("DELETE FROM PACKAGE WHERE PID=?");
 		pState.setInt(1, pID);
 		return pState.executeUpdate() > 0;
@@ -49,8 +51,17 @@ public class PackageDaoImpl implements PackageDao {
 
 	@Override
 	public ResultSet getAllRecord(String location) throws ClassNotFoundException,SQLException {
-		Statement state = conn.createStatement();
-		return state.executeQuery("SELECT * FROM PACKAGES WHERE PLOCATION="+location);
+		conn=DbConnectionHelper.getConnection();
+		PreparedStatement pState = conn.prepareStatement("DELETE FROM PACKAGE WHERE CITY=?");
+		pState.setString(1, location);
+		return pState.executeQuery();
+	}
+
+	@Override
+	public ResultSet getAllRecords(int ptype) throws ClassNotFoundException, SQLException {
+		conn=DbConnectionHelper.getConnection();
+		Statement state=conn.createStatement();
+		return state.executeQuery("SELECT * FROM PACKAGE WHERE PACKAGETYPE="+ptype);
 	}
 
 }

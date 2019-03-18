@@ -10,5 +10,5 @@ public interface PackageDao {
 	boolean insertRecord(Package pack) throws ClassNotFoundException,SQLException;
 	boolean deleteRecord(int pID) throws ClassNotFoundException,SQLException;
 	ResultSet getAllRecord(String location) throws ClassNotFoundException,SQLException;
-
+	ResultSet getAllRecords(int ptype) throws ClassNotFoundException,SQLException;
 }

@@ -1,4 +1,4 @@
-package com.survival.packagetest;
+package com.survival.testing;
 
 import static org.junit.Assert.*;
 
@@ -24,18 +24,18 @@ public class DeletePackageTest {
 	@Test
 	public void testDeletePackage() {
 		try {
-		assertEquals("Delete Error", false, packageServiceImpl.deletePackage(1));
+		assertEquals("Delete Error", true, packageServiceImpl.deletePackage(7));
 		}catch (Exception e) {
 			
 		}
 	}
 	
-	@Test
-	public void testDeletePackage2() {
-		try {
-		assertEquals("Delete Error", false, packageServiceImpl.deletePackage(1));
-		}catch (Exception e) {
-			
-		}
-	}
+//	@Test
+//	public void testDeletePackage2() {
+//		try {
+//		assertEquals("Delete Error", false, packageServiceImpl.deletePackage(1));
+//		}catch (Exception e) {
+//			
+//		}
+//	}
 }
