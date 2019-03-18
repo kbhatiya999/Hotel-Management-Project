@@ -8,8 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-bye bye
-<p></p>
-${asdf}
+<h1>${asdf}</h1>
+<p></p><br><br>
+<center>
+<a href="./cout2"> Click to complete Checkout</a>
+</center>
 </body>
 </html>

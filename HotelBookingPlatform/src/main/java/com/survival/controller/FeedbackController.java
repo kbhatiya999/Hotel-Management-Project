@@ -19,10 +19,12 @@ public class FeedbackController {
 	
 	private int rating;
 	private String str;
+	private int hotelId;
+	private int reservationId;
 	@Autowired
 	 FeedbackService fbd;
 	
-	@RequestMapping("/")
+	@RequestMapping("/cal2")
 	public ModelAndView first(){
 		ModelAndView mv=new ModelAndView();
 		mv.addObject("command", new Feedback());
@@ -30,10 +32,13 @@ public class FeedbackController {
 		return mv;
 	}
 	
-	@RequestMapping("/cal1")
-	public ModelAndView second (@RequestParam("tb1") String b1, @RequestParam("tb2") String b2 ){
+	@RequestMapping("/validatefeedback")
+	public ModelAndView second (@RequestParam("tb1") String b1, @RequestParam("tb2") String b2 ,
+			@RequestParam("rId") Integer rId,@RequestParam("hId") Integer hId){
 		ModelAndView mv=new ModelAndView();
 		
+		hotelId = hId;
+		reservationId=rId;
 		rating=Integer.parseInt(b1);
 		if(rating<3 && b2.isEmpty()) {
 			mv.setViewName("bye");
@@ -41,10 +46,10 @@ public class FeedbackController {
 		else {
 			str=b2;
 			boolean fl=false,fl1=false;
-			Feedback fb = new Feedback(2,2,rating,str);
+			Feedback fb = new Feedback(rId,hId,rating,str);
 			try {
 				fl=fbd.insertFeedback(fb);
-				fl1=fbd.updateHotelRating(rating, 2);
+				fl1=fbd.updateHotelRating(rating, hId);
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -52,8 +57,10 @@ public class FeedbackController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if(fl && fl1)mv.addObject("asdf", str);
-			else mv.addObject("asdf", "Not Done");
+			if(fl && fl1)mv.addObject("asdf", "Feedback Submitted Successfully");
+			else if(b1.isEmpty()) mv.addObject("asdf", "We would have appreciated some suggestion!!!");
+			else
+				mv.addObject("asdf", "Could not submit feedback!!!");
 			mv.setViewName("byebye");
 		}
 		return mv;
@@ -64,12 +71,12 @@ public class FeedbackController {
 		ModelAndView mv=new ModelAndView();
 		str=b1;
 		
-		mv.setViewName("byebye");
+		
 		boolean fl=false,fl1=false;
-		Feedback fb = new Feedback(2,2,rating,str);
+		Feedback fb = new Feedback(reservationId ,hotelId,rating,str);
 		try {
 			fl=fbd.insertFeedback(fb);
-			fl1=fbd.updateHotelRating(rating, 2);
+			fl1=fbd.updateHotelRating(rating, hotelId);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -77,8 +84,11 @@ public class FeedbackController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(fl && fl1)mv.addObject("asdf", str);
-		else mv.addObject("asdf", "Not Done");
+		if(fl && fl1)mv.addObject("asdf", "Feedback Submitted Successfully");
+		else if(b1.isEmpty()) mv.addObject("asdf", "We would have appreciated some suggestion!!!");
+		else
+			mv.addObject("asdf", "Could not submit feedback!!!");
+		mv.setViewName("byebye");
 		return mv;
 	}
 	

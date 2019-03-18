@@ -8,9 +8,8 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Repository;
 
-import com.survival.dbutils.DatabaseUtils;
-import com.survival.dbutils.JDBCConnection;
 import com.survival.entities.Feedback;
+import com.survival.utils.JDBCConnection;
 
 
 @Repository

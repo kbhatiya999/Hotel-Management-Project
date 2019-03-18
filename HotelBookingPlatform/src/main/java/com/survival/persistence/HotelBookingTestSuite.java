@@ -12,9 +12,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.survival.dbutils.DatabaseUtils;
-import com.survival.dbutils.JDBCConnection;
 import com.survival.entities.Feedback;
+import com.survival.utils.JDBCConnection;
 
 public class HotelBookingTestSuite {
 

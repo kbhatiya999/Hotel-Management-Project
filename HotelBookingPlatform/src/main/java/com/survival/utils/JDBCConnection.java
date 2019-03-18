@@ -1,4 +1,4 @@
-package com.survival.dbutils;
+package com.survival.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
