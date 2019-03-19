@@ -56,7 +56,7 @@ public class EmployeeControllerHotel {
 			}
 			else
 			{
-				modelAndView.setViewName("failure");
+				modelAndView.setViewName("hotelfailure");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -88,7 +88,7 @@ public class EmployeeControllerHotel {
 			}
 			else
 			{
-				modelAndView.setViewName("failure");
+				modelAndView.setViewName("hotelfailure");
 }
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -117,7 +117,7 @@ public class EmployeeControllerHotel {
 			}
 			else
 			{
-				modelAndView.setViewName("failure");
+				modelAndView.setViewName("hotelfailure");
 			}
 			
 		}
@@ -154,7 +154,7 @@ public class EmployeeControllerHotel {
 				modelAndView.setViewName("searchsuccesshotel");		}
 			else
 			{
-				modelAndView.setViewName("failure");
+				modelAndView.setViewName("hotelfailure");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

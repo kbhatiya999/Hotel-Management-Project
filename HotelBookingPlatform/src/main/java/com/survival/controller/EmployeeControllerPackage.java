@@ -41,7 +41,7 @@ public class EmployeeControllerPackage {
 			}
 			else
 			{
-				modelAndView.setViewName("failure");
+				modelAndView.setViewName("packagefailure");
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -72,7 +72,7 @@ public class EmployeeControllerPackage {
 			}
 			else
 			{
-				modelAndView.setViewName("failure");
+				modelAndView.setViewName("packagefailure");
 }
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -104,7 +104,7 @@ public class EmployeeControllerPackage {
 			}
 			else
 			{
-				modelAndView.setViewName("failure");
+				modelAndView.setViewName("packagefailure");
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block

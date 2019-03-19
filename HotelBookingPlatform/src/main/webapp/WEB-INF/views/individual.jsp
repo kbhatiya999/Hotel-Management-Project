@@ -8,9 +8,14 @@
 </head>
 <body>
 <h1> Welcome,To Apna Hotel </h1>
+<table>
+<tr>
+<th><form action="./searchinput"><input type="submit" value="Search        "></form></th>
+<th><form action=""><input type="submit" value="My Bookings  "></form></th>
+<th><form action=""><input type="submit" value="Cancel Booking"></form></th>
+</tr>
+</table>
 
-<a href="">Search </a><br><br>
-<a href="">Show My Bookings </a><br><br>
-<a href="">Cancel Booking </a>
+<a href="./ContactUs">Contact Us</a>
 </body>
 </html>

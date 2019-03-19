@@ -8,9 +8,13 @@
 </head>
 <body>
 <h1> Welcome,To Apna Hotel </h1>
-<a href=""> Checkout </a><br><br>
-<a href="">Modify Booking</a><br><br>
-<a href="">Booking Management</a><br><br>
-<a href="./EmployeeDashboard">Hotels and Package Management</a>
+<table>
+<tr>
+<th><form action=""><input type="submit" value="Checkout                "></form></th>
+<th><form action=""><input type="submit" value="Modify Booking          "></form></th>
+<th><form action=""><input type="submit" value="Booking Management        "></form></th>
+<th><form action="./EmployeeDashboard"><input type="submit" value="Hotels and Package Management"></form></th>
+</tr>
+</table>
 </body>
 </html>

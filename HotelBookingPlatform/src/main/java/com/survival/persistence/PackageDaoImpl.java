@@ -21,6 +21,10 @@ public class PackageDaoImpl implements PackageDao {
 		conn=DbConnectionHelper.getConnection();
 		Statement state = conn.createStatement();
 		ResultSet rSet = state.executeQuery("SELECT * FROM PACKAGE WHERE PID="+packageID);
+		
+		
+		
+		
 		return new Package(rSet.getInt("PID"),rSet.getString("PNAME") , rSet.getInt("HID"), rSet.getInt("PRICE"),rSet.getString("DESCRIPTION"),rSet.getInt("PACKAGETYPE"),rSet.getString("CITY"), rSet.getInt("NOOFDAYS"), rSet.getInt("RTYPEID"));
 	}
 

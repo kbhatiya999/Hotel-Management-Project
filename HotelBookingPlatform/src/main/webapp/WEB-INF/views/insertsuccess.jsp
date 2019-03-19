@@ -11,6 +11,8 @@
 
 <h1>Successfully Inserted!</h1>
 
+<h1>Successfully Inserted Hotel!</h1>
+<c:redirect url="./ViewPackage"/>
 <br>
 <pre>
 

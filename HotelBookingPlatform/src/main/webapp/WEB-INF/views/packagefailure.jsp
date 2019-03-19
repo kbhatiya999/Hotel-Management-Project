@@ -1,5 +1,5 @@
 <%@page import="java.sql.ResultSet"%>
-<%@page import="java.util.ArrayList" import="com.survival.entities.Package"%>
+<%@page import="java.util.ArrayList" import="com.survival.entities.Hotel"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -11,9 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Successfully Deleted</h1>
-
-<h1>Successfully Inserted Hotel!</h1>
+<h1>UnSuccessfully Inserted Hotel!</h1>
 <c:redirect url="./ViewPackage"/>
 </body>
 </html>

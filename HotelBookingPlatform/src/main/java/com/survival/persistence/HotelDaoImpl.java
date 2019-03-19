@@ -21,7 +21,7 @@ public class HotelDaoImpl implements HotelDao {
 	public HotelDaoImpl() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			this.conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "hr", "tiger");
+			this.conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "scott", "tiger");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,7 +34,7 @@ public class HotelDaoImpl implements HotelDao {
 	}
 	@Override
 	public boolean insertHotel(Hotel hotel) throws SQLException {
-		PreparedStatement pState = conn.prepareStatement("INSERT INTO HOTEL VALUES (?,?,?,?,?,?,?,?)");
+		PreparedStatement pState = conn.prepareStatement("INSERT INTO HOTEL VALUES (?,?,?,?,?,?,?,?,?)");
 		pState.setInt(1, hotel.getHid());
 		pState.setString(2, hotel.getCity());
 		pState.setString(3, hotel.getHname());
@@ -43,6 +43,7 @@ public class HotelDaoImpl implements HotelDao {
 		pState.setInt(6, hotel.getTotalrooms());
 		pState.setDouble(7, hotel.getDiscount());
 		pState.setInt(8, hotel.getNooffeedback());
+		pState.setInt(9, hotel.getOccupiedrooms());
 		return pState.executeUpdate() > 0;
 	}
 
@@ -68,7 +69,8 @@ public class HotelDaoImpl implements HotelDao {
 			h.setHname(rSet.getString("HNAME"));
 			h.setHotelrating(rSet.getDouble("HOTELRATING"));
 			h.setNooffeedback(rSet.getInt("NOOFFEEDBACK"));
-			h.setTotalrooms(rSet.getInt("TOTALROOMS"));			
+			h.setTotalrooms(rSet.getInt("TOTALROOMS"));
+			h.setOccupiedrooms(rSet.getInt("OCCUPIEDROOMS"));
 		
 		return h;
 	}

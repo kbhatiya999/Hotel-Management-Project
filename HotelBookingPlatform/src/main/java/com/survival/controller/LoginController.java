@@ -62,4 +62,10 @@ public ModelAndView login(@ModelAttribute Login login ) throws ClassNotFoundExce
    }
 	return mv;
 }
+	@RequestMapping("/ContactUs")
+	public ModelAndView ContactUs() {
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("ContactUsPage");
+		return mv;
+	}
 }
