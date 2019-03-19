@@ -31,8 +31,6 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-<<<<<<< HEAD
-=======
 			<name>org.springframework.ide.eclipse.core.springbuilder</name>
 			<arguments>
 			</arguments>
@@ -43,7 +41,7 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
->>>>>>> branch 'iterationOne' of https://github.com/kbhatiya999/Hotel-Management-Project.git
+
 			<name>org.eclipse.m2e.core.maven2Builder</name>
 			<arguments>
 			</arguments>
