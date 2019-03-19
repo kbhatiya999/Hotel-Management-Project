@@ -150,8 +150,16 @@ public class CustomerSearch
 	ModelAndView bookyourHotel(@RequestParam("hotelbook")String hotelName)
 	{
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("hotelNameBooking", hotelName);
-		mv.setViewName("viewbyfilter");
+		mv.addObject("hotelID", searchservice.getHotelId(hotelName));
+		mv.setViewName("demohome");
+		return mv;
+	}
+	@RequestMapping("/packagebooking")
+	ModelAndView bookyourPackage(@RequestParam("packagebook")String pName)
+	{
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("packageID", searchservice.getPackageId(pName));
+		mv.setViewName("demohome");
 		return mv;
 	}
 	@RequestMapping("/viewallpackages")

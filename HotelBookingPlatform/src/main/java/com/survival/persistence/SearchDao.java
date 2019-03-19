@@ -19,5 +19,6 @@ public interface SearchDao
   ArrayList<SearchResultMain> sortByRating(CustInput customer);
   ArrayList<TrendingMain> showTrending();
   ArrayList<SearchResultMain> filterbyrating(CustInput customer,double rating);
-  
+  int getHotelId(String hotelName);
+  int getPackageId(String packageName);
  }

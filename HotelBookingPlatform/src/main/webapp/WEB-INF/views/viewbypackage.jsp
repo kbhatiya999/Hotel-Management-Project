@@ -3,6 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ include file = "header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,7 +17,8 @@
 
 
 <h1>Package Records</h1>
-<table>
+<table class="table table-bordered">
+<thead>
 		<tr>
 			<th>Package Id</th>
 			<th>Name</th>
@@ -27,7 +29,7 @@
 			<th>City</th>
 			<th>No. of Days</th>
 			<th>Room Type Id</th>
-		</tr>
+		</tr></thead>
 		<%
 
 		ResultSet rs = (ResultSet)request.getAttribute("package");			
@@ -65,6 +67,9 @@
 		}
 		%>
 	</table>
+	<form action="./packagebooking">
+Enter Package Name to Book : <input type="text" name="packagebook" >
+<input type="submit" value="Book!">
 	
 
 

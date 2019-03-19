@@ -78,5 +78,17 @@ public class SearchServiceImpl implements SearchService
 	public ArrayList<SearchResultMain> filterbyrating(CustInput customer, double rating) {
 		return searchdao.filterbyrating(customer, rating);
 	}
+
+	@Override
+	public int getHotelId(String hotelName) {
+		return searchdao.getHotelId(hotelName);
+	}
+
+	@Override
+	public int getPackageId(String packageName) {
+		
+		return searchdao.getPackageId(packageName);
+	}
+	
  
 }
