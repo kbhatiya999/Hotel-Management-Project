@@ -25,7 +25,7 @@ public class ReservationDaoImpl implements ReservationDao {
 	public ReservationDaoImpl() {
 	try {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "jd", "password");
+		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE",  "scott", "tiger");
 	}
 		
 	 catch (ClassNotFoundException e) {

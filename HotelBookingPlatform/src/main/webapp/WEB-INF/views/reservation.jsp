@@ -10,7 +10,7 @@
 <title>Reservation</title>
 </head>
 <body>
-	<form:form action="./reservation"> 
+	<form:form action="./reservation" modelAttribute="command"> 
 Name : <form:input path="name" />
 		<br></br>
 Contact No. : <form:input type="number" path="phone" />
