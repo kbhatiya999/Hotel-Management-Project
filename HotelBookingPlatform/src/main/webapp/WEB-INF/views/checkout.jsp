@@ -6,12 +6,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Apna Hotel:User Information</title>
 </head>
 <body>
 <form:form action="./cout?tb1=${rid}">
-Enter Reservation Id : ${rid} <br><br>
-Enter Name : ${name} <br>
+<h1>Enter Reservation Id : ${rid}</h1> <br><br>
+<h1>Enter Name : ${name} </h1><br>
 <br><br><br>
 <center><input type="submit" value="Next"></center>
 

@@ -11,8 +11,10 @@
 Please tell us how we can improve.
 <p></p>
 <form:form action= "./cal">
-Please enter feedback:<input type="text" name="tb1"/>
+<center>
+Please enter feedback:<textarea rows="10" cols="40" name="tb1"></textarea>
 <input type="submit" value="SubmittFeedback">
+</center>
 </form:form>
 </body>
 </html>
