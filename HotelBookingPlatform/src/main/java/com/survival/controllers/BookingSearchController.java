@@ -37,7 +37,7 @@ public class BookingSearchController {
 		ModelAndView mv = new ModelAndView();
 		
 		try {
-	    User user1=bookingtManagementService.validateUser(user.getUserFullName(),Long.parseLong(user.getUserPhoneNumber()));
+	    User user1=bookingtManagementService.validateUser(user.getUser_Name(),user.getPhone_Number());
 	    userCheck=user1;
 		if(user1!=null) {
 			mv.addObject("cmd",user1);
@@ -45,7 +45,7 @@ public class BookingSearchController {
 		}
 		
 		else {
-			mv.addObject("username",user.getUserFullName());
+			mv.addObject("username",user.getUser_Name());
 			mv.setViewName("/BookingManagementSearchFail");  
 		}
 		}
@@ -60,8 +60,8 @@ public class BookingSearchController {
 	public ModelAndView isActive() {
 		ModelAndView mv=new ModelAndView();
 	try {
-		User user1=bookingtManagementService.validateUser(userCheck.getUserFullName(),Long.parseLong(userCheck.getUserPhoneNumber()));
-		mv.addObject("BookingDetailsList", bookingtManagementService.getActiveBookings(user1.getUserID()));
+		User user1=bookingtManagementService.validateUser(userCheck.getUser_Name(),userCheck.getPhone_Number());
+		mv.addObject("BookingDetailsList", bookingtManagementService.getActiveBookings(user1.getU_Id()));
 		mv.setViewName("/ActiveBookings");
 	}
 	catch(Exception ex)
@@ -76,8 +76,8 @@ public class BookingSearchController {
 	{
 		ModelAndView mv=new ModelAndView();
 		try {
-			User user1=bookingtManagementService.validateUser(userCheck.getUserFullName(),Long.parseLong(userCheck.getUserPhoneNumber()));
-			mv.addObject("BookingDetailsList", bookingtManagementService.getInactiveBookings(user1.getUserID()));
+			User user1=bookingtManagementService.validateUser(userCheck.getUser_Name(),userCheck.getPhone_Number());
+			mv.addObject("BookingDetailsList", bookingtManagementService.getInactiveBookings(user1.getU_Id()));
 			mv.setViewName("/InactiveBookings");
 		}
 		catch(Exception ex)

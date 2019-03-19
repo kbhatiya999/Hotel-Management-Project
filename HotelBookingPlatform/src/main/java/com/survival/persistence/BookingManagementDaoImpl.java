@@ -27,14 +27,14 @@ public class BookingManagementDaoImpl implements BookingManagementDao {
 	
 	@Override
 	public User validateUser(String username, long phoneNo) throws SQLException {
-		Connection conn=db.getConn();
+		Connection conn= db.getConnection();
 		PreparedStatement preparedStatement=conn.prepareStatement("Select * from userdb1 where user_name=? AND phone_number=?");
 		preparedStatement.setString(1, username);
 		preparedStatement.setLong(2, phoneNo);
 		ResultSet resultSet=preparedStatement.executeQuery();
 		if(resultSet.next())
 		{
-			return new User(resultSet.getInt("u_Id"),resultSet.getString("user_Address"),resultSet.getString("phone_number"),resultSet.getString("user_Name"),resultSet.getString("user_Role"),resultSet.getString("email_Id"));
+			return new User(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getLong(4), resultSet.getString(5), resultSet.getString(6), resultSet.getBoolean(7));
 			
 		}
 		else
@@ -46,7 +46,7 @@ public class BookingManagementDaoImpl implements BookingManagementDao {
 	public ArrayList<BookingDetails> getActivetBookings(int user_Id) throws SQLException {
 		// TODO Auto-generated method stub
 		ArrayList<BookingDetails> arr=new ArrayList<>();
-		Connection conn=db.getConn();
+		Connection conn=db.getConnection();
 		PreparedStatement preparedStatement=conn.prepareStatement("Select * from Reservation where u_Id=? and checkoutdate>=(select sysdate from dual)");
 		preparedStatement.setInt(1, user_Id);
 		ResultSet resultSet=preparedStatement.executeQuery();
@@ -88,7 +88,7 @@ public class BookingManagementDaoImpl implements BookingManagementDao {
 	public ArrayList<BookingDetails> getInactivetBookings(int user_Id) throws SQLException {
 		// TODO Auto-generated method stub
 		ArrayList<BookingDetails> arr=new ArrayList<>();
-		Connection conn=db.getConn();
+		Connection conn=db.getConnection();
 		PreparedStatement preparedStatement=conn.prepareStatement("Select * from Reservation where u_Id=? and checkoutdate<(select sysdate from dual)");
 		preparedStatement.setInt(1, user_Id);
 		ResultSet resultSet=preparedStatement.executeQuery();
@@ -124,7 +124,7 @@ public class BookingManagementDaoImpl implements BookingManagementDao {
 
 	@Override
 	public boolean updateEmail(int reservation_id, String email) throws SQLException {
-		Connection conn=db.getConn();
+		Connection conn=db.getConnection();
 		PreparedStatement preparedStatement=conn.prepareStatement("update guest "+"set email=? where reservationid=?");
 		preparedStatement.setString(1,email);
 		preparedStatement.setInt(2, reservation_id);
@@ -135,7 +135,7 @@ public class BookingManagementDaoImpl implements BookingManagementDao {
 	@Override
 	public boolean updatePhone(int reservation_id, long phone) throws SQLException {
 		// TODO Auto-generated method stub
-		Connection conn=db.getConn();
+		Connection conn=db.getConnection();
 		PreparedStatement preparedStatement=conn.prepareStatement("update guest "+"set phone=? where reservationid=?");
 		preparedStatement.setLong(1, phone);
 		preparedStatement.setInt(2, reservation_id);
@@ -146,7 +146,7 @@ public class BookingManagementDaoImpl implements BookingManagementDao {
 	@Override
 	public boolean updateName(int reservation_id, String name) throws SQLException {
 		// TODO Auto-generated method stub
-		Connection conn=db.getConn();
+		Connection conn=db.getConnection();
 		PreparedStatement preparedStatement=conn.prepareStatement("update guest "+"set name=? where reservationid=?");
 		preparedStatement.setString(1, name);
 		preparedStatement.setInt(2, reservation_id);

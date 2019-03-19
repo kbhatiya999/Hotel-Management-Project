@@ -9,8 +9,8 @@
 </head>
 <body>
 <from:form action="./search">
-Enter Name     : <from:input path="userFullName"/><br></br>
-Enter Phone No : <from:input path="userPhoneNumber"/><br></br>
+Enter Name     : <from:input path="user_Name"/><br></br>
+Enter Phone No : <from:input path="phone_Number"/><br></br>
 <input type="submit" value="Login">
 </from:form>
 </body>
