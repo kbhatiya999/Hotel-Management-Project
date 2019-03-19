@@ -1,3 +1,4 @@
+
 package com.survival.entities;
 
 public class Package {
@@ -16,7 +17,7 @@ public class Package {
 	private Integer rtypeid;
 	
 	public Package() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public Package(Integer pid, String pname, Integer hid, Integer price, String description, Integer packagetype,
@@ -89,3 +90,4 @@ public class Package {
 	
 	
 }
+

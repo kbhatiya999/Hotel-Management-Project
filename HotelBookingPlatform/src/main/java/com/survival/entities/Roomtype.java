@@ -1,8 +1,8 @@
 package com.survival.entities;
 
 public class Roomtype {
-//	create table roomtype (rtypeid number(10) primary key,  type varchar(20), totalnoofrooms number(10), price number(5), 
-//			hid number(10), foreign key (hid) references hotel(hid));
+//	create table roomtype (rtypeid number(10) ,  type varchar(20), totalnoofrooms number(10), price number(5), 
+//			hid number(10),primary id(rtypeid, hid), foreign key (hid) references hotel(hid));
 
 	private Integer rtypeid;
 	private String type;

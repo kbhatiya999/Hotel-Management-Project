@@ -8,8 +8,7 @@ public class Login {
 	private String login_Id;
 	private String login_Password;
 
-//	create table login (u_Id number(10), is_Active number(1), login_Role varchar2(3), login_Id varchar2(20) , login_Password varchar2(16), 
-//			  constraint login_pk primary key(login_Id), constraint login_fk foreign key (u_Id) references userdb1(u_Id));
+
 	public Login() {
 		// TODO Auto-generated constructor stub
 	}
@@ -25,8 +24,8 @@ public class Login {
 	public Integer getU_Id() {
 		return u_Id;
 	}
-	public void setU_Id(Integer u_Id) {
-		this.u_Id = u_Id;
+	public void setU_Id(Integer l) {
+		this.u_Id = l;
 	}
 	public Boolean getIsActive() {
 		return is_active;

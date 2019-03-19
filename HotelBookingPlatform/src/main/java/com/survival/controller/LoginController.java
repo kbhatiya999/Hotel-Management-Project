@@ -37,14 +37,14 @@ public ModelAndView login(@ModelAttribute Login login ) throws ClassNotFoundExce
 	loginOb=loginService.searchLogin(login);
    if(loginOb==null)
     {
-		mv.addObject("loginsearch","login denied");
+		mv.addObject("loginsearch","Login denied");
 		mv.setViewName("home");
 
 	}
    else
    {   
-	   mv.addObject("loginsearch","login allowed");
-       long uid=loginService.searchData(loginOb.getLogin_Id());
+	   mv.addObject("loginsearch","Login allowed");
+       int uid=loginService.searchData(loginOb.getLogin_Id());
        mv.addObject("userid",uid);
 	   String role=loginOb.getLogin_Role();
 	   if(role.equalsIgnoreCase("ind") || role.equalsIgnoreCase("cor"))
@@ -62,4 +62,10 @@ public ModelAndView login(@ModelAttribute Login login ) throws ClassNotFoundExce
    }
 	return mv;
 }
+	@RequestMapping("/ContactUs")
+	public ModelAndView ContactUs() {
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("ContactUsPage");
+		return mv;
+	}
 }
