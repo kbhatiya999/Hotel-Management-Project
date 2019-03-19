@@ -2,7 +2,6 @@ package com.survival.entities;
 import java.time.LocalDate;
 
 public class Reservation {
-
 //	create table Reservation (reservationID number(10) primary key, rtypeid number(10), u_Id number(10), hid number(10), pid number(10), 
 //			status varchar(10), checkindate date, noofrooms number(2), dealtype number(1), checkoutdate date,
 //			foreign key (hid) references hotel(hid), foreign key (rtypeid) references roomtype(rtypeid), 
