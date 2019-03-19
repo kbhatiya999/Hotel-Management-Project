@@ -54,4 +54,7 @@ public interface ReservationDao {
 	 * @throws SQLException
 	 */
 	public boolean checkAvailable(Reservation reservation)throws SQLException;
+	
+	public  int getMaxReservationId();
+	
 }

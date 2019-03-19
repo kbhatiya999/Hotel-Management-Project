@@ -70,6 +70,13 @@ public class ReservationServiceImpl implements ReservationService {
 		// TODO Auto-generated method stub
 		return rd.noOfReservation(u_id);
 	}
+
+
+	@Override
+	public int maxReservationId() throws SQLException {
+		// TODO Auto-generated method stub
+		return rd.getMaxReservationId();
+	}
 	
 	
 }

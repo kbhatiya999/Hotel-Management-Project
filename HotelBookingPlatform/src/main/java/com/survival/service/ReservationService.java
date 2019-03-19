@@ -58,6 +58,7 @@ public interface ReservationService {
 	 */
 	public int checkNoOfBooked(int u_id)throws SQLException;
 	
+	public int maxReservationId()throws SQLException;
 	
 	
 }

@@ -31,6 +31,7 @@ public class ReservationController {
 	@Autowired
 	ReservationService reservationService;
 	
+	
 	ReservationGuest reservationGuestNew = new ReservationGuest();
 	
 	@RequestMapping("/")
@@ -48,9 +49,28 @@ public class ReservationController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-	
+		GuestService guestService=new GuestServiceImpl() {
+			
+			@Override
+			public int maxGuest() throws SQLException {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+			
+			@Override
+			public boolean enterGuest(Guest guest) throws SQLException {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public int calculateBillAmount(Integer hid, Integer rtypeid) throws SQLException {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+		};
 		Reservation reservation= new Reservation();
-		
+		Guest guest=new Guest();
 		
 
 		
@@ -62,12 +82,22 @@ public class ReservationController {
 		
 		reservation.setNoofrooms(reservationGuest.getNoofrooms());
 		reservation.setPid(reservationGuest.getDealtype());
-		reservation.setReservationID(reservationGuest.getReservationID());
+		int max=1;
+		int maxguestid=1;
+		try {
+			max = reservationService.maxReservationId()+1;
+			maxguestid= guestService.maxGuest()+1;
+		} catch (SQLException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		System.out.println(max);
+		reservation.setReservationID(max);
 		reservation.setRtypeid(reservationGuest.getRtypeid());
 		reservation.setStatus("processing");
 		reservation.setU_Id(1);
-		reservation.setHid(1);
-		reservation.setReservationID(3);
+		reservation.setHid(2);
+		
 		
 		
 		
@@ -76,32 +106,22 @@ public class ReservationController {
 		reservationGuestNew.copyCheckOutDate(reservation.getCheckoutdate());
 		reservationGuestNew.setDealtype(reservationGuest.getDealtype());
 		reservationGuestNew.setEmail(reservationGuest.getEmail());
-		reservationGuestNew.setGid(4);
-		reservationGuestNew.setHid(1);
+		reservationGuestNew.setGid(maxguestid);
+		reservationGuestNew.setHid(2);
 		reservationGuestNew.setIs_active(reservationGuest.getIs_active());
 		reservationGuestNew.setName(reservationGuest.getName());
 		reservationGuestNew.setNoofrooms(reservationGuest.getNoofrooms());
 		reservationGuestNew.setPhone(reservationGuest.getPhone());
 		reservationGuestNew.setPid(1);
-		reservationGuestNew.setReservationID(3);
+		reservationGuestNew.setReservationID(max);
 		reservationGuestNew.setRtypeid(reservationGuest.getRtypeid());
-		reservationGuestNew.setStatus("bookede");
+		reservationGuestNew.setStatus("booked");
 		reservationGuestNew.setU_Id(1);
 		reservationGuestNew.setModeofpayment(reservationGuest.getModeofpayment());
 		
 		
 
-		
-		/*System.out.println(reservationGuest.getCheckindate()+" "+
-						reservationGuest.getCheckoutdate()+" "+
-							reservationGuest.getDealtype()+" "+
-		
-		reservationGuest.getNoofrooms()+" "+
-		reservationGuest.getDealtype()+" "+
-		reservationGuest.getReservationID()+" "+
-		reservationGuest.getRtypeid()+" "
-		);
-		*/
+	
 		try {
 			System.out.println(reservationService.checkAvailablity(reservation));
 		} catch (SQLException e1) {
@@ -145,11 +165,11 @@ public class ReservationController {
 		
 		reservation.setNoofrooms(reservationGuestNew.getNoofrooms());
 		reservation.setPid(reservationGuestNew.getPid());
-		reservation.setRtypeid(1);
+		reservation.setRtypeid(reservationGuestNew.getRtypeid());
 		reservation.setStatus("booked");
 		reservation.setU_Id(1);
-		reservation.setHid(1);
-		reservation.setReservationID(3);
+		reservation.setHid(reservationGuestNew.getHid());
+		reservation.setReservationID(reservationGuestNew.getReservationID());
 		
 		System.out.println(reservation.getStatus()+" "+
 							reservation.getDealtype()+" "+
@@ -170,7 +190,8 @@ public class ReservationController {
 		guest.setName(reservationGuestNew.getName());
 		guest.setPhone(reservationGuestNew.getPhone());
 		guest.setReservationid(reservation.getReservationID());
-		guest.setGid(3);
+		guest.setGid(reservationGuestNew.getGid());
+		guest.setIs_active(true);
 		GuestService guestservice=new GuestServiceImpl();
 		String paymentMode="";
 		paymentMode = reservationGuestNew.getModeofpayment();
@@ -181,7 +202,7 @@ public class ReservationController {
 		{
 			try {
 				System.out.println(reservationservice.bookHotel(reservation));
-				guest.setModeofpayment("Cash");
+				guest.setModeofpayment("Cas");
 				
 				guest.toString();
 				System.out.println(guestservice.enterGuest(guest));
@@ -198,8 +219,8 @@ public class ReservationController {
 			
 			try {
 				System.out.println(reservationservice.bookHotel(reservation));
-				guest.setModeofpayment("Online");
-				guest.toString();
+				guest.setModeofpayment("Onl");
+				System.out.println(guest.toString());
 				System.out.println(guestservice.enterGuest(guest));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

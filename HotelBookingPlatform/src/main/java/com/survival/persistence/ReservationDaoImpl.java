@@ -151,6 +151,24 @@ public class ReservationDaoImpl implements ReservationDao {
 		
 		
 	}
+
+
+
+
+	@Override
+	public int getMaxReservationId() {
+		int maxreservationid=0;
+		try {
+		PreparedStatement ps= conn.prepareStatement("SELECT MAX(RESERVATIONID) FROM RESERVATION");
+		ResultSet rs=ps.executeQuery();
+		rs.next();
+		maxreservationid=rs.getInt("MAX(RESERVATIONID)");
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		return maxreservationid;
+	}
 	
 	
 	

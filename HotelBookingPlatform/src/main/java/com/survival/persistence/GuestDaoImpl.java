@@ -3,6 +3,7 @@ package com.survival.persistence;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.stereotype.Repository;
@@ -44,10 +45,24 @@ public class GuestDaoImpl implements GuestDao {
 		pState.setString(4, guest.getEmail());
 		pState.setInt(5,guest.getReservationid());
 		pState.setString(6, guest.getModeofpayment());
-		pState.setBoolean(7,guest.getIs_active());
+		pState.setString(7,"y");
 		return pState.executeUpdate() > 0;
 	}
 	
+	@Override
+	public int getMaxGuestId() {
+		int maxguestid=0;
+		try {
+		PreparedStatement ps= conn.prepareStatement("SELECT MAX(GID) FROM GUEST");
+		ResultSet rs=ps.executeQuery();
+		rs.next();
+		maxguestid=rs.getInt("MAX(GID)");
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		return maxguestid;
+	}
 	
 
 }

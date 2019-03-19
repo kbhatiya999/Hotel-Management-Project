@@ -37,5 +37,11 @@ public class GuestServiceImpl implements GuestService {
 		
 		return 0;
 	}
+
+	@Override
+	public int maxGuest() throws SQLException {
+		guestDao=new GuestDaoImpl();
+		return guestDao.getMaxGuestId();
+	}
 	
 }
