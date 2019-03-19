@@ -12,13 +12,14 @@ public class Hotel {
 	private Integer totalrooms;
 	private Integer discount;
 	private Integer nooffeedback;
+	private Integer occupiedrooms;
 	
 	public Hotel() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	public Hotel(Integer hid, String city, String hname, Double hotelrating, String address, Integer totalrooms,
-			Integer discount, Integer nooffeedback) {
+			Integer discount, Integer nooffeedback, Integer occupiedrooms) {
 		super();
 		this.hid = hid;
 		this.city = city;
@@ -28,6 +29,7 @@ public class Hotel {
 		this.totalrooms = totalrooms;
 		this.discount = discount;
 		this.nooffeedback = nooffeedback;
+		this.setOccupiedrooms(occupiedrooms);
 	}
 	public Integer getHid() {
 		return hid;
@@ -76,6 +78,14 @@ public class Hotel {
 	}
 	public void setNooffeedback(Integer nooffeedback) {
 		this.nooffeedback = nooffeedback;
+	}
+
+	public Integer getOccupiedrooms() {
+		return occupiedrooms;
+	}
+
+	public void setOccupiedrooms(Integer occupiedrooms) {
+		this.occupiedrooms = occupiedrooms;
 	}
 	
 	

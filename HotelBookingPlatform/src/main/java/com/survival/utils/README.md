@@ -1,36 +1,27 @@
-*DBUtils*
----------
-
-A set of utilities for the database operations required by the project.
-
-NOTE : PLEASE FOLLOW THE SAME NAMES AS GIVEN HERE WHEN CREATING DATABASE COLUMNS!!
+package com.survival.utils;
 
 
-Usage Example
--------------
-    class ReservationDao_Impl implements ReservationDao {
 
-        private DatabaseUtils dbutils;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
-        public ReservationDao_Impl(){
-            dbutils = new DatabaseUtils();
-        }
+public class DbConnectionHelper {
 
-        // Simple 1 line implementation logic
-        public boolean insert(Reservation reservation) throws ClassNotFoundException, SQLException {
-            return dbutils.insertBooking(reservation);
-        }
-
-        public boolean delete(int resID) throws ClassNotFoundException, SQLException {
-            return dbutils.deleteBooking(resID);
-        }
-
-        public boolean search(int resID) throws ClassNotFoundException, SQLException {
-            return dbutils.searchBooking(resID);
-        }
-
-        public ResultSet getAll() throws ClassNotFoundException, SQLException {
-            return dbutils.getAllReservations();
-        }
-
-    }
+	public static Connection getConnection(){
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		Connection connection = null;
+		try {
+			connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","scott","tiger");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return connection;
+	}
+}

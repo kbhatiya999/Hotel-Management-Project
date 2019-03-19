@@ -4,7 +4,7 @@ public class Guest {
 //	create table guest (gid number(10) primary key, name varchar(70), phone number(10), email varchar(35), reservationid number(10), 
 //			modeofpayment varchar(3), is_active Integer(1),foreign key (reservationid) references reservation(reservationid));
 
-	static private Integer gid=1;
+	private Integer gid;
 	private String name;
 	private Integer phone;
 	private String email;
@@ -14,7 +14,6 @@ public class Guest {
 	
 	public Guest() {
 		// TODO Auto-generated constructor stub
-		gid++;
 	}
 	
 	public Guest(Integer gid, String name, Integer phone, String email, Integer reservationid, String modeofpayment,
@@ -26,7 +25,7 @@ public class Guest {
 		this.email = email;
 		this.reservationid = reservationid;
 		this.modeofpayment = modeofpayment;
-		this.is_active = true;
+		this.is_active = is_active;
 	}
 	public Integer getGid() {
 		return gid;
@@ -69,12 +68,6 @@ public class Guest {
 	}
 	public void setIs_active(Boolean is_active) {
 		this.is_active = is_active;
-	}
-
-	@Override
-	public String toString() {
-		return "Guest [name=" + name + ", phone=" + phone + ", email=" + email + ", reservationid=" + reservationid
-				+ ", modeofpayment=" + modeofpayment + ", is_active=" + is_active + "]";
 	}
 	
 	

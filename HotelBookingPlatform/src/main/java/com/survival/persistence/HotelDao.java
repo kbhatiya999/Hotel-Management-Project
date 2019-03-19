@@ -8,6 +8,7 @@ import com.survival.entities.Hotel;
 
 public interface HotelDao {
 
+
 	/** ADD HOTEL
 	 * @param hotel
 	 * @return
@@ -31,6 +32,7 @@ public interface HotelDao {
 	 * @return
 	 * @throws SQLException
 	 */
+
 	public ResultSet getAllHotels() throws SQLException;
 	
 }

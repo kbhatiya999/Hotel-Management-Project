@@ -1,5 +1,4 @@
 
-
 package com.survival.service;
 
 import java.sql.ResultSet;
@@ -14,13 +13,10 @@ import com.survival.persistence.HotelDaoImpl;
 
 @Service
 public class HotelServiceImpl implements HotelService {
-	
+
 	@Autowired
 	private HotelDaoImpl hd;
 	
-	public HotelServiceImpl() {
-		
-	}
 	
 	@Override
 	public boolean enterHotel(Hotel hotel) throws SQLException {
@@ -29,21 +25,20 @@ public class HotelServiceImpl implements HotelService {
 	}
 
 	@Override
-	public boolean removeHotel(int hid) throws SQLException {
-		// TODO Auto-generated method stub
-		return hd.deleteHotel(hid);
-	}
-
-	@Override
-	public Hotel findHotel(int hid) throws SQLException {
-		// TODO Auto-generated method stub
-		return hd.searchHotel(hid);
+	public boolean removeHotel(Integer hotelId) throws SQLException {
+		
+		return hd.deleteHotel(hotelId);
 	}
 
 	@Override
 	public ResultSet viewAllHotel() throws SQLException {
 		// TODO Auto-generated method stub
 		return hd.getAllHotels();
+	}
+
+	@Override
+	public Hotel findHotel(Integer hotelId) throws SQLException {
+	return hd.searchHotel(hotelId);
 	}
 
 	
