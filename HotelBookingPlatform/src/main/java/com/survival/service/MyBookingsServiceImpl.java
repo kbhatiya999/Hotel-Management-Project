@@ -1,4 +1,4 @@
-package com.survival.myBookingsService;
+package com.survival.service;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
