@@ -443,7 +443,7 @@ public class SearchDaoImpl implements SearchDao {
 			{
 				SearchResultMain result =new SearchResultMain();
 			    result.setHotelName(resultSet.getString("HNAME"));
-			    System.out.println(result.getHotelName());
+//			    System.out.println(result.getHotelName());
 			    result.setRating(resultSet.getDouble("HOTELRATING"));
 			    result.setAddress(resultSet.getString("ADDRESS"));
 			    result.setDiscount(resultSet.getShort("DISCOUNT"));
@@ -537,7 +537,7 @@ public class SearchDaoImpl implements SearchDao {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			connection=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","scott","tiger");
 	   
-			preparestament = connection.prepareStatement("SELECT HNAME,HOTELRATING,ADDRESS,DISCOUNT,TYPE,PRICE FROM HOTEL A JOIN ROOMTYPE B ON A.HID=B.HID WHERE CITY =? AND HOTELRATING >? ORDER BY HOTELRATING DESC");
+			preparestament = connection.prepareStatement("SELECT HNAME,HOTELRATING,ADDRESS,DISCOUNT,TYPE,PRICE FROM HOTEL A JOIN ROOMTYPE B ON A.HID=B.HID WHERE CITY =? AND HOTELRATING >=? ORDER BY HOTELRATING DESC");
 			preparestament.setString(1, customer.getCity());
 			preparestament.setDouble(2, rating);
 			ResultSet resultSet=preparestament.executeQuery();
