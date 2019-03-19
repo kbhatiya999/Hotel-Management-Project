@@ -4,11 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>home</title>
+<title>Login Failure</title>
 </head>
 <body>
-<h1>${loginsearch}</h1>
-
+<h1>${loginsearch} Please retry.</h1>
+<form action="./">
+<button type="submit" class="btn btn-primary btn-block"> Retry  </button>
+</form>
 
 </body>
 </html>

@@ -3,6 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@ include file = "header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +11,7 @@
 <title>List Of Hotels</title>
 </head>
 <body>
-<table>
+<table class="table table-bordered">
 <tr>
 <h3>Insert Hotel Record</h3>
 <form:form action="./AddHotelResult" method="post">
@@ -40,7 +41,8 @@
 		Occupied Rooms:<form:input  type="number" min="0" max="10000" path="occupiedrooms" required="required" />
 		</td><td>
 		</tr>
-<input type="submit" name= "operations" value="Submit">
+		<tr><td>
+<input type="submit" name= "operations" value="Submit"></td></tr>
 <tr>
 
 	</form:form>
@@ -75,7 +77,8 @@
 
 
 <h1>Hotel Records</h1>
-<table>
+<table class="table table-bordered">
+<thead>
 		<tr>
 			<th>ID</th>
 			<th>Name</th>
@@ -87,6 +90,8 @@
 			<th>No. of feedback</th>
 			<th>Occupied Rooms</th>			
 		</tr>
+		</thead>
+		<tbody>
 		<%
 
 		ResultSet rs = (ResultSet)request.getAttribute("msg");			
@@ -124,6 +129,7 @@
 			out.print("</tr>");
 		}
 		%>
+		</tbody>
 	</table>
 	
 	

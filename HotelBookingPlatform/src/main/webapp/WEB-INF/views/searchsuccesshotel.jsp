@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ include file = "header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,7 +14,8 @@
 <body>
 
 <h1>Hotel Records</h1>
-<table>
+<table class="table table-bordered">
+<thead>
 		<tr>
 			<th>ID</th>
 			<th>Name</th>
@@ -25,6 +27,9 @@
 			<th>No. of feedback</th>
 			<th>Occupied Rooms</th>			
 		</tr>
+		
+		</thead>
+		<tbody>
 		<%
 
 		Hotel h1=(Hotel)request.getAttribute("msg");		
@@ -47,6 +52,7 @@
 			out.print("</tr>");
 		}
 		%>
+		</tbody>
 	</table>
 
 

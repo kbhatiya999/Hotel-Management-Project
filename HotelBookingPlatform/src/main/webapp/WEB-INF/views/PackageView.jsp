@@ -3,6 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+      <%@ include file = "header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,6 +11,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<table class="table table-bordered">
+<tr>
 <h3>Insert Package </h3>
 <form:form action="./AddPackageResult" method="post">
 		Package Id:<form:input type="number" path="pid" required="required"/>   
@@ -26,7 +29,7 @@
 	    
 <input type="submit" name= "operations" value="Submit">
 	</form:form>
-
+<tr>
 
 <h3>Delete Package </h3>
 <form:form action="./DeletePackageResult" method="post">
@@ -45,7 +48,8 @@
 
 
 <h1>Package Records</h1>
-<table>
+<<table class="table table-bordered">>
+<thead>
 		<tr>
 			<th>Package Id</th>
 			<th>Name</th>
@@ -57,6 +61,8 @@
 			<th>No. of Days</th>
 			<th>Room Type Id</th>
 		</tr>
+		</thead>
+		<tbody>
 		<%
 
 		ResultSet rs = (ResultSet)request.getAttribute("msg");			
@@ -93,6 +99,7 @@
 			out.print("</tr>");
 		}
 		%>
+		</tbody>
 	</table>
 
 </body>
