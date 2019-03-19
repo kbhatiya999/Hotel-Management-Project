@@ -30,15 +30,24 @@ public class ReservationController {
 	
 	@Autowired
 	ReservationService reservationService;
-	
+	@Autowired
+	GuestService guestService;
 	
 	ReservationGuest reservationGuestNew = new ReservationGuest();
-	
-	@RequestMapping("/")
-	public ModelAndView first()
+	int hid1;
+	int pid1;
+	int uid1;
+	@RequestMapping("/resstart")
+	public ModelAndView first(@RequestParam("hid") int hid,@RequestParam("pid") int pid,@RequestParam("uid")int uid)
 	{
+		hid1=hid;
+		pid1=pid;
+		uid1=uid;
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("command", new ReservationGuest());
+		mv.addObject("hid", hid);
+		mv.addObject("pid", pid);
+		mv.addObject("uid",uid);
 		mv.setViewName("reservation");
 		return mv;
 	}
@@ -49,26 +58,7 @@ public class ReservationController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		GuestService guestService=new GuestServiceImpl() {
-			
-			@Override
-			public int maxGuest() throws SQLException {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-			
-			@Override
-			public boolean enterGuest(Guest guest) throws SQLException {
-				// TODO Auto-generated method stub
-				return false;
-			}
-			
-			@Override
-			public int calculateBillAmount(Integer hid, Integer rtypeid) throws SQLException {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-		};
+		
 		Reservation reservation= new Reservation();
 		Guest guest=new Guest();
 		
@@ -92,6 +82,7 @@ public class ReservationController {
 			e2.printStackTrace();
 		}
 		System.out.println(max);
+		System.out.println(maxguestid);
 		reservation.setReservationID(max);
 		reservation.setRtypeid(reservationGuest.getRtypeid());
 		reservation.setStatus("processing");
@@ -101,22 +92,31 @@ public class ReservationController {
 		
 		
 		
+		if(hid1!=0) {
+			reservationGuestNew.setHid(hid1);
+			reservationGuestNew.setPid(0);
+		}else {
+			int a=reservationService.getHid(pid1);
+			reservationGuestNew.setHid(a);
+			reservationGuestNew.setPid(pid1);
+		}
 		
+		reservationGuestNew.setU_Id(uid1);
 		reservationGuestNew.copyCheckInDate(reservation.getCheckindate());
 		reservationGuestNew.copyCheckOutDate(reservation.getCheckoutdate());
 		reservationGuestNew.setDealtype(reservationGuest.getDealtype());
 		reservationGuestNew.setEmail(reservationGuest.getEmail());
 		reservationGuestNew.setGid(maxguestid);
-		reservationGuestNew.setHid(2);
+		
 		reservationGuestNew.setIs_active(reservationGuest.getIs_active());
 		reservationGuestNew.setName(reservationGuest.getName());
 		reservationGuestNew.setNoofrooms(reservationGuest.getNoofrooms());
 		reservationGuestNew.setPhone(reservationGuest.getPhone());
-		reservationGuestNew.setPid(1);
+		
 		reservationGuestNew.setReservationID(max);
 		reservationGuestNew.setRtypeid(reservationGuest.getRtypeid());
 		reservationGuestNew.setStatus("booked");
-		reservationGuestNew.setU_Id(1);
+		
 		reservationGuestNew.setModeofpayment(reservationGuest.getModeofpayment());
 		
 		
@@ -167,7 +167,7 @@ public class ReservationController {
 		reservation.setPid(reservationGuestNew.getPid());
 		reservation.setRtypeid(reservationGuestNew.getRtypeid());
 		reservation.setStatus("booked");
-		reservation.setU_Id(1);
+		reservation.setU_Id(reservationGuestNew.getU_Id());
 		reservation.setHid(reservationGuestNew.getHid());
 		reservation.setReservationID(reservationGuestNew.getReservationID());
 		

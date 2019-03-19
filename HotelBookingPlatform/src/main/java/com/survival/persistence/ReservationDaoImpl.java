@@ -169,6 +169,30 @@ public class ReservationDaoImpl implements ReservationDao {
 		
 		return maxreservationid;
 	}
+
+
+
+
+	@Override
+	public int getHotelId(int pid)  {
+		PreparedStatement ps;
+		int hid=0;
+		try {
+			ps = conn.prepareStatement("SELECT HID FROM PACKAGE WHERE PID=?");
+			ps.setInt(1, pid);
+			
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			
+			hid=rs.getInt("HID");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+        return hid;
+	}
 	
 	
 	

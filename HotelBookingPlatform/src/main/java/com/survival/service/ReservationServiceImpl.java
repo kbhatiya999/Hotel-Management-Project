@@ -77,6 +77,13 @@ public class ReservationServiceImpl implements ReservationService {
 		// TODO Auto-generated method stub
 		return rd.getMaxReservationId();
 	}
+
+
+	@Override
+	public int getHid(int pid) {
+		// TODO Auto-generated method stub
+		return rd.getHotelId(pid);
+	}
 	
 	
 }

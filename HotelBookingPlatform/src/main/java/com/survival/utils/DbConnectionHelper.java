@@ -18,7 +18,7 @@ public class DbConnectionHelper {
 		Connection connection = null;
 		try {
 
-			connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","scott","tiger");
+			connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","jd","password");
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

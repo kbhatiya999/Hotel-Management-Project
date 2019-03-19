@@ -8,9 +8,10 @@
 </head>
 <body>
 <h1>
-${hotelID}
-${packageID} 
+<a href="./resstart?hid=${hotelID}&pid=${packageID}&uid=${userid}">Click for hotel Reservation</a>
+<a href="./resstart?hid=${hotelID}&pid=${packageID}&uid=${userid}">Click for package Reservation</a> 
+ 
 </h1>
-  <a href="./searchinput">Search</a><br>
+ 
 </body>
 </html>

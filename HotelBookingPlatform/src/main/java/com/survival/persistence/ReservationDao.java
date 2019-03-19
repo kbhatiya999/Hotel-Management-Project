@@ -57,4 +57,6 @@ public interface ReservationDao {
 	
 	public  int getMaxReservationId();
 	
+	public int getHotelId(int pid);
+	
 }

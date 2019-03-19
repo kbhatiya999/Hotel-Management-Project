@@ -21,7 +21,7 @@ private Connection conn;
 	public RoomDaoImpl() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "scott", "tiger");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "jd", "password");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

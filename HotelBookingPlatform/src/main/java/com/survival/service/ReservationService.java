@@ -60,6 +60,8 @@ public interface ReservationService {
 	
 	public int maxReservationId()throws SQLException;
 	
+	public int getHid(int pid);
+	
 	
 }
 

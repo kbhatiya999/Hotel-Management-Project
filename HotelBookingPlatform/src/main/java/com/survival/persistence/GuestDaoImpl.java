@@ -30,6 +30,9 @@ public class GuestDaoImpl implements GuestDao {
 		} 
 		
 
+		
+		
+		
 	}
 	
 	@Override
@@ -41,7 +44,7 @@ public class GuestDaoImpl implements GuestDao {
 		
 		pState.setInt(1,guest.getGid());
 		pState.setString(2, guest.getName());
-		pState.setInt(3, guest.getPhone());
+		pState.setLong(3, guest.getPhone());
 		pState.setString(4, guest.getEmail());
 		pState.setInt(5,guest.getReservationid());
 		pState.setString(6, guest.getModeofpayment());
@@ -62,6 +65,11 @@ public class GuestDaoImpl implements GuestDao {
 		}
 		
 		return maxguestid;
+		
+		
+		
+		
+		
 	}
 	
 
