@@ -561,11 +561,11 @@ public class SearchDaoImpl implements SearchDao {
 			preparestament = connection.prepareStatement("SELECT HID FROM HOTEL WHERE HNAME = ?");
 			preparestament.setString(1, hotelName);
 			ResultSet resultSet=preparestament.executeQuery();
-			while(resultSet.next())
-			{
-				hotelID = resultSet.getInt("HID");
-			}
+			if(resultSet.next()) {
+			hotelID = resultSet.getInt("HID");
 			return hotelID;
+			}
+			return -222;
 		}
 
 		catch (SQLException e1) {
@@ -600,11 +600,11 @@ public class SearchDaoImpl implements SearchDao {
 			preparestament = connection.prepareStatement("SELECT PID FROM PACKAGE WHERE PNAME = ?");
 			preparestament.setString(1, packageName);
 			ResultSet resultSet=preparestament.executeQuery();
-			while(resultSet.next())
-			{
-				PACKAGEID = resultSet.getInt("PID");
-			}
-			return PACKAGEID;
+			if(resultSet.next()) {
+				PACKAGEID = resultSet.getInt("HID");
+				return PACKAGEID;
+				}
+				return -222;
 		}
 
 		catch (SQLException e1) {
