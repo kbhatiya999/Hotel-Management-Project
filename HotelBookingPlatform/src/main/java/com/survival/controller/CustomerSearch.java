@@ -19,6 +19,7 @@ import com.survival.service.SearchService;
 public class CustomerSearch 
 {
   CustInput maininput=new CustInput();
+  int uidglobal =0;
 	@Autowired
 	SearchService searchservice;
 	@Autowired
@@ -31,12 +32,13 @@ public class CustomerSearch
 		return mv;
 	}
 	@RequestMapping("/searchinput")
-	ModelAndView insert()
+	ModelAndView insert(@RequestParam("uid")int uid)
 	{
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("command", new CustInput());
 		mv.addObject("trending", searchservice.showTrending());
 		mv.setViewName("searchhome");
+		uidglobal=uid;
 		return mv;
 	}
 	@RequestMapping("/searchresult")
@@ -151,6 +153,8 @@ public class CustomerSearch
 	{
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("hotelID", searchservice.getHotelId(hotelName));
+		mv.addObject("packageID",0);
+		mv.addObject("userid", uidglobal);
 		mv.setViewName("demohome");
 		return mv;
 	}
@@ -159,6 +163,8 @@ public class CustomerSearch
 	{
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("packageID", searchservice.getPackageId(pName));
+		mv.addObject("hotelID",0);
+		mv.addObject("userid", uidglobal);
 		mv.setViewName("demohome");
 		return mv;
 	}

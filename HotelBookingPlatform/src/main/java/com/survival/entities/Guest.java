@@ -6,7 +6,7 @@ public class Guest {
 
 	private Integer gid;
 	private String name;
-	private Integer phone;
+	private Long phone;
 	private String email;
 	private Integer reservationid;
 	private String modeofpayment;
@@ -16,7 +16,7 @@ public class Guest {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Guest(Integer gid, String name, Integer phone, String email, Integer reservationid, String modeofpayment,
+	public Guest(Integer gid, String name, Long phone, String email, Integer reservationid, String modeofpayment,
 			Boolean is_active) {
 		super();
 		this.gid = gid;
@@ -39,10 +39,10 @@ public class Guest {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getPhone() {
+	public Long getPhone() {
 		return phone;
 	}
-	public void setPhone(Integer phone) {
+	public void setPhone(Long phone) {
 		this.phone = phone;
 	}
 	public String getEmail() {
