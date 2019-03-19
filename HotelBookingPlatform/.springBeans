@@ -7,9 +7,19 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
+<<<<<<< HEAD
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/springmvc-servlet.xml</config>
+=======
+<<<<<<< HEAD
+		<config>src/main/webapp/WEB-INF/survival-servlet.xml</config>
+=======
+		<config>src/main/webapp/WEB-INF/springmvc-servlet.xml</config>
+>>>>>>> refs/remotes/origin/iterationOne
+	</configs>
+	<autoconfigs>
+>>>>>>> branch 'iterationOne' of https://github.com/kbhatiya999/Hotel-Management-Project.git
 	</autoconfigs>
 	<configSets>
 	</configSets>
