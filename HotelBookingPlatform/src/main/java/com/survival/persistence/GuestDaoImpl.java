@@ -19,7 +19,7 @@ public class GuestDaoImpl implements GuestDao {
 	public GuestDaoImpl() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "hr", "tiger");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "jd", "password");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

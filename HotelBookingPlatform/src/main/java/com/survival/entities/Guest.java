@@ -26,7 +26,7 @@ public class Guest {
 		this.email = email;
 		this.reservationid = reservationid;
 		this.modeofpayment = modeofpayment;
-		this.is_active = is_active;
+		this.is_active = true;
 	}
 	public Integer getGid() {
 		return gid;
@@ -69,6 +69,12 @@ public class Guest {
 	}
 	public void setIs_active(Boolean is_active) {
 		this.is_active = is_active;
+	}
+
+	@Override
+	public String toString() {
+		return "Guest [name=" + name + ", phone=" + phone + ", email=" + email + ", reservationid=" + reservationid
+				+ ", modeofpayment=" + modeofpayment + ", is_active=" + is_active + "]";
 	}
 	
 	

@@ -14,17 +14,17 @@ Name : <form:input path="name" />
 		<br></br>
 Contact No. : <form:input path="phone" />
 		<br></br>
-Email Address : <form:input path="email" />
+Email Address : <form:input type="email"  path="email" />
 		<br></br>
 No. Of Rooms : <form:input path="noofrooms" />
 		<br></br>
 		
 Room Type : <td><select name="rtypeid">
 				<option value="">TYPE</option>
-				<option value="01">Deluxe : AC</option>
-				<option value="02">Deluxe : NON-AC</option>
-				<option value="03">Premium : King</option>
-				<option value="04">Premium : Queen</option>
+				<option value="1">Deluxe : AC</option>
+				<option value="2">Deluxe : NON-AC</option>
+				<option value="3">Premium : King</option>
+				<option value="4">Premium : Queen</option>
 		</select> <br></br>
 		
 Payment Mode : 

@@ -31,6 +31,8 @@ public class ReservationController {
 	@Autowired
 	ReservationService reservationService;
 	
+	ReservationGuest reservationGuestNew = new ReservationGuest();
+	
 	@RequestMapping("/")
 	public ModelAndView first()
 	{
@@ -52,8 +54,6 @@ public class ReservationController {
 		
 
 		
-		
-		
 		reservationGuest.setCheckindate();
 		reservationGuest.setCheckoutdate();
 		reservation.setCheckindate(reservationGuest.getCheckindate());
@@ -67,7 +67,31 @@ public class ReservationController {
 		reservation.setStatus("processing");
 		reservation.setU_Id(1);
 		reservation.setHid(1);
-		reservation.setReservationID(1);
+		reservation.setReservationID(3);
+		
+		
+		
+		
+		reservationGuestNew.copyCheckInDate(reservation.getCheckindate());
+		reservationGuestNew.copyCheckOutDate(reservation.getCheckoutdate());
+		reservationGuestNew.setDealtype(reservationGuest.getDealtype());
+		reservationGuestNew.setEmail(reservationGuest.getEmail());
+		reservationGuestNew.setGid(4);
+		reservationGuestNew.setHid(1);
+		reservationGuestNew.setIs_active(reservationGuest.getIs_active());
+		reservationGuestNew.setName(reservationGuest.getName());
+		reservationGuestNew.setNoofrooms(reservationGuest.getNoofrooms());
+		reservationGuestNew.setPhone(reservationGuest.getPhone());
+		reservationGuestNew.setPid(1);
+		reservationGuestNew.setReservationID(3);
+		reservationGuestNew.setRtypeid(reservationGuest.getRtypeid());
+		reservationGuestNew.setStatus("bookede");
+		reservationGuestNew.setU_Id(1);
+		reservationGuestNew.setModeofpayment(reservationGuest.getModeofpayment());
+		
+		
+
+		
 		/*System.out.println(reservationGuest.getCheckindate()+" "+
 						reservationGuest.getCheckoutdate()+" "+
 							reservationGuest.getDealtype()+" "+
@@ -86,7 +110,7 @@ public class ReservationController {
 		}
 		try {
 			if(reservationService.checkAvailablity(reservation)) {
-				mv.addObject("piko",reservationGuest);
+				mv.addObject("command",reservationGuest);
 				mv.setViewName("listBookingDetails");
 				return mv;
 			}else {
@@ -107,42 +131,60 @@ public class ReservationController {
 	@RequestMapping("/listBookingDetails")
 	public ModelAndView listDetails(@ModelAttribute ReservationGuest reservationGuest, HttpServletRequest request)
 	{
+		
+		
 				
 		
 		ReservationService reservationservice = new ReservationServiceImpl();
 		Reservation reservation= new Reservation();
 		
+	
+		reservation.setCheckindate(reservationGuestNew.getCheckindate());
+		reservation.setCheckoutdate(reservationGuestNew.getCheckoutdate());
+		reservation.setDealtype(reservationGuestNew.getRtypeid());
 		
-		reservation.setCheckindate(reservationGuest.getCheckindate());
-		reservation.setCheckoutdate(reservationGuest.getCheckoutdate());
-		reservation.setDealtype(reservationGuest.getPid());
-		reservation.setHid(reservationGuest.getHid());
-		reservation.setNoofrooms(reservationGuest.getNoofrooms());
-		reservation.setPid(reservationGuest.getPid());
-		reservation.setRtypeid(reservationGuest.getRtypeid());
+		reservation.setNoofrooms(reservationGuestNew.getNoofrooms());
+		reservation.setPid(reservationGuestNew.getPid());
+		reservation.setRtypeid(1);
 		reservation.setStatus("booked");
 		reservation.setU_Id(1);
 		reservation.setHid(1);
+		reservation.setReservationID(3);
+		
+		System.out.println(reservation.getStatus()+" "+
+							reservation.getDealtype()+" "+
+							reservation.getHid()+" "+
+							reservation.getNoofrooms()+" "+
+							reservation.getPid()+" "+
+							reservation.getReservationID()+" "+
+							reservation.getRtypeid()+" "+
+							reservation.getU_Id()+" "+
+							reservation.getCheckindate()+" "+
+							reservation.getCheckoutdate());
+							
+							
 		
 		
 		Guest guest=new Guest();
-		guest.setEmail(reservationGuest.getEmail());
-		guest.setName(reservationGuest.getName());
-		guest.setPhone(reservationGuest.getPhone());
+		guest.setEmail(reservationGuestNew.getEmail());
+		guest.setName(reservationGuestNew.getName());
+		guest.setPhone(reservationGuestNew.getPhone());
 		guest.setReservationid(reservation.getReservationID());
-		
+		guest.setGid(3);
 		GuestService guestservice=new GuestServiceImpl();
-		
-		String paymentMode = reservationGuest.getModeofpayment();
-				
+		String paymentMode="";
+		paymentMode = reservationGuestNew.getModeofpayment();
+				System.out.println(paymentMode);
 		ModelAndView mv = new ModelAndView();
 		
 		if(paymentMode.equalsIgnoreCase("02"))
 		{
 			try {
-				reservationservice.bookHotel(reservation);
+				System.out.println(reservationservice.bookHotel(reservation));
 				guest.setModeofpayment("Cash");
-				guestservice.enterGuest(guest);
+				
+				guest.toString();
+				System.out.println(guestservice.enterGuest(guest));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -155,9 +197,10 @@ public class ReservationController {
 		{
 			
 			try {
-				reservationservice.bookHotel(reservation);
+				System.out.println(reservationservice.bookHotel(reservation));
 				guest.setModeofpayment("Online");
-				guestservice.enterGuest(guest);
+				guest.toString();
+				System.out.println(guestservice.enterGuest(guest));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

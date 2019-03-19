@@ -25,7 +25,7 @@ public class ReservationDaoImpl implements ReservationDao {
 	public ReservationDaoImpl() {
 	try {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "hr", "tiger");
+		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "jd", "password");
 	}
 		
 	 catch (ClassNotFoundException e) {
@@ -42,7 +42,7 @@ public class ReservationDaoImpl implements ReservationDao {
 	
 	@Override
 	public boolean insertReservation(Reservation reservation)throws SQLException {
-		PreparedStatement pState = conn.prepareStatement(Queries.ADD_RESERVATION);
+		PreparedStatement pState = conn.prepareStatement("INSERT INTO RESERVATION VALUES (?,?,?,?,?,?,?,?,?,?)");
 		pState.setInt(1, reservation.getReservationID());
 		pState.setInt(2, reservation.getRtypeid());
 		pState.setInt(3, reservation.getU_Id());
@@ -126,7 +126,7 @@ public class ReservationDaoImpl implements ReservationDao {
 	@Override
 	public boolean checkAvailable(Reservation reservation) throws SQLException {
 		// TODO Auto-generated method stub
-		PreparedStatement ps= conn.prepareStatement(Queries.CHECK_ROOM_AVAILABILITY);
+		PreparedStatement ps= conn.prepareStatement("select count(*) from reservation where status='booked' and hid=? and rtypeid=? and checkindate>=? and checkoutdate<=?");
 		ps.setDate(3, Date.valueOf(reservation.getCheckindate()));
 		ps.setDate(4, Date.valueOf(reservation.getCheckoutdate()));
 		ps.setInt(2, reservation.getRtypeid());

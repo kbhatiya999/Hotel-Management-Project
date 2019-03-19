@@ -264,6 +264,13 @@ public class ReservationGuest {
 	public void setOutYear(String outYear) {
 		this.outYear = outYear;
 	}
+
+	public void copyCheckInDate(LocalDate date) {
+		this.checkindate=date;
+	}
+	public void copyCheckOutDate(LocalDate date) {
+		this.checkoutdate=date;
+	}
 	
 	public static void main(String args) {
 			ReservationGuest rg=new ReservationGuest();
@@ -273,6 +280,7 @@ public class ReservationGuest {
 			rg.setCheckindate();
 			System.out.println(rg.getCheckindate());
 	}
+
 
 }
 	
