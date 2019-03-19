@@ -23,6 +23,7 @@
 			<th>Discount</th>
 			<th>Rating</th>
 			<th>No. of feedback</th>
+			<th>Occupied Rooms</th>			
 		</tr>
 		<%
 
@@ -42,6 +43,7 @@
 			out.println("<td>" +element.getDiscount() + "</td>");
 			out.println("<td>" +element.getHotelrating() + "</td>");
 			out.println("<td>" +element.getNooffeedback() + "</td>");
+			out.println("<td>" +element.getOccupiedrooms() + "</td>");
 			out.print("</tr>");
 		}
 		%>

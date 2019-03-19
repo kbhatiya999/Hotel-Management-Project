@@ -21,7 +21,7 @@ private Connection conn;
 	public RoomDaoImpl() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "hr", "tiger");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "scott", "TIGER");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,6 +72,14 @@ PreparedStatement pstate = conn.prepareStatement("SELECT * FROM ROOMTYPE WHERE R
 	public ResultSet getAllRooms() throws SQLException {
 		Statement state = conn.createStatement();
 		return state.executeQuery("SELECT * FROM ROOMTYPE");
+	}
+
+	@Override
+	public boolean deleteRoom(Integer rtypeid, Integer hid) throws SQLException {
+		PreparedStatement pState = conn.prepareStatement("DELETE FROM ROOMTYPE WHERE RTYPEID=? AND HID=?");
+		pState.setInt(1, rtypeid);
+		pState.setInt(2, hid);
+		return pState.executeUpdate() > 0;
 	}
 
 }

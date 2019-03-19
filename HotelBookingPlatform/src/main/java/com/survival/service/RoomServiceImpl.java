@@ -35,4 +35,9 @@ public class RoomServiceImpl implements RoomService {
 		return rDao.getAllRooms();
 	}
 
+	@Override
+	public boolean removeRoom(Integer rTypeID, Integer hid) throws SQLException {
+		return rDao.deleteRoom(rTypeID, hid);
+	}
+
 }

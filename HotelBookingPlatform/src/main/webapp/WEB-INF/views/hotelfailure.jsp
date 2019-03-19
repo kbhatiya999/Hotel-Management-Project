@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>UnSuccessfully Inserted Hotel!</h1>
-<c:redirect url="./ViewHotel"/>
+<h1>UnSuccessfull Operation!</h1>
+1. <a href="./ViewHotel">Go Back To Hotel Management</a>
 </body>
 </html>

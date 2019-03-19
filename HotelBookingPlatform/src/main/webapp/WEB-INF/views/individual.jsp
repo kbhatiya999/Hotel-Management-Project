@@ -11,11 +11,10 @@
 <table>
 <tr>
 <th><form action="./searchinput"><input type="submit" value="Search        "></form></th>
-<th><form action=""><input type="submit" value="My Bookings  "></form></th>
-<th><form action=""><input type="submit" value="Cancel Booking"></form></th>
+<th><a href="./activeBookings?uid=${userid }"><input type="submit" value="My Active Bookings  "></a></th>
+<th><a href="./inactiveBookings?uid=${userid }"><input type="submit" value="My Previous Bookings"></a></th>
 </tr>
 </table>
-
 <a href="./ContactUs">Contact Us</a>
 </body>
 </html>
