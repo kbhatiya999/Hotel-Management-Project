@@ -24,8 +24,10 @@ public class CheckoutController {
 	private int reservationId;
 	
 	@RequestMapping("/cout3")
-	public ModelAndView checkouttest() {
+	public ModelAndView checkouttest(@RequestParam("rid") int rid, @RequestParam("name") String name) {
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("rid", rid);
+		mv.addObject("name",name);
 		//Hotel h = new Hotel();
 		//h.setHid(hid);
 		//mv.addObject("command",new Hotel());

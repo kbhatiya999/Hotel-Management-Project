@@ -74,6 +74,7 @@ public class BookingSearchController {
 		ArrayList<BookingDetails> arr=bookingtManagementService.getActiveBookings(user1.getU_Id());
 		if(arr.size()!=0) {
 		mv.addObject("BookingDetailsList", arr);
+		mv.addObject("user", user1);
 		mv.setViewName("/ActiveBookings");
 		}
 		else

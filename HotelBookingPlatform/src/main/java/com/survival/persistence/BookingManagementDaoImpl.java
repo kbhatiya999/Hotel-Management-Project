@@ -73,6 +73,7 @@ public class BookingManagementDaoImpl implements BookingManagementDao {
 			bookingDetails.setCheck_in(resultSet.getDate("checkindate"));
 			bookingDetails.setCheck_out(resultSet.getDate("checkoutdate"));
 			bookingDetails.setNo_of_rooms(resultSet.getInt("noofrooms"));
+			bookingDetails.setReservation_id(resultSet.getInt("reservationid"));
 			PreparedStatement preparedStatement2=conn.prepareStatement("Select hname from hotel where hid=?");
 			preparedStatement2.setString(1, resultSet.getString("hid"));
 			ResultSet resultSet2=preparedStatement2.executeQuery();
@@ -112,6 +113,7 @@ public class BookingManagementDaoImpl implements BookingManagementDao {
 			bookingDetails.setCheck_in(resultSet.getDate("checkindate"));
 			bookingDetails.setCheck_out(resultSet.getDate("chekoutdate"));
 			bookingDetails.setNo_of_rooms(resultSet.getInt("noofrooms"));
+			bookingDetails.setReservation_id(resultSet.getInt("reservationid"));
 			PreparedStatement preparedStatement2=conn.prepareStatement("Select hname from hotel where hid=?");
 			preparedStatement2.setString(1, resultSet.getString("hid"));
 			ResultSet resultSet2=preparedStatement2.executeQuery();

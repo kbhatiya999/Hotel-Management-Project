@@ -1,6 +1,6 @@
 <%@page import="com.survival.entities.BookingDetails"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -71,9 +71,9 @@ for(BookingDetails book:arrList)
           </form>
     </td>
      <td><br>
-		  <form name="f2" action="javascript:select();" >
-                  <a href="./cout3">Checkout</a>
-          </form>
+		
+        <a href="./cout3?rid=<%= book.getReservation_id() %>&name=<%= book.getName() %>"><input id="edit" type="submit"  value="Checkout" /></a> 
+          
     </td>
           
   </tr>

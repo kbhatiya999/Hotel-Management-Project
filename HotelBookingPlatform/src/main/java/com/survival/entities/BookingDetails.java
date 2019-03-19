@@ -12,6 +12,7 @@ public class BookingDetails {
 	private Date check_out;
 	private String hotel_name;
 	private String package_name;
+	private int reservation_id;
 	
 	
 	public int getNo_of_rooms() {
@@ -61,6 +62,12 @@ public class BookingDetails {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public int getReservation_id() {
+		return reservation_id;
+	}
+	public void setReservation_id(int reservation_id) {
+		this.reservation_id = reservation_id;
 	}
 	
 	
