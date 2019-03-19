@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 public class DbConnectionHelper {
 
+
 	public static Connection getConnection(){
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -22,6 +23,7 @@ public class DbConnectionHelper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		return connection;
 	}
 }

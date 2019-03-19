@@ -1,4 +1,4 @@
-package com.survival.controllers;
+package com.survival.controller;
 
 
 import java.sql.SQLException;
@@ -23,7 +23,7 @@ public class BookingSearchController {
 	
 	User userCheck = new User();
 	
-	@RequestMapping("/")
+	@RequestMapping("/book")
 	public ModelAndView searchBookings(){
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("command",new User());
