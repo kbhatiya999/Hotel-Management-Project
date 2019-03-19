@@ -25,20 +25,6 @@ public class BookingManagementServiceImpl implements BookingManagementService {
 	}
 
 	
-	@Override
-	public boolean updateName(int user_id, String name) throws SQLException {
-		return bookingManagementDao.updateName(user_id, name);
-	}
-
-	@Override
-	public boolean updateEmail(int user_id, String email) throws SQLException {
-		return bookingManagementDao.updateEmail(user_id, email);
-	}
-
-	@Override
-	public boolean updatePhone(int user_id, long phone) throws SQLException {
-		return bookingManagementDao.updatePhone(user_id, phone);
-	}
 
 	@Override
 	public ArrayList<BookingDetails> getActiveBookings(int user_id) throws SQLException {
@@ -48,6 +34,21 @@ public class BookingManagementServiceImpl implements BookingManagementService {
 	@Override
 	public ArrayList<BookingDetails> getInactiveBookings(int user_id) throws SQLException {
 		return bookingManagementDao.getInactivetBookings(user_id);
+	}
+
+	@Override
+	public boolean updateName(String name, long phone, String newName) throws SQLException {
+		return bookingManagementDao.updateName(name, phone, newName);
+	}
+
+	@Override
+	public boolean updateEmail(String name, long phone, String email) throws SQLException {
+		return bookingManagementDao.updateEmail(name, phone, email);
+	}
+
+	@Override
+	public boolean updatePhone(String name, long phone, long newPhone) throws SQLException {
+		return bookingManagementDao.updatePhone(name, phone, newPhone);
 	}
 	
 	

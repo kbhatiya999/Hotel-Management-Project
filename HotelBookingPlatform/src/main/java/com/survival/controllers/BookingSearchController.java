@@ -24,7 +24,7 @@ public class BookingSearchController {
 	User userCheck = new User();
 	
 	@RequestMapping("/")
-	public ModelAndView searchBookings(HttpServletRequest request){
+	public ModelAndView searchBookings(){
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("command",new User());
 		mv.setViewName("/BookingManagementSearch");   
@@ -86,6 +86,83 @@ public class BookingSearchController {
 		}
 		return mv;
 	}
+	
+	@RequestMapping("/update_Name")
+	public ModelAndView update_Name() {
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("/UpdateName");
+		return mv;
+	}
+	
+	@RequestMapping("/update_Phone")
+	public ModelAndView update_Phone() {
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("/UpdatePhone");
+		return mv;
+	}
+	
+	@RequestMapping("/update_Email")
+	public ModelAndView update_Email() {
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("/UpdateEmail");
+		return mv;
+	}
+	
+	@RequestMapping("/updateName")
+	public ModelAndView updateName(@RequestParam("name") String name,@RequestParam("phone") long phone,@RequestParam("newName") String newName)
+	{
+		ModelAndView mv=new ModelAndView();
+		try {
+			boolean flag=bookingtManagementService.updateName(name, phone, newName);
+			if(flag)
+				mv.setViewName("/UpdateSuccessful");
+			else
+				mv.setViewName("/UpdateFailure");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return mv;
+	}
+	
+	@RequestMapping("/updatePhone")
+	public ModelAndView updatePhone(@RequestParam("name") String name,@RequestParam("phone") long phone,@RequestParam("newPhone") long newPhone)
+	{
+		ModelAndView mv=new ModelAndView();
+		try {
+			boolean flag=bookingtManagementService.updatePhone(name, phone, newPhone);
+			if(flag)
+				mv.setViewName("/UpdateSuccessful");
+			else
+				mv.setViewName("/UpdateFailure");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return mv;
+	}
+	
+
+	@RequestMapping("/updateEmail")
+	public ModelAndView updateEmail(@RequestParam("name") String name,@RequestParam("phone") long phone,@RequestParam("newEmail") String email)
+	{
+		ModelAndView mv=new ModelAndView();
+		try {
+			boolean flag=bookingtManagementService.updateEmail(name, phone, email);
+			if(flag)
+				mv.setViewName("/UpdateSuccessful");
+			else
+				mv.setViewName("/UpdateFailure");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return mv;
+	}
+	
 
 
 }

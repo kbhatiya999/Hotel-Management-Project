@@ -43,20 +43,21 @@ for(BookingDetails book:arrList)
     <td><% out.println(book.getName()); %>
     <br>
     
-		  <form name="f2" action="javascript:select();" >
-                  <input id="edit" type="submit" name="edit" value="Edit" />
+		  <form name="f2" action="./update_Name" >
+                  <input id="edit" type="submit" name="edit1" value="Edit" />
+            
          </form>
     </td>
     <td><%out.println(book.getPhone_no()); %>
     <br>
-		  <form name="f2" action="javascript:select();" >
-                  <input id="edit" type="submit" name="edit" value="Edit" />
+		  <form name="f2" action="./update_Phone" >
+                  <input id="edit" type="submit" name="edit2" value="Edit" />
                   </form>
     </td> 
     <td><%out.println(book.getEmail()); %>
      <br>
-		  <form name="f2" action="javascript:select();" >
-                  <input id="edit" type="submit" name="edit" value="Edit" />
+		  <form name="f2" action="./update_Email" >
+                  <input id="edit" type="submit" name="edit3" value="Edit" />
           </form>
      </td> 
     <td><%out.println(book.getNo_of_rooms()); %></td>

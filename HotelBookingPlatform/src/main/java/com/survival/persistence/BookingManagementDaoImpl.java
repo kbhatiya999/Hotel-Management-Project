@@ -123,35 +123,45 @@ public class BookingManagementDaoImpl implements BookingManagementDao {
 	}
 
 	@Override
-	public boolean updateEmail(int reservation_id, String email) throws SQLException {
+	public boolean updateEmail(String name,long phone, String email) throws SQLException {
 		Connection conn=db.getConnection();
-		PreparedStatement preparedStatement=conn.prepareStatement("update guest "+"set email=? where reservationid=?");
-		preparedStatement.setString(1,email);
-		preparedStatement.setInt(2, reservation_id);
-		preparedStatement.executeUpdate();
-		return true;
+		PreparedStatement preparedStatement=conn.prepareStatement("update guest "+"set email=? where name=? and phone=?");
+		preparedStatement.setString(1, email);
+		preparedStatement.setString(2,name);
+		preparedStatement.setLong(3,phone);
+		if(preparedStatement.executeUpdate()>0)
+			return true;
+		return false;
+		
 	}
 
 	@Override
-	public boolean updatePhone(int reservation_id, long phone) throws SQLException {
+	public boolean updatePhone(String name,long phone, long newPhone) throws SQLException {
 		// TODO Auto-generated method stub
 		Connection conn=db.getConnection();
-		PreparedStatement preparedStatement=conn.prepareStatement("update guest "+"set phone=? where reservationid=?");
-		preparedStatement.setLong(1, phone);
-		preparedStatement.setInt(2, reservation_id);
-		preparedStatement.executeUpdate();
-		return true;
+		PreparedStatement preparedStatement=conn.prepareStatement("update guest "+"set phone=? where name=? and phone=?");
+		preparedStatement.setLong(1, newPhone);
+		preparedStatement.setString(2,name);
+		preparedStatement.setLong(3,phone);
+		if(preparedStatement.executeUpdate()>0)
+			return true;
+		return false;
+		
 	}
 
 	@Override
-	public boolean updateName(int reservation_id, String name) throws SQLException {
+	public boolean updateName(String name,long phone, String newName) throws SQLException {
 		// TODO Auto-generated method stub
 		Connection conn=db.getConnection();
-		PreparedStatement preparedStatement=conn.prepareStatement("update guest "+"set name=? where reservationid=?");
-		preparedStatement.setString(1, name);
-		preparedStatement.setInt(2, reservation_id);
-		preparedStatement.executeUpdate();
-		return true;
+		PreparedStatement preparedStatement=conn.prepareStatement("update guest set name=? where name=? and phone=?");
+		preparedStatement.setString(1, newName);
+		preparedStatement.setString(2,name);
+		preparedStatement.setLong(3,phone);
+		if(preparedStatement.executeUpdate()>0)
+			return true;
+		return false;
+		
+		
 	}
 	
 	
