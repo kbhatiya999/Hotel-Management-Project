@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Currently no bookings have been made.</h1>
-<h2>Please make a booking with us.</h2>
+<h1>Updated Successfully</h1>
 </body>
 </html>

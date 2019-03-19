@@ -7,6 +7,6 @@
 <title>no inactive booking</title>
 </head>
 <body>
-<h1>No previous booking</h1>
+<h1>No bookings have been made.</h1>
 </body>
 </html>
