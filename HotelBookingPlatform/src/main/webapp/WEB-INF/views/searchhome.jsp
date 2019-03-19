@@ -1,107 +1,98 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"  import="com.survival.entities.TrendingMain" import="java.util.ArrayList" isELIgnored="false"%>
-    <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>\
-    <%@ include file = "header.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	pageEncoding="ISO-8859-1" import="com.survival.entities.TrendingMain"
+	import="java.util.ArrayList" isELIgnored="false"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ include file="header.jsp"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Search Home</title>
 </head>
 <body>
-<table style="width: 100%" class="table table-bordered">
-		<tr>
-			<th>HotelName</th>
-			<th>Rating</th>
-			<th>Address</th>
-			<th>Discount</th>
-			<th>RoomType</th>
-			<th>Price</th>
-			<th>Location</th>
-		</tr>		
-		<%
-			ArrayList<TrendingMain> list = (ArrayList) request.getAttribute("trending");
-			for (TrendingMain element : list) {
-		%>
-		<tr>
-			<td>
-				<%
-					out.println(element.getHotelName());
-				%>
-			</td>
-			<td>
-				<%
-					out.println(element.getRating());
-				%>
-			</td>
-			<td>
-				<%
-					out.println(element.getAddress());
-				%>
-			</td>
-			<td>
-				<%
-					out.println(element.getDiscount());
-				%>
-			</td>
-			<td>
-				<%
-					out.println(element.getRoom_type());
-				%>
-			</td>
-			<td>
-				<%
-					out.println(element.getPrice());
-				%>
-			</td>
-			<td>
-				<%
-					out.println(element.getLocation());
-				%>
-			</td>
-			
-			
-		</tr>
-		
-
-		<%
-			}
-		%>
-	</table>
-<br> <br>	
-<form:form action="./searchresult">
-<!-- Enter City : <form:input type="text" path="city" /><br><br> -->
-Enter the city:<form:select path="city">
-<form:option value="Jaipur">Jaipur</form:option>
-<form:option value="Delhi">Delhi</form:option>
-<form:option value="Mumbai">Mumbai</form:option>
-</form:select><br><br>
-
-Enter MinPrice: <form:select path="minPrice">
-<form:option value="1000">1000</form:option>
-<form:option value="2000">2000</form:option>
-<form:option value="6000">6000</form:option>
-</form:select><br><br> <!--<form:input type="text" path="minPrice"/><br><br>-->
-
-Enter MaxPrice:   <form:select path="maxPrice">
-<form:option value="10000">10000</form:option>
-<form:option value="15000">15000</form:option>
-<form:option value="20000">20000</form:option>
-</form:select><br><br>
-<input type="submit" value="search">
-</form:form>
-
+	<div class="global-font-style">
+		<div class="container" align="center">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Hotel Name</th>
+						<th>Satisfaction Rating</th>
+						<th>Hotel Address</th>
+						<th>Discount Offered</th>
+						<th>Room Type</th>
+						<th>Room Price</th>
+						<th>Location</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%
+						ArrayList<TrendingMain> list = (ArrayList) request.getAttribute("trending");
+						for (TrendingMain element : list) {
+					%>
+					<tr>
+						<td>
+							<%
+								out.println(element.getHotelName());
+							%>
+						</td>
+						<td>
+							<%
+								out.println(element.getRating());
+							%>
+						</td>
+						<td>
+							<%
+								out.println(element.getAddress());
+							%>
+						</td>
+						<td>
+							<%
+								out.println(element.getDiscount());
+							%>
+						</td>
+						<td>
+							<%
+								out.println(element.getRoom_type());
+							%>
+						</td>
+						<td>
+							<%
+								out.println(element.getPrice());
+							%>
+						</td>
+						<td>
+							<%
+								out.println(element.getLocation());
+							%>
+						</td>
+					</tr>
+					<%
+						}
+					%>
+				</tbody>
+			</table>
+			<br> <br>
+			<form:form action="./searchresult">
+				<table class="table table-bordered">
+					<tr>
+						<td>Enter the city: <form:select path="city"
+								placeholder="Choose City">
+								<form:option value="Jaipur">Jaipur</form:option>
+								<form:option value="Delhi">Delhi</form:option>
+								<form:option value="Mumbai">Mumbai</form:option>
+							</form:select>
+						</td>
+						<td>Enter Minimum Price Limit: <form:input type="number"
+								path="minPrice" /></td>
+						<td>Enter Maximum Price Limit: <form:input type="number"
+								path="maxPrice" /></td>
+					</tr>
+				</table>
+				<br>
+				<br>
+				<input type="submit" value="Search!">
+			</form:form>
+		</div>
+	</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
