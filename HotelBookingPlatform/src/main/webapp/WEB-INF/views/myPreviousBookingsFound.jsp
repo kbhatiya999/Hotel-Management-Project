@@ -25,7 +25,7 @@
 		<td>Status      </td>
 		<td>TotalAmount</td>
 		<td>discount(%)      </td>
-		<td>AmountPayable      </td>
+		<td>Bill Amount      </td>
 	<tr>
 
 <% ArrayList<MyBookingsPojo> bookings=(ArrayList<MyBookingsPojo>)request.getAttribute("bookingsList");

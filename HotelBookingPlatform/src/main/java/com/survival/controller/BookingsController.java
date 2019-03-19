@@ -24,7 +24,7 @@ public class BookingsController {
 	MyBookingsService myBookingsService;
 	
 	
-	@RequestMapping("/")
+	@RequestMapping("/test")
 	public ModelAndView first()
 	{
 		ModelAndView mv=new ModelAndView();
@@ -56,6 +56,7 @@ public class BookingsController {
 		}
 		else
 		{
+	    mv.addObject("userid", uid);
 		mv.addObject("bookingsList",myBookings);
 		
 		mv.setViewName("myActiveBookingsFound");

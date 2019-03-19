@@ -1,6 +1,6 @@
 <%@page import="com.survival.entities.MyBookingsPojo"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
      <%@page import="java.util.ArrayList"%>
      <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %> 
 
@@ -27,7 +27,7 @@
 		<td>Status      </td>
 		<td>TotalAmount</td>
 		<td>discount(%)      </td>
-		<td>AmountPayable      </td>
+		<td>Bill Amount </td>
 	<tr>
 
 <% ArrayList<MyBookingsPojo> bookings=(ArrayList<MyBookingsPojo>)request.getAttribute("bookingsList");
@@ -56,11 +56,11 @@ for(MyBookingsPojo pojo:bookings){
 </table>
 
 
-<form:form action="./modify" method="post">
+<form:form action="./ContactUs" method="post">
 		<input type="submit" value="modify bookings"/>		
 </form:form>
 
-<form:form action="./cancelStart" method="post">
+<form:form action="./cancelStart?uid=${userid}" method="post">
 		<input type="submit" value="cancel bookings"/>		
 </form:form>
 

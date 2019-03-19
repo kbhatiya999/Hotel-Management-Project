@@ -20,15 +20,16 @@ public class CancellationController {
 	private int chargeSlab;
 	
 	@RequestMapping("/cancelStart")
- 	public ModelAndView showCancelMenu(){
+ 	public ModelAndView showCancelMenu(@RequestParam("uid") int uid){
  		ModelAndView mv=new ModelAndView();
+ 		mv.addObject("userid", uid);
  	   mv.setViewName("cancelBooking");
  		return mv;
  	}
 	
 	@RequestMapping("/cancel")
  	public ModelAndView confirmCancelBooking(@RequestParam("reservationId") int reservationId, 
- 			     @RequestParam("userId") int userId){
+ 			     @RequestParam("uid") int userId){
 
 		rreservationId=reservationId;
  		ModelAndView mv=new ModelAndView();
@@ -44,6 +45,7 @@ public class CancellationController {
 		}
  		if(validUser && chargeSlab>=0 && !isAlreadyCancelled)
  		{
+ 			mv.addObject("userid", userId);
  	   mv.addObject("cancelValue", chargeSlab);
  	   mv.setViewName("confirmCancel");
  		}
