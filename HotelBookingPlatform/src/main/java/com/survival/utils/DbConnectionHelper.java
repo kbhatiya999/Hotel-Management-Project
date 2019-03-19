@@ -17,7 +17,11 @@ public class DbConnectionHelper {
 		}
 		Connection connection = null;
 		try {
+<<<<<<< HEAD
 			connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","scott","TIGER");
+=======
+			connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","hr","tiger");
+>>>>>>> branch 'iterationOne' of https://github.com/kbhatiya999/Hotel-Management-Project
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
