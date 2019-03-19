@@ -16,7 +16,7 @@ public class ReservationGuest {
 	private LocalDate checkoutdate;
 	private Integer gid;
 	private String name;
-	private Integer phone;
+	private Long phone;
 	private String email;
 	private String modeofpayment;
 	private Boolean is_active;
@@ -30,7 +30,7 @@ public class ReservationGuest {
 	
 	public ReservationGuest(Integer reservationID, Integer rtypeid, Integer u_Id, Integer hid, Integer pid,
 			String status, LocalDate checkindate, Integer noofrooms, Integer dealtype, LocalDate checkoutdate, Integer gid,
-			String name, Integer phone, String email, String modeofpayment, Boolean is_active, String inDay,
+			String name, Long phone, String email, String modeofpayment, Boolean is_active, String inDay,
 			String inMonth, String inYear, String outDay, String outMonth, String outYear) {
 		super();
 		this.reservationID = reservationID;
@@ -122,8 +122,8 @@ public class ReservationGuest {
 		return name;
 	}
 
-	public Integer getPhone() {
-		return phone;
+	public Long getPhone(){
+		return (Long)phone;
 	}
 
 	public String getEmail() {
@@ -225,7 +225,7 @@ public class ReservationGuest {
 		this.name = name;
 	}
 
-	public void setPhone(Integer phone) {
+	public void setPhone(Long phone) {
 		this.phone = phone;
 	}
 

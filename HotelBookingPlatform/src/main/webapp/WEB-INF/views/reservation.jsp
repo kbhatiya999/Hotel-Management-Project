@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
+<%@ include file = "header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 	<form:form action="./reservation"> 
 Name : <form:input path="name" />
 		<br></br>
-Contact No. : <form:input path="phone" />
+Contact No. : <form:input type="number" path="phone" />
 		<br></br>
 Email Address : <form:input type="email"  path="email" />
 		<br></br>
