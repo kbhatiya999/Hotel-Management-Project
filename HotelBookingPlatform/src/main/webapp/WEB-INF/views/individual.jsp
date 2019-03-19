@@ -11,9 +11,10 @@
 <table class="table table-bordered">
 <tbody>
 <tr>
-<th><form action="./searchinput"><input type="submit" value="Plan your trip"></form></th>
-<th><a href="./activeBookings?uid=${userid }"><input type="submit" value="My Active Bookings"></a></th>
-<th><a href="./inactiveBookings?uid=${userid }"><input type="submit" value="My Previous Bookings"></a></th>
+${userid}
+<th><a href="./searchinput?uid=${userid}"><input type="submit" value="Plan your trip"></a></th>
+<th><a href="./activeBookings?uid=${userid}"><input type="submit" value="My Active Bookings"></a></th>
+<th><a href="./inactiveBookings?uid=${userid}"><input type="submit" value="My Previous Bookings"></a></th>
 </tr>
 </tbody>
 </table>
