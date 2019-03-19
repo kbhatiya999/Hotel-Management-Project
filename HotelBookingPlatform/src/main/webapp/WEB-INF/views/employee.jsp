@@ -12,7 +12,7 @@
 <tr>
 <th><form action=""><input type="submit" value="Checkout                "></form></th>
 <th><form action=""><input type="submit" value="Modify Booking          "></form></th>
-<th><form action=""><input type="submit" value="Booking Management        "></form></th>
+<th><form action="./bookingSearch"><input type="submit" value="Booking Management        "></form></th>
 <th><form action="./ViewHotel"><input type="submit" value="Hotels  Management"></form></th>
 <th><form action="./ViewPackage"><input type="submit" value="Package Management"></form></th>
 </tr>

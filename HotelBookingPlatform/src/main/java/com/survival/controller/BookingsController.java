@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.survival.entities.MyBookingsPojo;
-import com.survival.entities.Reservation;
-import com.survival.myBookingsService.MyBookingsService;
-import com.survival.persistence.MyBookingsDaoImpl;
+import com.survival.service.MyBookingsService;
 
 @Controller
 public class BookingsController {

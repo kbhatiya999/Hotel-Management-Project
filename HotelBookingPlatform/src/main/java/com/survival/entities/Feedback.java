@@ -1,49 +1,82 @@
 package com.survival.entities;
 
-public class Feedback {
-//	create table feedback (reservationid number(10), hid number(10), feedbackcomment varchar(200), rating number(1),
-//			foreign key (reservationid) references reservation(reservationid),foreign key (hid) references hotel(hid));
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-	private Integer reservationid;
-	private Integer hid;
-	private String feedbackcomment;
-	private Integer rating;
-	
+
+public class Feedback {
+
+	private Integer bookingID;
+	private int hotelID;
+	private int hotelRating;
+	private String feedbackDescription;
 	public Feedback() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Feedback(Integer reservationid, Integer hid, String feedbackcomment, Integer rating) {
+	public Feedback(Integer bookingID, int hotelID, int hotelRating, String feedbackDescription) {
 		super();
-		this.reservationid = reservationid;
-		this.hid = hid;
-		this.feedbackcomment = feedbackcomment;
-		this.rating = rating;
+		this.bookingID = bookingID;
+		this.hotelID = hotelID;
+		this.hotelRating = hotelRating;
+		this.feedbackDescription = feedbackDescription;
 	}
-	public Integer getReservationid() {
-		return reservationid;
+	public Integer getBookingID() {
+		return bookingID;
 	}
-	public void setReservationid(Integer reservationid) {
-		this.reservationid = reservationid;
+	public void setBookingID(Integer bookingID) {
+		this.bookingID = bookingID;
 	}
-	public Integer getHid() {
-		return hid;
+	public int getHotelID() {
+		return hotelID;
 	}
-	public void setHid(Integer hid) {
-		this.hid = hid;
+	public void setHotelID(int hotelID) {
+		this.hotelID = hotelID;
 	}
-	public String getFeedbackcomment() {
-		return feedbackcomment;
+	public int getHotelRating() {
+		return hotelRating;
 	}
-	public void setFeedbackcomment(String feedbackcomment) {
-		this.feedbackcomment = feedbackcomment;
+	public void setHotelRating(int hotelRating) {
+		this.hotelRating = hotelRating;
 	}
-	public Integer getRating() {
-		return rating;
+	public String getFeedbackDescription() {
+		return feedbackDescription;
 	}
-	public void setRating(Integer rating) {
-		this.rating = rating;
+	public void setFeedbackDescription(String feedbackDescription) {
+		this.feedbackDescription = feedbackDescription;
 	}
+	@Override
+	public String toString() {
+		return "Feedback [bookingID=" + bookingID + ", hotelID=" + hotelID + ", hotelRating=" + hotelRating
+				+ ", feedbackDescription=" + feedbackDescription + "]";
+	}
+	
 	
 	
 }
+/*public boolean insertFeedback(Feedback feedback) throws SQLException {
+		PreparedStatement pState = conn.prepareStatement("INSERT INTO FEEDBACK VALUES (?,?,?)");
+		pState.setInt(1, feedback.getBookingID());
+		pState.setDouble(2, feedback.getHotelRating());
+		pState.setString(3, feedback.getFeedbackDescription());
+		return pState.executeUpdate() > 0;
+	}
+
+	public boolean deleteFeedback(int bookingID) throws SQLException {
+		PreparedStatement pState = conn.prepareStatement("DELETE FROM FEEDBACK WHERE BID=?");
+		pState.setInt(1, bookingID);
+		return pState.executeUpdate() > 0;
+	}
+
+	public Feedback searchFeedback(int bookingID) throws SQLException {
+		Statement state = conn.createStatement();
+		ResultSet rSet = state.executeQuery("SELECT * FROM FEEDBACK WHERE BID="+bookingID);
+		return new Feedback(rSet.getInt(1), rSet.getInt(2),  rSet.getInt(3), rSet.getString(4));
+	}
+
+	public ResultSet getAllFeedback() throws SQLException {
+		Statement state = conn.createStatement();
+		return state.executeQuery("SELECT * FROM FEEDBACK");
+	}*/
