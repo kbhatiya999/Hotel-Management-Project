@@ -21,7 +21,7 @@ public class HotelDaoImpl implements HotelDao {
 	public HotelDaoImpl() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			this.conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "scott", "tiger");
+			this.conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "scott", "TIGER");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -61,7 +61,9 @@ public class HotelDaoImpl implements HotelDao {
 		pstate.setInt(1, hid);
 		ResultSet rSet = pstate.executeQuery();
 		Hotel h=new Hotel();
-			rSet.next();
+			if(!rSet.next()) {
+				return null;
+			};
 			h.setAddress(rSet.getString("ADDRESS"));
 			h.setCity(rSet.getString("CITY"));
 			h.setDiscount(rSet.getInt("DISCOUNT"));

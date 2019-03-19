@@ -10,6 +10,7 @@ public interface RoomService {
 	public boolean enterRoom(Roomtype room) throws SQLException;
 	
 	public boolean removeRoom(Integer rTypeID) throws SQLException;
+	public boolean removeRoom(Integer rTypeID,Integer hid) throws SQLException;
 	
 	public Roomtype findRoom(Integer rTypeID,Integer hid) throws SQLException;
 	

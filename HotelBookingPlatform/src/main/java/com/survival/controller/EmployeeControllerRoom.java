@@ -19,10 +19,10 @@ public class EmployeeControllerRoom {
 
 	@Autowired
 	RoomServiceImpl rService;
-	
-	
-	
-	
+
+
+
+
 	@RequestMapping("/AddRoom")
 	public ModelAndView addRoom() {
 		ModelAndView mv = new ModelAndView();
@@ -31,15 +31,26 @@ public class EmployeeControllerRoom {
 		return mv;
 	}
 
-	
+
 	@RequestMapping("/AddRoomResult")
 	public ModelAndView insertResult(@ModelAttribute Roomtype room) {
-		
+
 		ModelAndView modelAndView =new ModelAndView();
-		
+
 		try {
+
+			switch(room.getRtypeid())
+			{
+			case 1: {room.setType("Deluxe : AC");} break;
+			case 2: {room.setType("Deluxe : NON-AC");} break;
+			case 3: {room.setType("Premium : King");} break;
+			case 4: {room.setType("Premium : Queen");} break;
+
+			}
+			System.out.println("hello");
 			if(rService.enterRoom(room))
 			{
+				System.out.println("enter room");
 				modelAndView.setViewName("insertsuccessroom");
 			}
 			else
@@ -52,8 +63,8 @@ public class EmployeeControllerRoom {
 		}
 		return modelAndView;
 	}
-	
-	
+
+
 	@RequestMapping("/DeleteRoom")
 	public ModelAndView deleteRoom()
 	{
@@ -62,41 +73,41 @@ public class EmployeeControllerRoom {
 		mv.setViewName("RoomDelete");
 		return mv;
 	}
-	
+
 
 	@RequestMapping("/DeleteRoomResult")
 	public ModelAndView deleteResult(@ModelAttribute Roomtype room) {
-		
+
 		ModelAndView modelAndView =new ModelAndView();
-	
+
 		try {
-			if(rService.removeRoom(room.getRtypeid()) )
+			if(rService.removeRoom(room.getRtypeid(),room.getHid()) )
 			{
 				modelAndView.setViewName("deletesuccessroom");
 			}
 			else
 			{
-				modelAndView.setViewName("deletefailure");
-}
+				modelAndView.setViewName("failure");
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return modelAndView;
-		
+
 	} 
-	
-//	@RequestMapping("/UpdateHotel")
-//	public ModelAndView updateHotel() {
-//		ModelAndView mv = new ModelAndView();
-//		mv.addObject("command", new Hotel());
-//		mv.setViewName("HotelUpdate");
-//		return mv;
-//	}
-//
+
+	//	@RequestMapping("/UpdateHotel")
+	//	public ModelAndView updateHotel() {
+	//		ModelAndView mv = new ModelAndView();
+	//		mv.addObject("command", new Hotel());
+	//		mv.setViewName("HotelUpdate");
+	//		return mv;
+	//	}
+	//
 	@RequestMapping("/UpdateRoomResult")
 	public ModelAndView updateResult(@ModelAttribute Roomtype room) {
-		
+
 		ModelAndView modelAndView =new ModelAndView();
 		try {
 			if(rService.enterRoom(room)  )
@@ -107,7 +118,7 @@ public class EmployeeControllerRoom {
 			{
 				modelAndView.setViewName("failure");
 			}
-			
+
 		}
 		catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -115,10 +126,10 @@ public class EmployeeControllerRoom {
 		}
 		return modelAndView;
 	}
-//	
-	
-	
-	
+	//	
+
+
+
 	@RequestMapping("/ViewRoom")
 	public ModelAndView displayRoom()
 	{
@@ -133,8 +144,8 @@ public class EmployeeControllerRoom {
 		mv.setViewName("RoomView");
 		return mv;
 	}
-	
-	
-	
-	
+
+
+
+
 }

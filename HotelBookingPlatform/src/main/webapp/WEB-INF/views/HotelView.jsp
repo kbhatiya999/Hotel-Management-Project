@@ -36,7 +36,9 @@
 		Hotel Rating:<form:input type="number" min="0" max="10" path="hotelrating" required="required"/>
 		</td><td>
 		Hotel No of Ratings:<form:input  type="number" min="0" max="10000" path="nooffeedback" required="required" />
-		</td>
+		</td><td>
+		Occupied Rooms:<form:input  type="number" min="0" max="10000" path="occupiedrooms" required="required" />
+		</td><td>
 		</tr>
 <input type="submit" name= "operations" value="Submit">
 <tr>
@@ -83,6 +85,7 @@
 			<th>Discount</th>
 			<th>Rating</th>
 			<th>No. of feedback</th>
+			<th>Occupied Rooms</th>			
 		</tr>
 		<%
 
@@ -99,6 +102,9 @@
 			h.setDiscount(rs.getInt("discount"));
 			h.setHotelrating(rs.getDouble("hotelrating"));
 			h.setNooffeedback(rs.getInt("nooffeedback"));
+			h.setOccupiedrooms(rs.getInt("occupiedrooms"));
+			
+			
 			ls.add(h);		
 		}
 		
@@ -114,6 +120,7 @@
 			out.println("<td>" +element.getDiscount() + "</td>");
 			out.println("<td>" +element.getHotelrating() + "</td>");
 			out.println("<td>" +element.getNooffeedback() + "</td>");
+			out.println("<td>" +element.getOccupiedrooms() + "</td>");
 			out.print("</tr>");
 		}
 		%>

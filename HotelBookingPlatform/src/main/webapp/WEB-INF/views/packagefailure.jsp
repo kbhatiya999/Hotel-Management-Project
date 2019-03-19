@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>UnSuccessfully Inserted Hotel!</h1>
-<c:redirect url="./ViewPackage"/>
+<h1>UnSuccessfull Operation!</h1>
+1. <a href="./ViewPackage">Go Back To Package Management</a>
 </body>
 </html>
