@@ -26,7 +26,7 @@ public class CheckoutController {
 	private int hotelId;
 	private int reservationId;
 	
-	@RequestMapping("/")
+	@RequestMapping("/cout3")
 	public ModelAndView checkouttest() {
 		ModelAndView mv = new ModelAndView();
 		//Hotel h = new Hotel();

@@ -23,7 +23,7 @@ public class BookingSearchController {
 	
 	User userCheck = new User();
 	
-	@RequestMapping("/book")
+	@RequestMapping("/")
 	public ModelAndView searchBookings(){
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("command",new User());

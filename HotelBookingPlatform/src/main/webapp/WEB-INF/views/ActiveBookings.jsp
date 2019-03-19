@@ -72,7 +72,7 @@ for(BookingDetails book:arrList)
     </td>
      <td><br>
 		  <form name="f2" action="javascript:select();" >
-                  <input id="edit" type="submit" name="CheckOut" value="CheckOut" />
+                  <a href="./cout3">Checkout</a>
           </form>
     </td>
           
