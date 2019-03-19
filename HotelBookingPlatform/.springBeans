@@ -7,9 +7,18 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
+<<<<<<< HEAD
+<<<<<<< HEAD
+		<config>src/main/webapp/WEB-INF/springmvc-servlet.xml</config>
+=======
+>>>>>>> refs/remotes/origin/arnv_feedback
+	</configs>
+	<autoconfigs>
+=======
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/springmvc-servlet.xml</config>
+>>>>>>> branch 'iterationOne' of https://github.com/kbhatiya999/Hotel-Management-Project.git
 	</autoconfigs>
 	<configSets>
 	</configSets>
