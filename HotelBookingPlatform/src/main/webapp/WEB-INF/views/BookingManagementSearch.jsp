@@ -8,9 +8,9 @@
 <title>Customer's Booking Search</title>
 </head>
 <body>
-<from:form action="./search">
+<from:form action="./eValidate">
 Enter Name     : <from:input path="user_Name"/><br></br>
-Enter Phone No : <from:input path="phone_Number"/><br></br>
+Enter Phone No : <from:input type="number" path="phone_Number"/><br></br>
 <input type="submit" value="Login">
 </from:form>
 </body>

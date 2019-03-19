@@ -2,6 +2,9 @@ package com.survival.controller;
 
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.survival.entities.BookingDetails;
 import com.survival.entities.User;
 import com.survival.service.BookingManagementServiceImpl;
 
@@ -24,12 +28,19 @@ public class BookingSearchController {
 	@RequestMapping("/bookingSearch")
 	public ModelAndView searchBookings(){
 		ModelAndView mv = new ModelAndView();
+		try {
 		mv.addObject("command",new User());
 		mv.setViewName("/BookingManagementSearch");   
+		}
+		catch(Exception ex)
+		{
+			mv.setViewName("/BookingManagementSearchFail");  
+			ex.printStackTrace();
+		}
 		return mv;
 	}
 	
-	@RequestMapping("/search")
+	@RequestMapping("/eValidate")
 	public  ModelAndView Search(@ModelAttribute User user){
 	
 		ModelAndView mv = new ModelAndView();
@@ -49,38 +60,50 @@ public class BookingSearchController {
 		}
 		catch(Exception ex)
 		{
+			mv.setViewName("/BookingManagementSearchFail");  
 			System.out.println(ex);
 		}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 		return mv;
 	}
 	
-	// where is this mapping , this was previously activeBookings
 	@RequestMapping("/activeSearchBookings")
 	public ModelAndView isActive() {
 		ModelAndView mv=new ModelAndView();
 	try {
 		User user1=bookingtManagementService.validateUser(userCheck.getUser_Name(),userCheck.getPhone_Number());
-		mv.addObject("BookingDetailsList", bookingtManagementService.getActiveBookings(user1.getU_Id()));
+		ArrayList<BookingDetails> arr=bookingtManagementService.getActiveBookings(user1.getU_Id());
+		if(arr.size()!=0) {
+		mv.addObject("BookingDetailsList", arr);
 		mv.setViewName("/ActiveBookings");
+		}
+		else
+			mv.setViewName("/NoRecords");
 	}
 	catch(Exception ex)
 	{
+		mv.setViewName("/NoRecords");
 		System.out.println(ex);
 	}
 		return mv;
 	}
 	
-	@RequestMapping("/isInActive")
+	@RequestMapping("/inactiveSearchBookings")
 	public ModelAndView isInactive()
 	{
 		ModelAndView mv=new ModelAndView();
 		try {
 			User user1=bookingtManagementService.validateUser(userCheck.getUser_Name(),userCheck.getPhone_Number());
-			mv.addObject("BookingDetailsList", bookingtManagementService.getInactiveBookings(user1.getU_Id()));
+			ArrayList<BookingDetails> arr=bookingtManagementService.getInactiveBookings(user1.getU_Id());
+			if(arr.size()!=0) {
+			mv.addObject("BookingDetailsList", arr);
 			mv.setViewName("/InactiveBookings");
+			}
+			else
+				mv.setViewName("/NoRecords");
 		}
 		catch(Exception ex)
 		{
+			mv.setViewName("/NoRecords");
 			System.out.println(ex);
 		}
 		return mv;
