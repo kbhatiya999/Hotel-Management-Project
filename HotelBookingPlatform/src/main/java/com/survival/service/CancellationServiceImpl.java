@@ -41,7 +41,7 @@ CancellationDao cancellationDao;
 		LocalDate cancelDate =LocalDate.now();
 		LocalDate checkInDate=cancellationDao.getCheckInDate(reservationId);
 		int noOfDaysBetween = (int) ChronoUnit.DAYS.between(cancelDate, checkInDate);
-		if(noOfDaysBetween<=0)
+		if(noOfDaysBetween<0)
 			return -1;
 		int chargeSlab=CancellationSlab.chargeSlab(noOfDaysBetween);
 		return chargeSlab;

@@ -56,7 +56,7 @@ public class CancellationController {
  		}
  		else if(chargeSlab<0)
  		{
- 			mv.addObject("result", "Sorry this Booking can't be cancelled!!");
+ 			mv.addObject("result", "Sorry this Booking can't be cancelled!! This Booking is OnGoing");
   	 	   mv.setViewName("cancelResult");
  		}
  		else if(isAlreadyCancelled)

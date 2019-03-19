@@ -13,6 +13,5 @@
 Enter Reservation Id : <input type="text" name="reservationId"><br>
 <input type="submit" value="Submit" name="operation">
 </form>
-${userid}
 </body>
 </html>
