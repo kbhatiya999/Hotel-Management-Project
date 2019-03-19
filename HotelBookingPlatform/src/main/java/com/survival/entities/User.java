@@ -2,80 +2,73 @@ package com.survival.entities;
 
 public class User {
 
-	private Integer userID;
-	private String userAddress;
-	private String userPhoneNumber;
-	private String userFullName;
-	private String userType;
-	private String userEmail;
+	private Integer u_Id;
+	private String email_Id;
+	private String user_Name;
+	private Long phone_Number;
+	private String user_Address;
+	private String user_role;
+	private Boolean is_active;
 	
-	public User(Integer id, String address, String phoneNumber, String fullName, String type, String email) {
-		this.userID = id;
-		this.userAddress = address;
-		this.userPhoneNumber = phoneNumber;
-		this.userFullName = fullName;
-		this.userType = type;
-		this.userEmail = email;
+	public User() {
+		// TODO Auto-generated constructor stub
 	}
 	
-	public User()
-	{
+	public User(Integer u_Id, String email_Id, String user_Name, Long phone_Number, String user_Address,
+			String user_role, Boolean is_active) {
+		super();
+		this.u_Id = u_Id;
+		this.email_Id = email_Id;
+		this.user_Name = user_Name;
 		
+		this.phone_Number = phone_Number;
+		this.user_Address = user_Address;
+		this.user_role = user_role;
+		this.is_active = is_active;
 	}
-
-	public Integer getUserID() {
-		return userID;
+	public Integer getU_Id() {
+		return u_Id;
 	}
-
-	public void setUserID(Integer userID) {
-		this.userID = userID;
+	public void setU_Id(Integer u_Id) {
+		this.u_Id = u_Id;
 	}
-
-	public String getUserAddress() {
-		return userAddress;
+	public String getEmail_Id() {
+		return email_Id;
 	}
-
-	public void setUserAddress(String userAddress) {
-		this.userAddress = userAddress;
+	public void setEmail_Id(String email_Id) {
+		this.email_Id = email_Id;
 	}
-
-	public String getUserPhoneNumber() {
-		return userPhoneNumber;
+	public String getUser_Name() {
+		return user_Name;
 	}
-
-	public void setUserPhoneNumber(String userPhoneNumber) {
-		this.userPhoneNumber = userPhoneNumber;
+	public void setUser_Name(String user_Name) {
+		this.user_Name = user_Name;
 	}
-
-	public String getUserFullName() {
-		return userFullName;
+	public Long getPhone_Number() {
+		return phone_Number;
 	}
-
-	public void setUserFullName(String userFullName) {
-		this.userFullName = userFullName;
+	public void setPhone_Number(Long long1) {
+		this.phone_Number = long1;
 	}
-
-	public  String getUserType() {
-		return userType;
+	public String getUser_Address() {
+		return user_Address;
 	}
-
-	@Override
-	public String toString() {
-		return "User [userID=" + userID + ", userAddress=" + userAddress + ", userPhoneNumber=" + userPhoneNumber
-				+ ", userFullName=" + userFullName + ", userType=" + userType + ", userEmail=" + userEmail + "]";
+	public void setUser_Address(String user_Address) {
+		this.user_Address = user_Address;
 	}
-
-	public void setUserType(String userType) {
-		this.userType = userType;
+	public String getUser_role() {
+		return user_role;
 	}
-
-	public String getUserEmail() {
-		return userEmail;
+	public void setUser_role(String user_role) {
+		this.user_role = user_role;
 	}
-
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
+	public Boolean getIs_active() {
+		return is_active;
 	}
-
+	public void setIs_active(Boolean is_active) {
+		this.is_active = is_active;
+	}
 	
-}
+	
+	
+	}

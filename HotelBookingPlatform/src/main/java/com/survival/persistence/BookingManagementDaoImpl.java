@@ -12,17 +12,17 @@ import java.util.Date;
 
 import org.springframework.stereotype.Repository;
 
-import com.survival.dbutils.DatabaseUtils;
 import com.survival.entities.BookingDetails;
 import com.survival.entities.User;
+import com.survival.utils.DbConnectionHelper;
 
 @Repository
 public class BookingManagementDaoImpl implements BookingManagementDao {
     
-	private DatabaseUtils db;
+	private DbConnectionHelper db;
 	
 	public BookingManagementDaoImpl() {
-		db=new DatabaseUtils();
+		db=new DbConnectionHelper();
 	}
 	
 	@Override
